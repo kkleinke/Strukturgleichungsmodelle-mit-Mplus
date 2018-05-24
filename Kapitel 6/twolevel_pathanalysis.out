@@ -1,0 +1,308 @@
+Mplus VERSION 7.4
+MUTHEN & MUTHEN
+03/23/2016  10:32 AM
+
+INPUT INSTRUCTIONS
+
+
+  TITLE:    Mehrebenen-Pfadanalyse
+
+  DATA:     FILE IS GMF02_Querschnitt_MLM.dat;
+
+  VARIABLE: NAMES ARE qcp_ser kreis1 ka03w1r aa01w1r aa03w1r
+            ff04d1r ff08d1r ff03d1r tab02_08 contact prej;
+            USEVARIABLES ARE contact prej tab02_08;
+            MISSING ARE contact prej (99);
+            CLUSTER IS kreis1;
+            BETWEEN IS tab02_08;
+
+  DEFINE:         CENTER tab02_08 (GRANDMEAN);
+
+  ANALYSIS: TYPE IS TWOLEVEL;
+
+  MODEL:    %WITHIN%          !Modellspezifikation auf der Individualebene
+            prej ON contact;
+
+            %BETWEEN%         !Modellspezifikation auf der Kontextebene
+            prej ON contact tab02_08;
+            contact ON tab02_08;
+
+            MODEL INDIRECT:   !Prüfung des indirekten Effekts
+            prej IND tab02_08;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*** WARNING in MODEL command
+  In the MODEL command, the following variable is a y-variable on the BETWEEN
+  level and an x-variable on the WITHIN level.  This variable will be treated
+  as a y-variable on both levels:  CONTACT
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Mehrebenen-Pfadanalyse
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        2722
+
+Number of dependent variables                                    2
+Number of independent variables                                  1
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   CONTACT     PREJ
+
+Observed independent variables
+   TAB02_08
+
+Variables with special functions
+
+  Cluster variable      KREIS1
+
+  Between variables
+   TAB02_08
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  GMF02_Querschnitt_MLM.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             2
+     Number of clusters                        418
+
+     Average cluster size        6.512
+
+     Estimated Intraclass Correlations for the Y Variables
+
+                Intraclass              Intraclass
+     Variable  Correlation   Variable  Correlation
+
+     CONTACT      0.164      PREJ         0.069
+
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              CONTACT       PREJ          TAB02_08
+              ________      ________      ________
+ CONTACT        1.000
+ PREJ           0.999         0.999
+ TAB02_08       1.000         0.999         1.000
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       10
+
+Loglikelihood
+
+          H0 Value                       -6039.053
+          H0 Scaling Correction Factor      0.9736
+            for MLR
+          H1 Value                       -6039.065
+          H1 Scaling Correction Factor      0.9736
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   12098.107
+          Bayesian (BIC)                 12157.198
+          Sample-Size Adjusted BIC       12125.425
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                              0.000*
+          Degrees of Freedom                     0
+          P-Value                           1.0000
+          Scaling Correction Factor         1.0000
+            for MLR
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.000
+
+CFI/TLI
+
+          CFI                                1.000
+          TLI                                1.000
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                            629.502
+          Degrees of Freedom                     4
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value for Within                   0.000
+          Value for Between                  0.004
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Within Level
+
+ PREJ       ON
+    CONTACT           -0.418      0.022    -18.872      0.000
+
+ Variances
+    CONTACT            0.479      0.013     36.305      0.000
+
+ Residual Variances
+    PREJ               0.572      0.015     37.455      0.000
+
+Between Level
+
+ PREJ       ON
+    CONTACT           -0.596      0.126     -4.713      0.000
+    TAB02_08          -0.007      0.006     -1.077      0.281
+
+ CONTACT    ON
+    TAB02_08           0.050      0.003     14.671      0.000
+
+ Intercepts
+    CONTACT            2.144      0.017    125.923      0.000
+    PREJ               3.580      0.271     13.230      0.000
+
+ Residual Variances
+    CONTACT            0.032      0.007      4.701      0.000
+    PREJ               0.004      0.006      0.671      0.502
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.904E-04
+       (ratio of smallest to largest eigenvalue)
+
+
+TOTAL, TOTAL INDIRECT, SPECIFIC INDIRECT, AND DIRECT EFFECTS
+
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+WITHIN
+
+BETWEEN
+
+Effects from TAB02_08 to PREJ
+
+  Total               -0.037      0.003    -12.605      0.000
+  Total indirect      -0.030      0.007     -4.458      0.000
+
+  Specific indirect
+
+    PREJ
+    CONTACT
+    TAB02_08          -0.030      0.007     -4.458      0.000
+
+  Direct
+    PREJ
+    TAB02_08          -0.007      0.006     -1.077      0.281
+
+
+
+DIAGRAM INFORMATION
+
+  Mplus diagrams are currently not available for multilevel analysis.
+  No diagram output was produced.
+
+
+     Beginning Time:  10:32:48
+        Ending Time:  10:32:49
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen

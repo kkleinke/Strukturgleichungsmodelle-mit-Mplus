@@ -1,0 +1,641 @@
+Mplus VERSION 7.4
+MUTHEN & MUTHEN
+09/16/2016   9:28 AM
+
+INPUT INSTRUCTIONS
+
+
+  TITLE:    Multiple Gruppenvergleiche - Modell Metrische Invarianz
+
+  DATA:     FILE IS GMF05_Querschnitt_CFA.dat;
+
+  VARIABLE: NAMES ARE qcp_ser he01hq4 sx03q4r sx04q4r he01oq4r
+            he02oq4r he02hq4r ff04dq4r ff08dq4r ev03q4r ev04q4r
+            ra01q4r ra03q4r as01q4r as02q4r he05mq4r he12mq4r
+            ka05q4r zu01q4k;
+
+            USEVARIABLES ARE he01hq4 sx03q4r sx04q4r he01oq4r
+            he02oq4r he02hq4r ff04dq4r ff08dq4r ev03q4r ev04q4r
+            ra01q4r ra03q4r as01q4r as02q4r he05mq4r he12mq4r;
+
+            MISSING ARE he01oq4r he02oq4r (99);
+
+            USEOBSERVATIONS = zu01q4k EQ 2 OR zu01q4k EQ 3;
+
+            GROUPING IS zu01q4k (2=mittel 3=hoch);
+
+  MODEL:    sexism BY sx03q4r* sx04q4r;
+            sexism@1;
+            homoph BY he01hq4* he02hq4r;
+            homoph@1;
+            antisem BY as01q4r* as02q4r;
+            antisem@1;
+            fremdenf BY ff04dq4r* ff08dq4r;
+            fremdenf@1;
+            rass BY ra01q4r* ra03q4r;
+            rass@1;
+            obdachl BY he01oq4r* he02oq4r;
+            obdachl@1;
+            islamph BY he05mq4r* he12mq4r;
+            islamph@1;
+            etabl BY ev03q4r* ev04q4r;
+            etabl@1;
+
+            MODEL hoch:
+
+            ! sexism BY sx03q4r sx04q4r;
+            ! homoph BY he01hq4 he02hq4r;
+            ! antisem BY as01q4r as02q4r;
+            fremdenf BY ff04dq4r;! ff08dq4r;
+            ! rass BY ra01q4r ra03q4r;
+            ! obdachl BY he01oq4r he02oq4r;
+            ! islamph BY he05mq4r he12mq4r;
+            ! etabl BY ev03q4r ev04q4r;
+
+            ! [sx03q4r sx04q4r];
+            [he01hq4]; ! [he02hq4r];
+            ! [as01q4r as02q4r];
+            ! [ff04dq4r ff08dq4r];
+            ! [ra01q4r ra03q4r];
+            ! [he01oq4r he02oq4r];
+            ! [he05mq4r he12mq4r];
+            ! [ev03q4r ev04q4r];
+
+            ! [sexism-etabl@0];
+            sexism-etabl*;
+
+  OUTPUT:   MODINDICES;
+
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Multiple Gruppenvergleiche - Modell Metrische Invarianz
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 2
+Number of observations
+   Group MITTEL                                                607
+   Group HOCH                                                  777
+   Total sample size                                          1384
+
+Number of dependent variables                                   16
+Number of independent variables                                  0
+Number of continuous latent variables                            8
+
+Observed dependent variables
+
+  Continuous
+   HE01HQ4     SX03Q4R     SX04Q4R     HE01OQ4R    HE02OQ4R    HE02HQ4R
+   FF04DQ4R    FF08DQ4R    EV03Q4R     EV04Q4R     RA01Q4R     RA03Q4R
+   AS01Q4R     AS02Q4R     HE05MQ4R    HE12MQ4R
+
+Continuous latent variables
+   SEXISM      HOMOPH      ANTISEM     FREMDENF    RASS        OBDACHL
+   ISLAMPH     ETABL
+
+Variables with special functions
+
+  Grouping variable     ZU01Q4K
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+
+Input data file(s)
+  GMF05_Querschnitt_CFA.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+   Group MITTEL
+     Number of missing data patterns             1
+
+   Group HOCH
+     Number of missing data patterns             2
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR MITTEL
+
+
+           Covariance Coverage
+              HE01HQ4       SX03Q4R       SX04Q4R       HE01OQ4R      HE02OQ4R
+              ________      ________      ________      ________      ________
+ HE01HQ4        1.000
+ SX03Q4R        1.000         1.000
+ SX04Q4R        1.000         1.000         1.000
+ HE01OQ4R       1.000         1.000         1.000         1.000
+ HE02OQ4R       1.000         1.000         1.000         1.000         1.000
+ HE02HQ4R       1.000         1.000         1.000         1.000         1.000
+ FF04DQ4R       1.000         1.000         1.000         1.000         1.000
+ FF08DQ4R       1.000         1.000         1.000         1.000         1.000
+ EV03Q4R        1.000         1.000         1.000         1.000         1.000
+ EV04Q4R        1.000         1.000         1.000         1.000         1.000
+ RA01Q4R        1.000         1.000         1.000         1.000         1.000
+ RA03Q4R        1.000         1.000         1.000         1.000         1.000
+ AS01Q4R        1.000         1.000         1.000         1.000         1.000
+ AS02Q4R        1.000         1.000         1.000         1.000         1.000
+ HE05MQ4R       1.000         1.000         1.000         1.000         1.000
+ HE12MQ4R       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              HE02HQ4R      FF04DQ4R      FF08DQ4R      EV03Q4R       EV04Q4R
+              ________      ________      ________      ________      ________
+ HE02HQ4R       1.000
+ FF04DQ4R       1.000         1.000
+ FF08DQ4R       1.000         1.000         1.000
+ EV03Q4R        1.000         1.000         1.000         1.000
+ EV04Q4R        1.000         1.000         1.000         1.000         1.000
+ RA01Q4R        1.000         1.000         1.000         1.000         1.000
+ RA03Q4R        1.000         1.000         1.000         1.000         1.000
+ AS01Q4R        1.000         1.000         1.000         1.000         1.000
+ AS02Q4R        1.000         1.000         1.000         1.000         1.000
+ HE05MQ4R       1.000         1.000         1.000         1.000         1.000
+ HE12MQ4R       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              RA01Q4R       RA03Q4R       AS01Q4R       AS02Q4R       HE05MQ4R
+              ________      ________      ________      ________      ________
+ RA01Q4R        1.000
+ RA03Q4R        1.000         1.000
+ AS01Q4R        1.000         1.000         1.000
+ AS02Q4R        1.000         1.000         1.000         1.000
+ HE05MQ4R       1.000         1.000         1.000         1.000         1.000
+ HE12MQ4R       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              HE12MQ4R
+              ________
+ HE12MQ4R       1.000
+
+
+     PROPORTION OF DATA PRESENT FOR HOCH
+
+
+           Covariance Coverage
+              HE01HQ4       SX03Q4R       SX04Q4R       HE01OQ4R      HE02OQ4R
+              ________      ________      ________      ________      ________
+ HE01HQ4        1.000
+ SX03Q4R        1.000         1.000
+ SX04Q4R        1.000         1.000         1.000
+ HE01OQ4R       0.999         0.999         0.999         0.999
+ HE02OQ4R       0.999         0.999         0.999         0.999         0.999
+ HE02HQ4R       1.000         1.000         1.000         0.999         0.999
+ FF04DQ4R       1.000         1.000         1.000         0.999         0.999
+ FF08DQ4R       1.000         1.000         1.000         0.999         0.999
+ EV03Q4R        1.000         1.000         1.000         0.999         0.999
+ EV04Q4R        1.000         1.000         1.000         0.999         0.999
+ RA01Q4R        1.000         1.000         1.000         0.999         0.999
+ RA03Q4R        1.000         1.000         1.000         0.999         0.999
+ AS01Q4R        1.000         1.000         1.000         0.999         0.999
+ AS02Q4R        1.000         1.000         1.000         0.999         0.999
+ HE05MQ4R       1.000         1.000         1.000         0.999         0.999
+ HE12MQ4R       1.000         1.000         1.000         0.999         0.999
+
+
+           Covariance Coverage
+              HE02HQ4R      FF04DQ4R      FF08DQ4R      EV03Q4R       EV04Q4R
+              ________      ________      ________      ________      ________
+ HE02HQ4R       1.000
+ FF04DQ4R       1.000         1.000
+ FF08DQ4R       1.000         1.000         1.000
+ EV03Q4R        1.000         1.000         1.000         1.000
+ EV04Q4R        1.000         1.000         1.000         1.000         1.000
+ RA01Q4R        1.000         1.000         1.000         1.000         1.000
+ RA03Q4R        1.000         1.000         1.000         1.000         1.000
+ AS01Q4R        1.000         1.000         1.000         1.000         1.000
+ AS02Q4R        1.000         1.000         1.000         1.000         1.000
+ HE05MQ4R       1.000         1.000         1.000         1.000         1.000
+ HE12MQ4R       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              RA01Q4R       RA03Q4R       AS01Q4R       AS02Q4R       HE05MQ4R
+              ________      ________      ________      ________      ________
+ RA01Q4R        1.000
+ RA03Q4R        1.000         1.000
+ AS01Q4R        1.000         1.000         1.000
+ AS02Q4R        1.000         1.000         1.000         1.000
+ HE05MQ4R       1.000         1.000         1.000         1.000         1.000
+ HE12MQ4R       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              HE12MQ4R
+              ________
+ HE12MQ4R       1.000
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                      138
+
+Loglikelihood
+
+          H0 Value                      -24563.253
+          H1 Value                      -24401.411
+
+Information Criteria
+
+          Akaike (AIC)                   49402.506
+          Bayesian (BIC)                 50124.623
+          Sample-Size Adjusted BIC       49686.251
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                            323.683
+          Degrees of Freedom                   166
+          P-Value                           0.0000
+
+Chi-Square Contribution From Each Group
+
+          MITTEL                           165.549
+          HOCH                             158.134
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.037
+          90 Percent C.I.                    0.031  0.043
+          Probability RMSEA <= .05           1.000
+
+CFI/TLI
+
+          CFI                                0.975
+          TLI                                0.963
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           6460.956
+          Degrees of Freedom                   240
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.029
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Group MITTEL
+
+ SEXISM   BY
+    SX03Q4R            0.669      0.031     21.858      0.000
+    SX04Q4R            0.614      0.029     21.240      0.000
+
+ HOMOPH   BY
+    HE01HQ4            0.738      0.042     17.526      0.000
+    HE02HQ4R           0.781      0.044     17.729      0.000
+
+ ANTISEM  BY
+    AS01Q4R            0.731      0.034     21.577      0.000
+    AS02Q4R            0.559      0.027     20.823      0.000
+
+ FREMDENF BY
+    FF04DQ4R           0.675      0.035     19.036      0.000
+    FF08DQ4R           0.748      0.037     20.248      0.000
+
+ RASS     BY
+    RA01Q4R            0.440      0.034     13.016      0.000
+    RA03Q4R            0.415      0.033     12.545      0.000
+
+ OBDACHL  BY
+    HE01OQ4R           0.787      0.043     18.106      0.000
+    HE02OQ4R           0.546      0.035     15.782      0.000
+
+ ISLAMPH  BY
+    HE05MQ4R           0.652      0.034     18.892      0.000
+    HE12MQ4R           0.649      0.034     19.293      0.000
+
+ ETABL    BY
+    EV03Q4R            0.459      0.035     13.242      0.000
+    EV04Q4R            0.701      0.050     14.040      0.000
+
+ HOMOPH   WITH
+    SEXISM             0.500      0.050     10.058      0.000
+
+ ANTISEM  WITH
+    SEXISM             0.383      0.048      7.992      0.000
+    HOMOPH             0.300      0.054      5.510      0.000
+
+ FREMDENF WITH
+    SEXISM             0.211      0.053      3.995      0.000
+    HOMOPH             0.307      0.055      5.528      0.000
+    ANTISEM            0.535      0.044     12.244      0.000
+
+ RASS     WITH
+    SEXISM             0.499      0.063      7.904      0.000
+    HOMOPH             0.290      0.072      4.046      0.000
+    ANTISEM            0.573      0.063      9.081      0.000
+    FREMDENF           0.591      0.062      9.517      0.000
+
+ OBDACHL  WITH
+    SEXISM             0.156      0.054      2.905      0.004
+    HOMOPH             0.267      0.058      4.636      0.000
+    ANTISEM            0.289      0.053      5.508      0.000
+    FREMDENF           0.424      0.050      8.411      0.000
+    RASS               0.444      0.067      6.651      0.000
+
+ ISLAMPH  WITH
+    SEXISM             0.340      0.054      6.254      0.000
+    HOMOPH             0.361      0.059      6.155      0.000
+    ANTISEM            0.503      0.050     10.144      0.000
+    FREMDENF           0.941      0.035     27.035      0.000
+    RASS               0.599      0.067      8.922      0.000
+    OBDACHL            0.407      0.054      7.520      0.000
+
+ ETABL    WITH
+    SEXISM             0.369      0.060      6.100      0.000
+    HOMOPH             0.172      0.067      2.575      0.010
+    ANTISEM            0.535      0.056      9.552      0.000
+    FREMDENF           0.586      0.055     10.679      0.000
+    RASS               0.824      0.072     11.454      0.000
+    OBDACHL            0.316      0.061      5.172      0.000
+    ISLAMPH            0.593      0.059      9.990      0.000
+
+ Means
+    SEXISM             0.000      0.000    999.000    999.000
+    HOMOPH             0.000      0.000    999.000    999.000
+    ANTISEM            0.000      0.000    999.000    999.000
+    FREMDENF           0.000      0.000    999.000    999.000
+    RASS               0.000      0.000    999.000    999.000
+    OBDACHL            0.000      0.000    999.000    999.000
+    ISLAMPH            0.000      0.000    999.000    999.000
+    ETABL              0.000      0.000    999.000    999.000
+
+ Intercepts
+    HE01HQ4            2.007      0.045     44.406      0.000
+    SX03Q4R            1.956      0.033     59.653      0.000
+    SX04Q4R            1.739      0.030     57.408      0.000
+    HE01OQ4R           2.359      0.038     62.535      0.000
+    HE02OQ4R           2.386      0.031     76.432      0.000
+    HE02HQ4R           2.154      0.044     49.110      0.000
+    FF04DQ4R           2.949      0.037     80.511      0.000
+    FF08DQ4R           2.363      0.035     67.395      0.000
+    EV03Q4R            2.961      0.032     91.803      0.000
+    EV04Q4R            2.209      0.039     56.052      0.000
+    RA01Q4R            1.874      0.029     63.822      0.000
+    RA03Q4R            1.545      0.027     56.522      0.000
+    AS01Q4R            1.927      0.035     55.804      0.000
+    AS02Q4R            1.610      0.029     55.630      0.000
+    HE05MQ4R           2.255      0.036     62.341      0.000
+    HE12MQ4R           2.170      0.035     62.842      0.000
+
+ Variances
+    SEXISM             1.000      0.000    999.000    999.000
+    HOMOPH             1.000      0.000    999.000    999.000
+    ANTISEM            1.000      0.000    999.000    999.000
+    FREMDENF           1.000      0.000    999.000    999.000
+    RASS               1.000      0.000    999.000    999.000
+    OBDACHL            1.000      0.000    999.000    999.000
+    ISLAMPH            1.000      0.000    999.000    999.000
+    ETABL              1.000      0.000    999.000    999.000
+
+ Residual Variances
+    HE01HQ4            0.697      0.060     11.528      0.000
+    SX03Q4R            0.285      0.031      9.190      0.000
+    SX04Q4R            0.250      0.027      9.309      0.000
+    HE01OQ4R           0.266      0.059      4.525      0.000
+    HE02OQ4R           0.536      0.042     12.844      0.000
+    HE02HQ4R           0.559      0.061      9.237      0.000
+    FF04DQ4R           0.380      0.031     12.381      0.000
+    FF08DQ4R           0.358      0.034     10.664      0.000
+    EV03Q4R            0.667      0.044     15.196      0.000
+    EV04Q4R            0.526      0.061      8.641      0.000
+    RA01Q4R            0.468      0.034     13.607      0.000
+    RA03Q4R            0.375      0.029     12.799      0.000
+    AS01Q4R            0.240      0.035      6.842      0.000
+    AS02Q4R            0.285      0.025     11.460      0.000
+    HE05MQ4R           0.551      0.040     13.695      0.000
+    HE12MQ4R           0.413      0.034     12.046      0.000
+
+Group HOCH
+
+ SEXISM   BY
+    SX03Q4R            0.669      0.031     21.858      0.000
+    SX04Q4R            0.614      0.029     21.240      0.000
+
+ HOMOPH   BY
+    HE01HQ4            0.738      0.042     17.526      0.000
+    HE02HQ4R           0.781      0.044     17.729      0.000
+
+ ANTISEM  BY
+    AS01Q4R            0.731      0.034     21.577      0.000
+    AS02Q4R            0.559      0.027     20.823      0.000
+
+ FREMDENF BY
+    FF04DQ4R           0.942      0.061     15.319      0.000
+    FF08DQ4R           0.748      0.037     20.248      0.000
+
+ RASS     BY
+    RA01Q4R            0.440      0.034     13.016      0.000
+    RA03Q4R            0.415      0.033     12.545      0.000
+
+ OBDACHL  BY
+    HE01OQ4R           0.787      0.043     18.106      0.000
+    HE02OQ4R           0.546      0.035     15.782      0.000
+
+ ISLAMPH  BY
+    HE05MQ4R           0.652      0.034     18.892      0.000
+    HE12MQ4R           0.649      0.034     19.293      0.000
+
+ ETABL    BY
+    EV03Q4R            0.459      0.035     13.242      0.000
+    EV04Q4R            0.701      0.050     14.040      0.000
+
+ HOMOPH   WITH
+    SEXISM             0.524      0.057      9.189      0.000
+
+ ANTISEM  WITH
+    SEXISM             0.297      0.038      7.797      0.000
+    HOMOPH             0.343      0.044      7.744      0.000
+
+ FREMDENF WITH
+    SEXISM             0.329      0.042      7.901      0.000
+    HOMOPH             0.357      0.047      7.538      0.000
+    ANTISEM            0.351      0.041      8.597      0.000
+
+ RASS     WITH
+    SEXISM             0.380      0.054      6.999      0.000
+    HOMOPH             0.388      0.060      6.463      0.000
+    ANTISEM            0.329      0.048      6.812      0.000
+    FREMDENF           0.456      0.060      7.619      0.000
+
+ OBDACHL  WITH
+    SEXISM             0.246      0.043      5.772      0.000
+    HOMOPH             0.351      0.053      6.679      0.000
+    ANTISEM            0.305      0.042      7.343      0.000
+    FREMDENF           0.416      0.050      8.342      0.000
+    RASS               0.333      0.055      6.006      0.000
+
+ ISLAMPH  WITH
+    SEXISM             0.392      0.048      8.090      0.000
+    HOMOPH             0.450      0.057      7.950      0.000
+    ANTISEM            0.422      0.047      8.886      0.000
+    FREMDENF           0.671      0.071      9.511      0.000
+    RASS               0.522      0.068      7.683      0.000
+    OBDACHL            0.430      0.054      7.955      0.000
+
+ ETABL    WITH
+    SEXISM             0.323      0.052      6.234      0.000
+    HOMOPH             0.290      0.056      5.179      0.000
+    ANTISEM            0.350      0.050      7.060      0.000
+    FREMDENF           0.517      0.064      8.042      0.000
+    RASS               0.565      0.079      7.117      0.000
+    OBDACHL            0.354      0.057      6.217      0.000
+    ISLAMPH            0.540      0.068      7.881      0.000
+
+ Means
+    SEXISM            -0.410      0.061     -6.710      0.000
+    HOMOPH            -0.490      0.076     -6.463      0.000
+    ANTISEM           -0.484      0.060     -8.031      0.000
+    FREMDENF          -0.691      0.066    -10.481      0.000
+    RASS              -0.651      0.086     -7.578      0.000
+    OBDACHL           -0.316      0.063     -5.051      0.000
+    ISLAMPH           -0.645      0.071     -9.060      0.000
+    ETABL             -0.556      0.079     -7.051      0.000
+
+ Intercepts
+    HE01HQ4            2.230      0.058     38.700      0.000
+    SX03Q4R            1.956      0.033     59.653      0.000
+    SX04Q4R            1.739      0.030     57.408      0.000
+    HE01OQ4R           2.359      0.038     62.535      0.000
+    HE02OQ4R           2.386      0.031     76.432      0.000
+    HE02HQ4R           2.154      0.044     49.110      0.000
+    FF04DQ4R           2.949      0.037     80.511      0.000
+    FF08DQ4R           2.363      0.035     67.395      0.000
+    EV03Q4R            2.961      0.032     91.803      0.000
+    EV04Q4R            2.209      0.039     56.052      0.000
+    RA01Q4R            1.874      0.029     63.822      0.000
+    RA03Q4R            1.545      0.027     56.522      0.000
+    AS01Q4R            1.927      0.035     55.804      0.000
+    AS02Q4R            1.610      0.029     55.630      0.000
+    HE05MQ4R           2.255      0.036     62.341      0.000
+    HE12MQ4R           2.170      0.035     62.842      0.000
+
+ Variances
+    SEXISM             0.764      0.079      9.632      0.000
+    HOMOPH             0.964      0.114      8.430      0.000
+    ANTISEM            0.569      0.062      9.152      0.000
+    FREMDENF           0.627      0.082      7.634      0.000
+    RASS               0.641      0.120      5.326      0.000
+    OBDACHL            0.950      0.110      8.665      0.000
+    ISLAMPH            0.816      0.101      8.075      0.000
+    ETABL              0.816      0.136      5.995      0.000
+
+ Residual Variances
+    HE01HQ4            0.592      0.043     13.646      0.000
+    SX03Q4R            0.233      0.021     11.066      0.000
+    SX04Q4R            0.157      0.016      9.567      0.000
+    HE01OQ4R           0.163      0.047      3.505      0.000
+    HE02OQ4R           0.493      0.033     14.961      0.000
+    HE02HQ4R           0.270      0.037      7.237      0.000
+    FF04DQ4R           0.283      0.024     11.604      0.000
+    FF08DQ4R           0.315      0.020     15.618      0.000
+    EV03Q4R            0.602      0.035     17.130      0.000
+    EV04Q4R            0.411      0.044      9.439      0.000
+    RA01Q4R            0.354      0.022     15.993      0.000
+    RA03Q4R            0.206      0.015     13.509      0.000
+    AS01Q4R            0.251      0.022     11.588      0.000
+    AS02Q4R            0.158      0.013     12.098      0.000
+    HE05MQ4R           0.426      0.027     15.994      0.000
+    HE12MQ4R           0.256      0.020     12.730      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.203E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+MODEL MODIFICATION INDICES
+
+NOTE:  Modification indices for direct effects of observed dependent variables
+regressed on covariates may not be included.  To include these, request
+MODINDICES (ALL).
+
+Minimum M.I. value for printing the modification index    10.000
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+Group MITTEL
+
+
+BY Statements
+
+FREMDENF BY EV03Q4R               10.020    -0.156     -0.156       -0.166
+FREMDENF BY EV04Q4R               10.019     0.238      0.238        0.236
+
+WITH Statements
+
+AS01Q4R  WITH RA01Q4R             14.432    -0.082     -0.082       -0.246
+AS02Q4R  WITH RA03Q4R             10.670     0.055      0.055        0.169
+HE05MQ4R WITH FF04DQ4R            15.572     0.107      0.107        0.234
+HE05MQ4R WITH FF08DQ4R            14.972    -0.110     -0.110       -0.248
+
+Group HOCH
+
+
+BY Statements
+
+FREMDENF BY EV03Q4R               10.862     0.188      0.149        0.169
+FREMDENF BY EV04Q4R               10.852    -0.287     -0.227       -0.252
+
+WITH Statements
+
+SX03Q4R  WITH HE01HQ4             25.318     0.094      0.094        0.253
+SX04Q4R  WITH HE01HQ4             10.704    -0.054     -0.054       -0.177
+RA01Q4R  WITH EV04Q4R             15.018     0.078      0.078        0.205
+
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    e:\fertig\begleitmaterial\kapitel 4\mg_metric_scalar_partial.dgm
+
+     Beginning Time:  09:28:14
+        Ending Time:  09:28:17
+       Elapsed Time:  00:00:03
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen

@@ -1,0 +1,308 @@
+Mplus VERSION 7.4
+MUTHEN & MUTHEN
+09/14/2016   2:06 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:  Moderierte Mediation, Multigruppen-Analysen
+
+  DATA:   FILE IS "MG_moderated_mediation.dat";
+
+  VARIABLE:
+          NAMES ARE Edu eastwest autho1 autho2 autho3 autho4 prej1 prej2 sdo1
+          sdo2 sdo3;
+
+          USEVARIABLES ARE Edu prej1 prej2 autho1 autho2;
+
+          MISSING ARE ALL (99);
+
+          GROUPIN IS eastwest (1 = west 2 = east);
+
+  MODEL:
+          prej BY prej1 prej2;         ! Messmodell für Vorurteile
+          autho BY autho1 autho2;      ! Messmodell für Autoritarismus
+
+          prej  ON edu;                ! Direkter Effekt
+          autho ON edu (a_west);       ! Pfad_a
+          prej  ON autho (b_west);     ! Pfad_b
+
+  MODEL EAST:                          ! Modell Gruppe 'East'
+
+          prej BY prej2;               ! Messmodell Gruppe 'East'
+
+          prej ON autho (b_east);      ! Pfad_b
+          prej ON edu;                 ! Direkter Effekt
+          autho ON edu (a_east);       ! Pfad_a
+
+  MODEL CONSTRAINT:
+
+  NEW
+  (ind_west ind_east ind_diff);    ! Anforderung von drei neuen Parametern:
+                                   ! Indirekte Effekte für
+                                   ! Gruppe 'west', Gruppe 'east', und deren
+                                   ! Differenz
+
+  ind_west = a_west*b_west;       ! Indirekter Effekt a_west*b_west
+  ind_east = a_east*b_east;       ! Indirekter Effekt a_east*b_east
+  ind_diff = ind_west - ind_east; ! Differenz der indirekten Effekte
+
+
+
+
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  8
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Moderierte Mediation, Multigruppen-Analysen
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 2
+Number of observations
+   Group WEST                                                  330
+   Group EAST                                                  213
+   Total sample size                                           543
+
+Number of dependent variables                                    4
+Number of independent variables                                  1
+Number of continuous latent variables                            2
+
+Observed dependent variables
+
+  Continuous
+   PREJ1       PREJ2       AUTHO1      AUTHO2
+
+Observed independent variables
+   EDU
+
+Continuous latent variables
+   PREJ        AUTHO
+
+Variables with special functions
+
+  Grouping variable     EASTWEST
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+
+Input data file(s)
+  MG_moderated_mediation.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+   Group WEST
+     Number of missing data patterns             6
+
+   Group EAST
+     Number of missing data patterns             4
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR WEST
+
+
+           Covariance Coverage
+              PREJ1         PREJ2         AUTHO1        AUTHO2        EDU
+              ________      ________      ________      ________      ________
+ PREJ1          0.994
+ PREJ2          0.988         0.991
+ AUTHO1         0.988         0.985         0.994
+ AUTHO2         0.982         0.979         0.982         0.988
+ EDU            0.994         0.991         0.994         0.988         1.000
+
+
+     PROPORTION OF DATA PRESENT FOR EAST
+
+
+           Covariance Coverage
+              PREJ1         PREJ2         AUTHO1        AUTHO2        EDU
+              ________      ________      ________      ________      ________
+ PREJ1          0.995
+ PREJ2          0.977         0.981
+ AUTHO1         0.995         0.981         1.000
+ AUTHO2         0.986         0.972         0.991         0.991
+ EDU            0.995         0.981         1.000         0.991         1.000
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       27
+
+Loglikelihood
+
+          H0 Value                       -2419.841
+          H1 Value                       -2415.647
+
+Information Criteria
+
+          Akaike (AIC)                    4893.682
+          Bayesian (BIC)                  5009.704
+          Sample-Size Adjusted BIC        4923.996
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                              8.389
+          Degrees of Freedom                     9
+          P-Value                           0.4955
+
+Chi-Square Contribution From Each Group
+
+          WEST                               4.307
+          EAST                               4.082
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.000
+          90 Percent C.I.                    0.000  0.065
+          Probability RMSEA <= .05           0.859
+
+CFI/TLI
+
+          CFI                                1.000
+          TLI                                1.002
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                            588.804
+          Degrees of Freedom                    20
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.030
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Group WEST
+
+ PREJ     BY
+    PREJ1              1.000      0.000    999.000    999.000
+    PREJ2              1.198      0.133      9.031      0.000
+
+ AUTHO    BY
+    AUTHO1             1.000      0.000    999.000    999.000
+    AUTHO2             1.265      0.094     13.385      0.000
+
+ PREJ     ON
+    AUTHO              0.418      0.079      5.326      0.000
+
+ PREJ     ON
+    EDU               -0.033      0.023     -1.418      0.156
+
+ AUTHO    ON
+    EDU               -0.179      0.024     -7.552      0.000
+
+ Intercepts
+    PREJ1              2.270      0.119     19.119      0.000
+    PREJ2              2.571      0.149     17.225      0.000
+    AUTHO1             4.248      0.139     30.610      0.000
+    AUTHO2             4.211      0.165     25.568      0.000
+    PREJ               0.000      0.000    999.000    999.000
+    AUTHO              0.000      0.000    999.000    999.000
+
+ Residual Variances
+    PREJ1              0.416      0.046      9.112      0.000
+    PREJ2              0.272      0.052      5.176      0.000
+    AUTHO1             0.400      0.045      8.858      0.000
+    AUTHO2             0.280      0.055      5.090      0.000
+    PREJ               0.181      0.035      5.131      0.000
+    AUTHO              0.292      0.042      6.949      0.000
+
+Group EAST
+
+ PREJ     BY
+    PREJ1              1.000      0.000    999.000    999.000
+    PREJ2              1.401      0.259      5.400      0.000
+
+ AUTHO    BY
+    AUTHO1             1.000      0.000    999.000    999.000
+    AUTHO2             1.265      0.094     13.385      0.000
+
+ PREJ     ON
+    AUTHO              0.461      0.135      3.419      0.001
+
+ PREJ     ON
+    EDU               -0.083      0.031     -2.730      0.006
+
+ AUTHO    ON
+    EDU               -0.117      0.019     -6.085      0.000
+
+ Intercepts
+    PREJ1              2.270      0.119     19.119      0.000
+    PREJ2              2.571      0.149     17.225      0.000
+    AUTHO1             4.248      0.139     30.610      0.000
+    AUTHO2             4.211      0.165     25.568      0.000
+    PREJ               0.490      0.198      2.474      0.013
+    AUTHO              0.065      0.170      0.381      0.703
+
+ Residual Variances
+    PREJ1              0.626      0.088      7.097      0.000
+    PREJ2              0.242      0.123      1.966      0.049
+    AUTHO1             0.202      0.030      6.654      0.000
+    AUTHO2             0.198      0.043      4.618      0.000
+    PREJ               0.256      0.065      3.944      0.000
+    AUTHO              0.191      0.031      6.186      0.000
+
+New/Additional Parameters
+    IND_WEST          -0.075      0.017     -4.512      0.000
+    IND_EAST          -0.054      0.018     -3.013      0.003
+    IND_DIFF          -0.021      0.024     -0.876      0.381
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.245E-04
+       (ratio of smallest to largest eigenvalue)
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\kleinke\desktop\2. auflage\begleitmaterial\kapitel 4\mg_moderated_mediation.dgm
+
+     Beginning Time:  14:06:31
+        Ending Time:  14:06:31
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen

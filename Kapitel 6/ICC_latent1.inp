@@ -1,0 +1,66 @@
+TITLE:    Messfehlerkorrigierter Intraklassen-Korrelationskoeffizient (ICC)
+          für latente Variablen (SEM) - Modell 1
+   
+DATA:     FILE IS civics99.dat;
+
+VARIABLE: NAMES ARE idschool bs4e3 bs4e7 bs4e10
+          bs4h2 bs4h3 bs4h5 bs4h6 bs4h2_r bs4h3_r bs4h5_r
+          schtyp;
+
+          MISSING ARE ALL (99);
+          CLUSTER IS idschool;
+
+          USEVARIABLES ARE 
+                             ! "Immigrants’ children should have the same opportunities (R)
+          bs4h2_r            !  for education that other children in the country have" (R)
+          bs4h3_r            ! "Immigrants who live in a country for several years should have the opportunity to vote in elections" (R)
+          bs4h5_r            ! "Immigrants should have all the same rights that everyone else in a country has" (R)
+          bs4h6              ! "Immigrants should be forbidden to engage in political activity"
+          bs4e3              ! "The flag of this country [name of country] is important to me"
+          bs4e7              ! "I have great love for this country [name of country]"
+          bs4e10;            ! "The national anthem of this country [name of country] is important to me"
+
+ANALYSIS: TYPE IS TWOLEVEL;
+
+MODEL:    %WITHIN%
+
+          pride_w BY
+          bs4e10 
+          bs4e7 
+          bs4e3;
+
+          pride_w (prid_var_w);
+
+          prej_w BY
+          bs4h2_r 
+          bs4h3_r 
+          bs4h5_r 
+          bs4h6;
+
+          prej_w (prej_var_w);
+ 
+          %BETWEEN%
+
+          pride_b BY
+          bs4e10 
+          bs4e7  
+          bs4e3;
+
+          pride_b (prid_var_b);
+
+          prej_b BY
+          bs4h2_r 
+          bs4h3_r 
+          bs4h5_r  
+          bs4h6;
+
+          prej_b (prej_var_b);
+
+MODEL CONSTRAINT:
+
+          NEW (ICC_prid ICC_prej);
+          ICC_prid = prid_var_b/(prid_var_b + prid_var_w); 
+          ICC_prej = prej_var_b/(prej_var_b + prej_var_w);
+
+OUTPUT: cinterval;
+

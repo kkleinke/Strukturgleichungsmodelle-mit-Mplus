@@ -1,0 +1,81 @@
+
+TITLE:    Mehrebenenanalyse
+          Intergruppenkontakt als Individual- und Kontextvariable
+
+DATA:     FILE IS GMF02_Querschnitt_MLM.dat;
+
+VARIABLE: NAMES ARE qcp_ser kreis1 ka03w1r aa01w1r aa03w1r 
+          ff04d1r ff08d1r ff03d1r tab02_08 contact prej;
+          USEVARIABLES ARE contact prej tab02_08;
+          MISSING ARE contact prej (99);
+          CLUSTER IS kreis1; 
+          BETWEEN IS tab02_08; 
+
+DEFINE:   CENTER tab02_08 (GRANDMEAN);
+                
+ANALYSIS: TYPE IS TWOLEVEL;  
+
+MODEL:    %WITHIN%      
+          prej ON contact;          ! Modellspezifikation auf der Individualebene
+
+          %BETWEEN%     
+          prej ON contact tab02_08; ! Modellspezifikation auf der Kontextebene
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+

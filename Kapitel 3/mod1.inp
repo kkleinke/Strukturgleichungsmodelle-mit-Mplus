@@ -1,0 +1,18 @@
+TITLE:  Moderation für manifeste Variablen;
+
+DATA:   FILE IS modmedexample.dat;
+
+VARIABLE:
+        NAMES ARE cthreat sthreat prej contact rwa sdo rwaxcont sdoxcont;
+    
+        USEVARIABLES ARE prej contact rwa sdo rwaxcont sdoxcont;
+    
+        MISSING ARE prej contact rwa sdo rwaxcont sdoxcont (99);
+
+MODEL:  prej ON contact 
+                rwa
+                rwaxcont 
+                sdo  
+                sdoxcont;
+       
+        rwa rwaxcont sdo sdoxcont;

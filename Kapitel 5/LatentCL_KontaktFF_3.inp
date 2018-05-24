@@ -1,0 +1,85 @@
+
+TITLE:    Beispiel Cross-lagged Analyse - Gleichheitsrestriktionen
+          
+DATA:     FILE IS GMF_Panel_020304.dat;
+          
+VARIABLE: NAMES ARE qcp_ser con11 con12 con13 con21 con22 con23 con31 con32 con33 
+          ff11 ff12 ff13 ff21 ff22 ff23 ff31 ff32 ff33;
+          
+          USEVARIABLES ARE con11 con12 con13 con21 con22 con23  
+          con31 con32 con33 ff11 ff12 ff13 ff21 ff22 ff23 ff31 ff32 ff33;
+          
+          MISSING ARE all (99);
+
+MODEL:    con1 BY con11 ! Spezifikation der Messmodelle für Intergruppen-
+          con21 (1)     ! kontakt und 
+          con31 (2);    
+          con2 BY con12 
+          con22 (1)       
+          con32 (2);
+          con3 BY con13 
+          con23 (1)        
+          con33 (2);
+
+          ff1 BY ff11   ! Fremdenfeindlichkeit
+          ff21 (3)         
+          ff31 (4);     ! Jeweils korrespondierende Faktorladungen
+          ff2 BY ff12   ! wurden gleichgesetzt
+          ff22 (3)
+          ff32 (4);
+          ff3 BY ff13  
+          ff23 (3)
+          ff33 (4);
+
+
+
+
+
+
+
+          con2 ON con1 (9)  ! Gleichheitsrestriktionen auf 
+          ff1  (10);        ! korrespondierende  Stabilitäts- 
+          con3 ON con2 (9)  ! und cross-lagged Parameter
+          ff2  (10); 
+          ff2 ON ff1   (11)
+          con1 (12);
+          ff3 ON ff2   (11) 
+          con2 (12);
+          
+          con3 WITH ff3@0;   
+       
+          con11 WITH con12 con13; ! Autokorrelation der Residuen
+          con12 WITH con13;       ! der Indikatoren
+          con21 WITH con22 con23; ! von Intergruppenkontakt
+          con22 WITH con23; 
+          con31 WITH con32 con33;
+          con32 WITH con33;
+          
+          ff11 WITH ff12 ff13;    ! und Fremdenfeindlichkeit
+          ff12 WITH ff13;   
+          ff21 WITH ff22 ff23;
+          ff22 WITH ff23;
+          ff31 WITH ff32 ff33;
+          ff32 WITH ff33;   
+
+          con2 ON con1 (9)  ! Gleichheitsrestriktionen auf 
+          ff1  (10);        ! korrespondierende  Stabilitäts- 
+          con3 ON con2 (9)  ! und cross-lagged Parameter
+          ff2  (10); 
+          ff2 ON ff1   (11)
+          con1 (12);
+          ff3 ON ff2   (11) 
+          con2 (12);
+         
+          [con11@0 con12@0 con13@0]; ! Gleichheitsrestriktionen   
+          [con22 con23] (5);         ! korrespondierender Intercepts
+          [con32 con33] (6);         ! unter Berücksichtigung der
+          [ff11@0 ff12@0 ff13@0];    ! Ergebnisse der
+          [ff22 ff23] (7);           ! Längsschnitt-CFA
+          [ff31 ff33] (8);
+      
+          [con1 con2 con3];       
+          [ff1 ff2 ff3];    
+
+OUTPUT:   STDYX MODINDICES (10);
+

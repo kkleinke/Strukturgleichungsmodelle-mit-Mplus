@@ -1,0 +1,217 @@
+Mplus VERSION 7.4
+MUTHEN & MUTHEN
+10/20/2016  12:36 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:  Moderation für manifeste Variablen;
+
+  DATA:   FILE IS modmedexample.dat;
+
+  VARIABLE:
+          NAMES ARE cthreat sthreat prej contact rwa sdo rwaxcont sdoxcont;
+
+          USEVARIABLES ARE prej contact rwa sdo rwaxcont sdoxcont;
+
+          MISSING ARE prej contact rwa sdo rwaxcont sdoxcont (99);
+
+  MODEL:  prej ON contact
+                  rwa
+                  rwaxcont
+                  sdo
+                  sdoxcont;
+          rwa rwaxcont sdo sdoxcont;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Moderation für manifeste Variablen;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1343
+
+Number of dependent variables                                    1
+Number of independent variables                                  5
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   PREJ
+
+Observed independent variables
+   CONTACT     RWA         SDO         RWAXCONT    SDOXCONT
+
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+
+Input data file(s)
+  modmedexample.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             5
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              PREJ          RWA           SDO           RWAXCONT      SDOXCONT
+              ________      ________      ________      ________      ________
+ PREJ           0.993
+ RWA            0.992         0.998
+ SDO            0.993         0.997         0.999
+ RWAXCONT       0.992         0.998         0.997         0.998
+ SDOXCONT       0.993         0.997         0.999         0.997         0.999
+ CONTACT        0.993         0.998         0.999         0.998         0.999
+
+
+           Covariance Coverage
+              CONTACT
+              ________
+ CONTACT        1.000
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       21
+
+Loglikelihood
+
+          H0 Value                       -5347.268
+          H1 Value                       -5277.620
+
+Information Criteria
+
+          Akaike (AIC)                   10736.537
+          Bayesian (BIC)                 10845.793
+          Sample-Size Adjusted BIC       10779.085
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                            139.297
+          Degrees of Freedom                     4
+          P-Value                           0.0000
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.159
+          90 Percent C.I.                    0.137  0.182
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.769
+          TLI                                0.711
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                            589.645
+          Degrees of Freedom                     5
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.067
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ PREJ     ON
+    CONTACT           -0.201      0.030     -6.690      0.000
+    RWA                0.495      0.028     17.602      0.000
+    RWAXCONT          -0.101      0.045     -2.264      0.024
+    SDO                0.384      0.037     10.465      0.000
+    SDOXCONT           0.118      0.057      2.074      0.038
+
+ SDO      WITH
+    RWA                0.118      0.012      9.920      0.000
+
+ RWAXCONT WITH
+    RWA                0.066      0.010      6.771      0.000
+    SDO                0.019      0.007      2.587      0.010
+
+ SDOXCONT WITH
+    RWA                0.021      0.007      2.828      0.005
+    SDO               -0.020      0.006     -3.509      0.000
+    RWAXCONT           0.050      0.005     10.258      0.000
+
+ Means
+    RWA                0.016      0.020      0.779      0.436
+    SDO               -0.015      0.015     -0.992      0.321
+    RWAXCONT          -0.120      0.013     -9.336      0.000
+    SDOXCONT          -0.056      0.010     -5.658      0.000
+
+ Intercepts
+    PREJ               2.401      0.020    119.548      0.000
+
+ Variances
+    RWA                0.561      0.022     25.873      0.000
+    SDO                0.312      0.012     25.895      0.000
+    RWAXCONT           0.221      0.009     25.884      0.000
+    SDOXCONT           0.132      0.005     25.897      0.000
+
+ Residual Variances
+    PREJ               0.498      0.019     25.809      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.328E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    e:\fertig\begleitmaterial\kapitel 3\mod1.dgm
+
+     Beginning Time:  12:36:49
+        Ending Time:  12:36:50
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen

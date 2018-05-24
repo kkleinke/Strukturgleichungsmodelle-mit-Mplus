@@ -1,0 +1,63 @@
+TITLE:  Moderation für manifeste Variablen;
+
+DATA:   FILE IS modmedlatent.dat;
+
+VARIABLE:
+        NAMES ARE 
+            au01q3r  ! Verbrechen härter bestrafen
+            au02q3r  ! um Recht u. Ordnung zu bewahren, härter gegen Außenseiter vorgehen
+            ff04dq3r ! zu viele Ausländer in Deutschland 
+            ff08dq3r ! wenn Arbeit knapp, Ausländer zurück
+            do01q3r  ! Gruppen, die unten sind, sollen unten bleiben
+            do02q3r  ! gibt Gruppen in der Bevölk., die weniger wert sind als andere
+            do03q3r  ! einige Gruppen sind nützlicher als andere
+            ka01q3r  ! wie oft Kontakt mit Ausländern in Nachbarschaft?
+            ka02q3r  ! wie oft Kontakt mit Ausländern am Arbeitsplatz?
+            ka03q3r  ! wie viele Freunde sind Ausländer?
+            tg01q3r  ! Ausl. bedrohen unsere Freiheiten und Rechte
+            tg05q3r; ! Ausl. bedrohen unseren Wohlstand
+    
+        USEVARIABLES ARE 
+            au01q3r au02q3r         ! Autoritarismus 
+            ff04dq3r ff08dq3r       ! Vorurteile
+            do01q3r do02q3r do03q3r ! Dominanzorientierung
+            ka01q3r ka02q3r ka03q3r; ! Kontakt
+               
+        MISSING ARE all (99);
+
+ANALYSIS: 
+        TYPE IS RANDOM;              
+        ALGORITHM IS INTEGRATION;
+
+MODEL:  
+                                      ! Messmodelle
+        prej     BY ff04dq3r ff08dq3r;
+        [ff04dq3r@0];
+
+        rwa      BY au01q3r* au02q3r;
+        rwa@1; 
+        
+        contact  BY ka01q3r* ka02q3r ka03q3r;
+        contact@1;
+        
+        sdo      BY do01q3r do02q3r do03q3r;
+
+
+        rwaxcont | rwa XWITH contact; ! Interaktionen
+        sdoxcont | sdo XWITH contact;        
+        
+        [prej] (b0);
+        prej ON contact (b1)              ! Strukturmodell   
+                rwa (b2)
+                rwaxcont (b3)
+                sdo (b4)  
+                sdoxcont (b5);
+
+MODEL CONSTRAINT:
+PLOT(low_rwa hi_rwa);
+LOOP (contact, -1,+1,.1);
+low_rwa= b0+(b1*contact)+(b2*(-1))+(b3*contact*(-1));
+hi_rwa = b0+(b1*contact)+(b2*1)+(b3*contact*1);
+
+PLOT: TYPE = PLOT2;
+        

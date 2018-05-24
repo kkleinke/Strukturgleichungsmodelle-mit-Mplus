@@ -1,0 +1,1724 @@
+Mplus VERSION 7.4
+MUTHEN & MUTHEN
+09/16/2016   8:30 AM
+
+INPUT INSTRUCTIONS
+
+
+  TITLE:    Explorative Faktorenanalyse in Mplus
+
+  DATA:     FILE IS GMF05_Querschnitt_CFA.dat;
+
+  VARIABLE: NAMES ARE qcp_ser he01hq4 sx03q4r sx04q4r he01oq4r
+            he02oq4r he02hq4r ff04dq4r ff08dq4r ev03q4r ev04q4r
+            ra01q4r ra03q4r as01q4r as02q4r he05mq4r he12mq4r
+            ka05q4r zu01q4k;
+
+            USEVARIABLES ARE he01hq4 sx03q4r sx04q4r he01oq4r
+            he02oq4r he02hq4r ff04dq4r ff08dq4r ev03q4r ev04q4r
+            ra01q4r ra03q4r as01q4r as02q4r he05mq4r he12mq4r;
+
+            MISSING ARE he01oq4r he02oq4r (99);
+
+  ANALYSIS: TYPE IS EFA 1 8;  ! Auswahl EFA mit Festlegung der minimalen
+                              ! und maximalen Anzahl an zu extrahierenden
+                              ! Faktoren
+
+
+
+
+
+
+
+
+
+
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Explorative Faktorenanalyse in Mplus
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1778
+
+Number of dependent variables                                   16
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   HE01HQ4     SX03Q4R     SX04Q4R     HE01OQ4R    HE02OQ4R    HE02HQ4R
+   FF04DQ4R    FF08DQ4R    EV03Q4R     EV04Q4R     RA01Q4R     RA03Q4R
+   AS01Q4R     AS02Q4R     HE05MQ4R    HE12MQ4R
+
+
+Estimator                                                       ML
+Rotation                                                    GEOMIN
+Row standardization                                    CORRELATION
+Type of rotation                                           OBLIQUE
+Epsilon value                                               Varies
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization Specifications for the Exploratory Factor Analysis
+Rotation Algorithm
+  Number of random starts                                       30
+  Maximum number of iterations                               10000
+  Derivative convergence criterion                       0.100D-04
+
+Input data file(s)
+  GMF05_Querschnitt_CFA.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             2
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              HE01HQ4       SX03Q4R       SX04Q4R       HE01OQ4R      HE02OQ4R
+              ________      ________      ________      ________      ________
+ HE01HQ4        1.000
+ SX03Q4R        1.000         1.000
+ SX04Q4R        1.000         1.000         1.000
+ HE01OQ4R       0.999         0.999         0.999         0.999
+ HE02OQ4R       0.999         0.999         0.999         0.999         0.999
+ HE02HQ4R       1.000         1.000         1.000         0.999         0.999
+ FF04DQ4R       1.000         1.000         1.000         0.999         0.999
+ FF08DQ4R       1.000         1.000         1.000         0.999         0.999
+ EV03Q4R        1.000         1.000         1.000         0.999         0.999
+ EV04Q4R        1.000         1.000         1.000         0.999         0.999
+ RA01Q4R        1.000         1.000         1.000         0.999         0.999
+ RA03Q4R        1.000         1.000         1.000         0.999         0.999
+ AS01Q4R        1.000         1.000         1.000         0.999         0.999
+ AS02Q4R        1.000         1.000         1.000         0.999         0.999
+ HE05MQ4R       1.000         1.000         1.000         0.999         0.999
+ HE12MQ4R       1.000         1.000         1.000         0.999         0.999
+
+
+           Covariance Coverage
+              HE02HQ4R      FF04DQ4R      FF08DQ4R      EV03Q4R       EV04Q4R
+              ________      ________      ________      ________      ________
+ HE02HQ4R       1.000
+ FF04DQ4R       1.000         1.000
+ FF08DQ4R       1.000         1.000         1.000
+ EV03Q4R        1.000         1.000         1.000         1.000
+ EV04Q4R        1.000         1.000         1.000         1.000         1.000
+ RA01Q4R        1.000         1.000         1.000         1.000         1.000
+ RA03Q4R        1.000         1.000         1.000         1.000         1.000
+ AS01Q4R        1.000         1.000         1.000         1.000         1.000
+ AS02Q4R        1.000         1.000         1.000         1.000         1.000
+ HE05MQ4R       1.000         1.000         1.000         1.000         1.000
+ HE12MQ4R       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              RA01Q4R       RA03Q4R       AS01Q4R       AS02Q4R       HE05MQ4R
+              ________      ________      ________      ________      ________
+ RA01Q4R        1.000
+ RA03Q4R        1.000         1.000
+ AS01Q4R        1.000         1.000         1.000
+ AS02Q4R        1.000         1.000         1.000         1.000
+ HE05MQ4R       1.000         1.000         1.000         1.000         1.000
+ HE12MQ4R       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              HE12MQ4R
+              ________
+ HE12MQ4R       1.000
+
+
+
+     NO CONVERGENCE.  NUMBER OF ITERATIONS EXCEEDED.
+     PROBLEM OCCURRED IN EXPLORATORY FACTOR ANALYSIS WITH 6 FACTOR(S).
+
+
+     NO CONVERGENCE.  NUMBER OF ITERATIONS EXCEEDED.
+     PROBLEM OCCURRED IN EXPLORATORY FACTOR ANALYSIS WITH 8 FACTOR(S).
+
+
+
+
+SUMMARY OF MODEL FIT INFORMATION
+
+
+                   Number of                   Degrees of
+     Model        Parameters      Chi-Square    Freedom     P-Value
+
+     1-factor          48           2412.577       104       0.0000
+     2-factor          63           1452.005        89       0.0000
+     3-factor          77           1033.165        75       0.0000
+     4-factor          90            607.947        62       0.0000
+     5-factor         102            330.892        50       0.0000
+     6-factor         N/A
+     7-factor         123             70.225        29       0.0000
+     8-factor         N/A
+
+                                               Degrees of
+     Models Compared              Chi-Square    Freedom     P-Value
+
+     1-factor against 2-factor       960.572        15       0.0000
+     2-factor against 3-factor       418.840        14       0.0000
+     3-factor against 4-factor       425.218        13       0.0000
+     4-factor against 5-factor       277.055        12       0.0000
+
+
+
+RESULTS FOR EXPLORATORY FACTOR ANALYSIS
+
+
+           EIGENVALUES FOR SAMPLE CORRELATION MATRIX
+                  1             2             3             4             5
+              ________      ________      ________      ________      ________
+      1         5.428         1.487         1.233         1.015         0.975
+
+
+           EIGENVALUES FOR SAMPLE CORRELATION MATRIX
+                  6             7             8             9            10
+              ________      ________      ________      ________      ________
+      1         0.856         0.808         0.616         0.549         0.533
+
+
+           EIGENVALUES FOR SAMPLE CORRELATION MATRIX
+                 11            12            13            14            15
+              ________      ________      ________      ________      ________
+      1         0.487         0.464         0.456         0.387         0.367
+
+
+           EIGENVALUES FOR SAMPLE CORRELATION MATRIX
+                 16
+              ________
+      1         0.340
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 1 FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       48
+
+Loglikelihood
+
+          H0 Value                      -34249.455
+          H1 Value                      -33043.166
+
+Information Criteria
+
+          Akaike (AIC)                   68594.909
+          Bayesian (BIC)                 68858.105
+          Sample-Size Adjusted BIC       68705.612
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                           2412.577
+          Degrees of Freedom                   104
+          P-Value                           0.0000
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.112
+          90 Percent C.I.                    0.108  0.116
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.742
+          TLI                                0.702
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           9064.830
+          Degrees of Freedom                   120
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.071
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       4.74555
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1
+              ________
+ HE01HQ4        0.382*
+ SX03Q4R        0.495*
+ SX04Q4R        0.486*
+ HE01OQ4R       0.487*
+ HE02OQ4R       0.343*
+ HE02HQ4R       0.480*
+ FF04DQ4R       0.727*
+ FF08DQ4R       0.725*
+ EV03Q4R        0.419*
+ EV04Q4R        0.554*
+ RA01Q4R        0.463*
+ RA03Q4R        0.528*
+ AS01Q4R        0.585*
+ AS02Q4R        0.567*
+ HE05MQ4R       0.627*
+ HE12MQ4R       0.667*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1
+              ________
+      1         1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              HE01HQ4       SX03Q4R       SX04Q4R       HE01OQ4R      HE02OQ4R
+              ________      ________      ________      ________      ________
+      1         0.854         0.755         0.764         0.763         0.882
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              HE02HQ4R      FF04DQ4R      FF08DQ4R      EV03Q4R       EV04Q4R
+              ________      ________      ________      ________      ________
+      1         0.769         0.471         0.474         0.824         0.693
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              RA01Q4R       RA03Q4R       AS01Q4R       AS02Q4R       HE05MQ4R
+              ________      ________      ________      ________      ________
+      1         0.786         0.721         0.658         0.678         0.607
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              HE12MQ4R
+              ________
+      1         0.556
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1
+              ________
+ HE01HQ4        0.022
+ SX03Q4R        0.020
+ SX04Q4R        0.020
+ HE01OQ4R       0.020
+ HE02OQ4R       0.023
+ HE02HQ4R       0.020
+ FF04DQ4R       0.013
+ FF08DQ4R       0.013
+ EV03Q4R        0.021
+ EV04Q4R        0.018
+ RA01Q4R        0.020
+ RA03Q4R        0.019
+ AS01Q4R        0.017
+ AS02Q4R        0.018
+ HE05MQ4R       0.016
+ HE12MQ4R       0.015
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1
+              ________
+      1         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              HE01HQ4       SX03Q4R       SX04Q4R       HE01OQ4R      HE02OQ4R
+              ________      ________      ________      ________      ________
+      1         0.017         0.020         0.019         0.019         0.016
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              HE02HQ4R      FF04DQ4R      FF08DQ4R      EV03Q4R       EV04Q4R
+              ________      ________      ________      ________      ________
+      1         0.019         0.019         0.019         0.018         0.020
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              RA01Q4R       RA03Q4R       AS01Q4R       AS02Q4R       HE05MQ4R
+              ________      ________      ________      ________      ________
+      1         0.019         0.020         0.020         0.020         0.020
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              HE12MQ4R
+              ________
+      1         0.020
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1
+              ________
+ HE01HQ4       17.323
+ SX03Q4R       24.991
+ SX04Q4R       24.259
+ HE01OQ4R      24.597
+ HE02OQ4R      15.204
+ HE02HQ4R      24.005
+ FF04DQ4R      54.903
+ FF08DQ4R      54.677
+ EV03Q4R       19.824
+ EV04Q4R       30.562
+ RA01Q4R       22.789
+ RA03Q4R       28.041
+ AS01Q4R       33.552
+ AS02Q4R       31.639
+ HE05MQ4R      38.718
+ HE12MQ4R      44.349
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1
+              ________
+      1         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              HE01HQ4       SX03Q4R       SX04Q4R       HE01OQ4R      HE02OQ4R
+              ________      ________      ________      ________      ________
+      1        50.826        38.470        39.278        39.585        56.848
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              HE02HQ4R      FF04DQ4R      FF08DQ4R      EV03Q4R       EV04Q4R
+              ________      ________      ________      ________      ________
+      1        40.052        24.453        24.657        46.426        34.504
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              RA01Q4R       RA03Q4R       AS01Q4R       AS02Q4R       HE05MQ4R
+              ________      ________      ________      ________      ________
+      1        41.861        36.291        32.302        33.322        29.861
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              HE12MQ4R
+              ________
+      1        27.721
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 2 FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       63
+
+Loglikelihood
+
+          H0 Value                      -33769.169
+          H1 Value                      -33043.166
+
+Information Criteria
+
+          Akaike (AIC)                   67664.337
+          Bayesian (BIC)                 68009.781
+          Sample-Size Adjusted BIC       67809.635
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                           1452.005
+          Degrees of Freedom                    89
+          P-Value                           0.0000
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.093
+          90 Percent C.I.                    0.089  0.097
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.848
+          TLI                                0.795
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           9064.830
+          Degrees of Freedom                   120
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.052
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       0.61933
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1             2
+              ________      ________
+ HE01HQ4        0.460*        0.072*
+ SX03Q4R        0.795*       -0.013
+ SX04Q4R        0.748*        0.005
+ HE01OQ4R       0.015         0.487*
+ HE02OQ4R      -0.003         0.349*
+ HE02HQ4R       0.386*        0.222*
+ FF04DQ4R      -0.052*        0.801*
+ FF08DQ4R      -0.012         0.766*
+ EV03Q4R        0.127*        0.340*
+ EV04Q4R        0.056         0.523*
+ RA01Q4R        0.176*        0.346*
+ RA03Q4R        0.238*        0.368*
+ AS01Q4R        0.177*        0.466*
+ AS02Q4R        0.214*        0.420*
+ HE05MQ4R      -0.006         0.656*
+ HE12MQ4R       0.011         0.684*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1             2
+              ________      ________
+      1         1.000
+      2         0.484*        1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              HE01HQ4       SX03Q4R       SX04Q4R       HE01OQ4R      HE02OQ4R
+              ________      ________      ________      ________      ________
+      1         0.751         0.377         0.438         0.755         0.879
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              HE02HQ4R      FF04DQ4R      FF08DQ4R      EV03Q4R       EV04Q4R
+              ________      ________      ________      ________      ________
+      1         0.719         0.396         0.423         0.826         0.696
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              RA01Q4R       RA03Q4R       AS01Q4R       AS02Q4R       HE05MQ4R
+              ________      ________      ________      ________      ________
+      1         0.790         0.723         0.671         0.690         0.573
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              HE12MQ4R
+              ________
+      1         0.525
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1             2
+              ________      ________
+ HE01HQ4        0.030         0.030
+ SX03Q4R        0.022         0.022
+ SX04Q4R        0.018         0.009
+ HE01OQ4R       0.030         0.026
+ HE02OQ4R       0.030         0.029
+ HE02HQ4R       0.029         0.029
+ FF04DQ4R       0.025         0.018
+ FF08DQ4R       0.021         0.017
+ EV03Q4R        0.031         0.028
+ EV04Q4R        0.030         0.025
+ RA01Q4R        0.031         0.028
+ RA03Q4R        0.030         0.027
+ AS01Q4R        0.030         0.026
+ AS02Q4R        0.030         0.027
+ HE05MQ4R       0.018         0.019
+ HE12MQ4R       0.022         0.019
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2
+              ________      ________
+      1         0.000
+      2         0.027         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              HE01HQ4       SX03Q4R       SX04Q4R       HE01OQ4R      HE02OQ4R
+              ________      ________      ________      ________      ________
+      1         0.021         0.026         0.024         0.020         0.016
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              HE02HQ4R      FF04DQ4R      FF08DQ4R      EV03Q4R       EV04Q4R
+              ________      ________      ________      ________      ________
+      1         0.021         0.019         0.019         0.018         0.020
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              RA01Q4R       RA03Q4R       AS01Q4R       AS02Q4R       HE05MQ4R
+              ________      ________      ________      ________      ________
+      1         0.018         0.020         0.020         0.020         0.021
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              HE12MQ4R
+              ________
+      1         0.020
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1             2
+              ________      ________
+ HE01HQ4       15.521         2.361
+ SX03Q4R       35.678        -0.567
+ SX04Q4R       41.312         0.532
+ HE01OQ4R       0.523        18.671
+ HE02OQ4R      -0.102        12.175
+ HE02HQ4R      13.102         7.654
+ FF04DQ4R      -2.029        43.673
+ FF08DQ4R      -0.562        44.572
+ EV03Q4R        4.137        12.137
+ EV04Q4R        1.850        20.598
+ RA01Q4R        5.781        12.421
+ RA03Q4R        8.025        13.590
+ AS01Q4R        5.957        17.985
+ AS02Q4R        7.101        15.677
+ HE05MQ4R      -0.335        34.967
+ HE12MQ4R       0.478        35.681
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2
+              ________      ________
+      1         0.000
+      2        17.656         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              HE01HQ4       SX03Q4R       SX04Q4R       HE01OQ4R      HE02OQ4R
+              ________      ________      ________      ________      ________
+      1        35.145        14.574        18.034        38.338        55.177
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              HE02HQ4R      FF04DQ4R      FF08DQ4R      EV03Q4R       EV04Q4R
+              ________      ________      ________      ________      ________
+      1        34.906        20.753        22.254        47.147        34.475
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              RA01Q4R       RA03Q4R       AS01Q4R       AS02Q4R       HE05MQ4R
+              ________      ________      ________      ________      ________
+      1        42.823        36.893        33.537        34.651        27.873
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              HE12MQ4R
+              ________
+      1        26.119
+
+
+           FACTOR STRUCTURE
+                  1             2
+              ________      ________
+ HE01HQ4        0.495         0.295
+ SX03Q4R        0.789         0.372
+ SX04Q4R        0.750         0.366
+ HE01OQ4R       0.251         0.495
+ HE02OQ4R       0.166         0.347
+ HE02HQ4R       0.493         0.408
+ FF04DQ4R       0.336         0.776
+ FF08DQ4R       0.358         0.760
+ EV03Q4R        0.292         0.402
+ EV04Q4R        0.309         0.550
+ RA01Q4R        0.344         0.431
+ RA03Q4R        0.416         0.483
+ AS01Q4R        0.403         0.552
+ AS02Q4R        0.417         0.524
+ HE05MQ4R       0.311         0.653
+ HE12MQ4R       0.342         0.689
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 3 FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       77
+
+Loglikelihood
+
+          H0 Value                      -33559.748
+          H1 Value                      -33043.166
+
+Information Criteria
+
+          Akaike (AIC)                   67273.497
+          Bayesian (BIC)                 67695.706
+          Sample-Size Adjusted BIC       67451.083
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                           1033.165
+          Degrees of Freedom                    75
+          P-Value                           0.0000
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.085
+          90 Percent C.I.                    0.080  0.089
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.893
+          TLI                                0.829
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           9064.830
+          Degrees of Freedom                   120
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.042
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       0.26757
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1             2             3
+              ________      ________      ________
+ HE01HQ4        0.477*        0.011         0.077
+ SX03Q4R        0.808*       -0.008        -0.063
+ SX04Q4R        0.755*       -0.005        -0.023
+ HE01OQ4R       0.008         0.251*        0.536*
+ HE02OQ4R      -0.016        -0.009         0.811*
+ HE02HQ4R       0.402*        0.128*        0.152*
+ FF04DQ4R      -0.052*        0.804*        0.003
+ FF08DQ4R      -0.010         0.766*        0.002
+ EV03Q4R        0.129*        0.338*       -0.001
+ EV04Q4R        0.057         0.540*       -0.039
+ RA01Q4R        0.181*        0.329*        0.021
+ RA03Q4R        0.243*        0.348*        0.023
+ AS01Q4R        0.183*        0.455*        0.007
+ AS02Q4R        0.220*        0.410*        0.002
+ HE05MQ4R      -0.008         0.700*       -0.078*
+ HE12MQ4R       0.012         0.688*       -0.006
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1             2             3
+              ________      ________      ________
+      1         1.000
+      2         0.505*        1.000
+      3         0.249*        0.408*        1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              HE01HQ4       SX03Q4R       SX04Q4R       HE01OQ4R      HE02OQ4R
+              ________      ________      ________      ________      ________
+      1         0.742         0.375         0.442         0.535         0.354
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              HE02HQ4R      FF04DQ4R      FF08DQ4R      EV03Q4R       EV04Q4R
+              ________      ________      ________      ________      ________
+      1         0.700         0.391         0.421         0.825         0.690
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              RA01Q4R       RA03Q4R       AS01Q4R       AS02Q4R       HE05MQ4R
+              ________      ________      ________      ________      ________
+      1         0.791         0.724         0.672         0.691         0.554
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              HE12MQ4R
+              ________
+      1         0.521
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1             2             3
+              ________      ________      ________
+ HE01HQ4        0.029         0.031         0.043
+ SX03Q4R        0.021         0.016         0.043
+ SX04Q4R        0.023         0.021         0.034
+ HE01OQ4R       0.010         0.044         0.055
+ HE02OQ4R       0.026         0.006         0.058
+ HE02HQ4R       0.030         0.035         0.040
+ FF04DQ4R       0.026         0.021         0.016
+ FF08DQ4R       0.022         0.020         0.020
+ EV03Q4R        0.031         0.032         0.028
+ EV04Q4R        0.031         0.030         0.028
+ RA01Q4R        0.031         0.032         0.029
+ RA03Q4R        0.031         0.031         0.026
+ AS01Q4R        0.030         0.029         0.023
+ AS02Q4R        0.031         0.030         0.021
+ HE05MQ4R       0.015         0.022         0.027
+ HE12MQ4R       0.023         0.023         0.023
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2             3
+              ________      ________      ________
+      1         0.000
+      2         0.027         0.000
+      3         0.051         0.043         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              HE01HQ4       SX03Q4R       SX04Q4R       HE01OQ4R      HE02OQ4R
+              ________      ________      ________      ________      ________
+      1         0.022         0.025         0.024         0.044         0.095
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              HE02HQ4R      FF04DQ4R      FF08DQ4R      EV03Q4R       EV04Q4R
+              ________      ________      ________      ________      ________
+      1         0.021         0.019         0.019         0.018         0.021
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              RA01Q4R       RA03Q4R       AS01Q4R       AS02Q4R       HE05MQ4R
+              ________      ________      ________      ________      ________
+      1         0.018         0.020         0.020         0.020         0.021
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              HE12MQ4R
+              ________
+      1         0.020
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1             2             3
+              ________      ________      ________
+ HE01HQ4       16.381         0.352         1.815
+ SX03Q4R       39.141        -0.524        -1.468
+ SX04Q4R       33.450        -0.251        -0.666
+ HE01OQ4R       0.855         5.639         9.773
+ HE02OQ4R      -0.629        -1.490        13.869
+ HE02HQ4R      13.433         3.682         3.842
+ FF04DQ4R      -1.991        38.197         0.201
+ FF08DQ4R      -0.479        37.926         0.084
+ EV03Q4R        4.107        10.708        -0.033
+ EV04Q4R        1.848        18.145        -1.385
+ RA01Q4R        5.785        10.422         0.728
+ RA03Q4R        7.949        11.354         0.888
+ AS01Q4R        5.995        15.602         0.308
+ AS02Q4R        7.132        13.606         0.090
+ HE05MQ4R      -0.557        32.419        -2.913
+ HE12MQ4R       0.517        30.576        -0.277
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2             3
+              ________      ________      ________
+      1         0.000
+      2        18.423         0.000
+      3         4.893         9.498         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              HE01HQ4       SX03Q4R       SX04Q4R       HE01OQ4R      HE02OQ4R
+              ________      ________      ________      ________      ________
+      1        33.820        14.724        18.409        12.287         3.741
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              HE02HQ4R      FF04DQ4R      FF08DQ4R      EV03Q4R       EV04Q4R
+              ________      ________      ________      ________      ________
+      1        32.715        20.322        21.981        46.931        33.595
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              RA01Q4R       RA03Q4R       AS01Q4R       AS02Q4R       HE05MQ4R
+              ________      ________      ________      ________      ________
+      1        42.955        37.009        33.481        34.585        26.269
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              HE12MQ4R
+              ________
+      1        25.782
+
+
+           FACTOR STRUCTURE
+                  1             2             3
+              ________      ________      ________
+ HE01HQ4        0.502         0.284         0.201
+ SX03Q4R        0.788         0.375         0.136
+ SX04Q4R        0.746         0.367         0.163
+ HE01OQ4R       0.269         0.474         0.641
+ HE02OQ4R       0.181         0.314         0.803
+ HE02HQ4R       0.505         0.394         0.305
+ FF04DQ4R       0.355         0.779         0.318
+ FF08DQ4R       0.377         0.761         0.312
+ EV03Q4R        0.300         0.403         0.169
+ EV04Q4R        0.321         0.553         0.196
+ RA01Q4R        0.352         0.429         0.200
+ RA03Q4R        0.425         0.480         0.226
+ AS01Q4R        0.414         0.550         0.238
+ AS02Q4R        0.428         0.522         0.224
+ HE05MQ4R       0.326         0.664         0.206
+ HE12MQ4R       0.358         0.692         0.278
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 4 FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       90
+
+Loglikelihood
+
+          H0 Value                      -33347.139
+          H1 Value                      -33043.166
+
+Information Criteria
+
+          Akaike (AIC)                   66874.279
+          Bayesian (BIC)                 67367.771
+          Sample-Size Adjusted BIC       67081.847
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                            607.947
+          Degrees of Freedom                    62
+          P-Value                           0.0000
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.070
+          90 Percent C.I.                    0.065  0.076
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.939
+          TLI                                0.882
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           9064.830
+          Degrees of Freedom                   120
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.033
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       0.48372
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1             2             3             4
+              ________      ________      ________      ________
+ HE01HQ4        0.479*        0.019         0.086*       -0.017
+ SX03Q4R        0.821*       -0.010        -0.050*       -0.006
+ SX04Q4R        0.750*       -0.012        -0.009         0.013
+ HE01OQ4R       0.013         0.228*        0.546*        0.012
+ HE02OQ4R      -0.009        -0.031*        0.822*       -0.005
+ HE02HQ4R       0.393*        0.113*        0.163*        0.027
+ FF04DQ4R      -0.046*        0.802*        0.021         0.002
+ FF08DQ4R       0.000         0.767*        0.022        -0.014
+ EV03Q4R        0.126*        0.318*        0.014         0.023
+ EV04Q4R        0.037         0.481*       -0.018         0.096*
+ RA01Q4R        0.170*        0.296*        0.037         0.049
+ RA03Q4R        0.193*        0.246*        0.040         0.193*
+ AS01Q4R        0.051         0.223*        0.017         0.495*
+ AS02Q4R       -0.024*       -0.016        -0.009         0.973*
+ HE05MQ4R       0.001         0.700*       -0.061*       -0.007
+ HE12MQ4R       0.019         0.681*        0.012         0.004
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1             2             3             4
+              ________      ________      ________      ________
+      1         1.000
+      2         0.497*        1.000
+      3         0.237*        0.402*        1.000
+      4         0.436*        0.511*        0.260*        1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              HE01HQ4       SX03Q4R       SX04Q4R       HE01OQ4R      HE02OQ4R
+              ________      ________      ________      ________      ________
+      1         0.741         0.356         0.442         0.537         0.349
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              HE02HQ4R      FF04DQ4R      FF08DQ4R      EV03Q4R       EV04Q4R
+              ________      ________      ________      ________      ________
+      1         0.701         0.376         0.408         0.828         0.699
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              RA01Q4R       RA03Q4R       AS01Q4R       AS02Q4R       HE05MQ4R
+              ________      ________      ________      ________      ________
+      1         0.795         0.719         0.548         0.093         0.545
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              HE12MQ4R
+              ________
+      1         0.513
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1             2             3             4
+              ________      ________      ________      ________
+ HE01HQ4        0.029         0.032         0.034         0.025
+ SX03Q4R        0.021         0.017         0.018         0.015
+ SX04Q4R        0.023         0.020         0.014         0.018
+ HE01OQ4R       0.018         0.050         0.057         0.018
+ HE02OQ4R       0.015         0.010         0.056         0.014
+ HE02HQ4R       0.030         0.036         0.034         0.024
+ FF04DQ4R       0.021         0.021         0.019         0.017
+ FF08DQ4R       0.019         0.022         0.019         0.021
+ EV03Q4R        0.032         0.036         0.028         0.036
+ EV04Q4R        0.029         0.039         0.025         0.048
+ RA01Q4R        0.031         0.036         0.028         0.032
+ RA03Q4R        0.032         0.044         0.026         0.049
+ AS01Q4R        0.040         0.069         0.020         0.100
+ AS02Q4R        0.008         0.011         0.011         0.096
+ HE05MQ4R       0.021         0.024         0.023         0.020
+ HE12MQ4R       0.022         0.024         0.021         0.020
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2             3             4
+              ________      ________      ________      ________
+      1         0.000
+      2         0.023         0.000
+      3         0.033         0.043         0.000
+      4         0.050         0.057         0.044         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              HE01HQ4       SX03Q4R       SX04Q4R       HE01OQ4R      HE02OQ4R
+              ________      ________      ________      ________      ________
+      1         0.022         0.027         0.024         0.043         0.095
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              HE02HQ4R      FF04DQ4R      FF08DQ4R      EV03Q4R       EV04Q4R
+              ________      ________      ________      ________      ________
+      1         0.021         0.020         0.019         0.018         0.020
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              RA01Q4R       RA03Q4R       AS01Q4R       AS02Q4R       HE05MQ4R
+              ________      ________      ________      ________      ________
+      1         0.018         0.020         0.050         0.193         0.021
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              HE12MQ4R
+              ________
+      1         0.020
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1             2             3             4
+              ________      ________      ________      ________
+ HE01HQ4       16.298         0.577         2.566        -0.701
+ SX03Q4R       38.758        -0.597        -2.838        -0.419
+ SX04Q4R       33.145        -0.599        -0.668         0.716
+ HE01OQ4R       0.692         4.579         9.626         0.709
+ HE02OQ4R      -0.638        -3.015        14.796        -0.363
+ HE02HQ4R      13.078         3.121         4.861         1.108
+ FF04DQ4R      -2.198        38.066         1.127         0.113
+ FF08DQ4R       0.020        34.257         1.193        -0.672
+ EV03Q4R        3.999         8.820         0.503         0.647
+ EV04Q4R        1.260        12.273        -0.719         1.987
+ RA01Q4R        5.413         8.313         1.310         1.552
+ RA03Q4R        5.954         5.650         1.532         3.903
+ AS01Q4R        1.283         3.238         0.862         4.958
+ AS02Q4R       -3.155        -1.509        -0.874        10.185
+ HE05MQ4R       0.027        28.808        -2.594        -0.363
+ HE12MQ4R       0.840        28.659         0.550         0.220
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2             3             4
+              ________      ________      ________      ________
+      1         0.000
+      2        21.698         0.000
+      3         7.106         9.254         0.000
+      4         8.700         8.989         5.908         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              HE01HQ4       SX03Q4R       SX04Q4R       HE01OQ4R      HE02OQ4R
+              ________      ________      ________      ________      ________
+      1        33.736        13.298        18.061        12.458         3.685
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              HE02HQ4R      FF04DQ4R      FF08DQ4R      EV03Q4R       EV04Q4R
+              ________      ________      ________      ________      ________
+      1        32.845        19.221        20.969        47.122        34.521
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              RA01Q4R       RA03Q4R       AS01Q4R       AS02Q4R       HE05MQ4R
+              ________      ________      ________      ________      ________
+      1        43.418        36.014        11.012         0.482        25.501
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              HE12MQ4R
+              ________
+      1        25.142
+
+
+           FACTOR STRUCTURE
+                  1             2             3             4
+              ________      ________      ________      ________
+ HE01HQ4        0.501         0.283         0.202         0.224
+ SX03Q4R        0.801         0.374         0.138         0.333
+ SX04Q4R        0.747         0.363         0.167         0.331
+ HE01OQ4R       0.261         0.460         0.644         0.276
+ HE02OQ4R       0.168         0.293         0.806         0.189
+ HE02HQ4R       0.500         0.388         0.309         0.298
+ FF04DQ4R       0.359         0.789         0.334         0.397
+ FF08DQ4R       0.381         0.769         0.327         0.384
+ EV03Q4R        0.298         0.398         0.178         0.244
+ EV04Q4R        0.313         0.540         0.209         0.352
+ RA01Q4R        0.347         0.420         0.209         0.284
+ RA03Q4R        0.409         0.457         0.235         0.413
+ AS01Q4R        0.382         0.508         0.248         0.636
+ AS02Q4R        0.390         0.465         0.231         0.952
+ HE05MQ4R       0.331         0.672         0.219         0.335
+ HE12MQ4R       0.362         0.697         0.291         0.364
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 5 FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                      102
+
+Loglikelihood
+
+          H0 Value                      -33208.612
+          H1 Value                      -33043.166
+
+Information Criteria
+
+          Akaike (AIC)                   66621.224
+          Bayesian (BIC)                 67180.515
+          Sample-Size Adjusted BIC       66856.468
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                            330.892
+          Degrees of Freedom                    50
+          P-Value                           0.0000
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.056
+          90 Percent C.I.                    0.051  0.062
+          Probability RMSEA <= .05           0.036
+
+CFI/TLI
+
+          CFI                                0.969
+          TLI                                0.925
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           9064.830
+          Degrees of Freedom                   120
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.024
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       0.40758
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1             2             3             4             5
+              ________      ________      ________      ________      ________
+ HE01HQ4        0.851*       -0.006        -0.023*       -0.018*       -0.007
+ SX03Q4R        0.150*        0.674*        0.019        -0.036*        0.004
+ SX04Q4R        0.008         0.826*       -0.021         0.014        -0.011
+ HE01OQ4R       0.012         0.018         0.275*        0.474*        0.014
+ HE02OQ4R       0.003        -0.014        -0.016         0.908*       -0.008
+ HE02HQ4R       0.513*        0.069         0.115*        0.093*        0.040
+ FF04DQ4R       0.016        -0.042         0.799*        0.011        -0.001
+ FF08DQ4R       0.017        -0.002         0.765*        0.020        -0.015
+ EV03Q4R       -0.066         0.176*        0.324*        0.028         0.019
+ EV04Q4R       -0.053         0.083*        0.479*       -0.010         0.092
+ RA01Q4R        0.024         0.173*        0.297*        0.035         0.045
+ RA03Q4R       -0.036         0.234*        0.251*        0.046         0.188*
+ AS01Q4R        0.051*        0.018         0.218*        0.015         0.502*
+ AS02Q4R       -0.002        -0.012        -0.018        -0.012         0.963*
+ HE05MQ4R       0.012         0.004         0.690*       -0.057*       -0.009
+ HE12MQ4R       0.054        -0.007         0.677*        0.003         0.004
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1             2             3             4             5
+              ________      ________      ________      ________      ________
+      1         1.000
+      2         0.481*        1.000
+      3         0.354*        0.452*        1.000
+      4         0.220*        0.178*        0.352*        1.000
+      5         0.289*        0.416*        0.512*        0.235*        1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              HE01HQ4       SX03Q4R       SX04Q4R       HE01OQ4R      HE02OQ4R
+              ________      ________      ________      ________      ________
+      1         0.304         0.419         0.329         0.587         0.192
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              HE02HQ4R      FF04DQ4R      FF08DQ4R      EV03Q4R       EV04Q4R
+              ________      ________      ________      ________      ________
+      1         0.575         0.376         0.408         0.818         0.693
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              RA01Q4R       RA03Q4R       AS01Q4R       AS02Q4R       HE05MQ4R
+              ________      ________      ________      ________      ________
+      1         0.792         0.709         0.544         0.106         0.547
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              HE12MQ4R
+              ________
+      1         0.513
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1             2             3             4             5
+              ________      ________      ________      ________      ________
+ HE01HQ4        0.100         0.016         0.007         0.007         0.011
+ SX03Q4R        0.042         0.043         0.020         0.017         0.017
+ SX04Q4R        0.022         0.042         0.018         0.013         0.016
+ HE01OQ4R       0.024         0.023         0.058         0.087         0.020
+ HE02OQ4R       0.016         0.015         0.009         0.120         0.012
+ HE02HQ4R       0.095         0.065         0.039         0.030         0.021
+ FF04DQ4R       0.019         0.023         0.021         0.018         0.018
+ FF08DQ4R       0.020         0.022         0.022         0.017         0.021
+ EV03Q4R        0.035         0.041         0.035         0.026         0.036
+ EV04Q4R        0.033         0.040         0.038         0.023         0.048
+ RA01Q4R        0.033         0.037         0.034         0.027         0.031
+ RA03Q4R        0.032         0.039         0.044         0.026         0.048
+ AS01Q4R        0.024         0.036         0.073         0.019         0.102
+ AS02Q4R        0.010         0.016         0.012         0.010         0.099
+ HE05MQ4R       0.028         0.024         0.024         0.023         0.021
+ HE12MQ4R       0.028         0.024         0.023         0.019         0.021
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2             3             4             5
+              ________      ________      ________      ________      ________
+      1         0.000
+      2         0.045         0.000
+      3         0.041         0.026         0.000
+      4         0.042         0.041         0.057         0.000
+      5         0.043         0.043         0.058         0.049         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              HE01HQ4       SX03Q4R       SX04Q4R       HE01OQ4R      HE02OQ4R
+              ________      ________      ________      ________      ________
+      1         0.156         0.034         0.049         0.062         0.221
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              HE02HQ4R      FF04DQ4R      FF08DQ4R      EV03Q4R       EV04Q4R
+              ________      ________      ________      ________      ________
+      1         0.057         0.020         0.019         0.019         0.021
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              RA01Q4R       RA03Q4R       AS01Q4R       AS02Q4R       HE05MQ4R
+              ________      ________      ________      ________      ________
+      1         0.018         0.021         0.052         0.193         0.021
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              HE12MQ4R
+              ________
+      1         0.020
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1             2             3             4             5
+              ________      ________      ________      ________      ________
+ HE01HQ4        8.491        -0.389        -3.537        -2.618        -0.622
+ SX03Q4R        3.573        15.548         0.984        -2.128         0.219
+ SX04Q4R        0.381        19.521        -1.192         1.074        -0.661
+ HE01OQ4R       0.485         0.797         4.723         5.419         0.698
+ HE02OQ4R       0.178        -0.955        -1.921         7.536        -0.684
+ HE02HQ4R       5.418         1.065         2.924         3.072         1.861
+ FF04DQ4R       0.855        -1.817        38.771         0.596        -0.033
+ FF08DQ4R       0.828        -0.079        34.850         1.161        -0.711
+ EV03Q4R       -1.869         4.310         9.268         1.082         0.522
+ EV04Q4R       -1.594         2.060        12.462        -0.426         1.910
+ RA01Q4R        0.734         4.638         8.616         1.310         1.446
+ RA03Q4R       -1.121         6.042         5.738         1.763         3.880
+ AS01Q4R        2.103         0.503         2.982         0.809         4.898
+ AS02Q4R       -0.210        -0.794        -1.403        -1.236         9.712
+ HE05MQ4R       0.420         0.157        28.849        -2.456        -0.450
+ HE12MQ4R       1.914        -0.289        29.259         0.160         0.189
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2             3             4             5
+              ________      ________      ________      ________      ________
+      1         0.000
+      2        10.742         0.000
+      3         8.686        17.304         0.000
+      4         5.276         4.362         6.122         0.000
+      5         6.788         9.571         8.843         4.797         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              HE01HQ4       SX03Q4R       SX04Q4R       HE01OQ4R      HE02OQ4R
+              ________      ________      ________      ________      ________
+      1         1.944        12.433         6.661         9.423         0.869
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              HE02HQ4R      FF04DQ4R      FF08DQ4R      EV03Q4R       EV04Q4R
+              ________      ________      ________      ________      ________
+      1        10.164        19.261        21.001        43.609        33.801
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              RA01Q4R       RA03Q4R       AS01Q4R       AS02Q4R       HE05MQ4R
+              ________      ________      ________      ________      ________
+      1        42.806        34.424        10.387         0.549        25.642
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              HE12MQ4R
+              ________
+      1        25.127
+
+
+           FACTOR STRUCTURE
+                  1             2             3             4             5
+              ________      ________      ________      ________      ________
+ HE01HQ4        0.833         0.386         0.265         0.158         0.220
+ SX03Q4R        0.474         0.750         0.367         0.124         0.329
+ SX04Q4R        0.398         0.819         0.355         0.152         0.328
+ HE01OQ4R       0.226         0.238         0.462         0.580         0.278
+ HE02OQ4R       0.188         0.138         0.294         0.898         0.192
+ HE02HQ4R       0.619         0.401         0.380         0.267         0.297
+ FF04DQ4R       0.281         0.329         0.789         0.288         0.399
+ FF08DQ4R       0.287         0.349         0.769         0.289         0.386
+ EV03Q4R        0.145         0.303         0.399         0.163         0.245
+ EV04Q4R        0.181         0.310         0.542         0.184         0.355
+ RA01Q4R        0.233         0.343         0.418         0.186         0.284
+ RA03Q4R        0.230         0.417         0.456         0.212         0.414
+ AS01Q4R        0.286         0.353         0.507         0.224         0.639
+ AS02Q4R        0.261         0.377         0.465         0.205         0.945
+ HE05MQ4R       0.243         0.307         0.671         0.187         0.336
+ HE12MQ4R       0.293         0.327         0.696         0.253         0.364
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 7 FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                      123
+
+Loglikelihood
+
+          H0 Value                      -33078.278
+          H1 Value                      -33043.166
+
+Information Criteria
+
+          Akaike (AIC)                   66402.557
+          Bayesian (BIC)                 67076.996
+          Sample-Size Adjusted BIC       66686.234
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                             70.225
+          Degrees of Freedom                    29
+          P-Value                           0.0000
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.028
+          90 Percent C.I.                    0.020  0.037
+          Probability RMSEA <= .05           1.000
+
+CFI/TLI
+
+          CFI                                0.995
+          TLI                                0.981
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           9064.830
+          Degrees of Freedom                   120
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.007
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       0.32547
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1             2             3             4             5
+              ________      ________      ________      ________      ________
+ HE01HQ4        0.891*       -0.019*       -0.018*       -0.029*       -0.002
+ SX03Q4R        0.181*        0.579*       -0.036         0.040         0.033
+ SX04Q4R       -0.015         0.914*        0.020        -0.019        -0.013
+ HE01OQ4R       0.005         0.027         0.487*        0.261*        0.006
+ HE02OQ4R       0.003        -0.018         0.892*       -0.014         0.003
+ HE02HQ4R       0.488*        0.078         0.101*        0.111*        0.007
+ FF04DQ4R       0.003        -0.011         0.024         0.783*        0.043
+ FF08DQ4R       0.008        -0.002         0.029         0.701*       -0.001
+ EV03Q4R        0.008         0.012         0.008        -0.002         1.055
+ EV04Q4R       -0.022        -0.043        -0.024         0.228*        0.141
+ RA01Q4R        0.052*        0.020         0.010        -0.005        -0.032*
+ RA03Q4R       -0.010         0.120*        0.034         0.034         0.039
+ AS01Q4R        0.036         0.001         0.015         0.139         0.013
+ AS02Q4R       -0.008         0.009        -0.004        -0.038*       -0.018
+ HE05MQ4R      -0.006         0.035        -0.046*        0.687*        0.012
+ HE12MQ4R       0.032         0.023         0.013         0.677*       -0.065
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  6             7
+              ________      ________
+ HE01HQ4       -0.016         0.008
+ SX03Q4R        0.047        -0.004
+ SX04Q4R       -0.019         0.015
+ HE01OQ4R       0.009         0.017
+ HE02OQ4R       0.002        -0.004
+ HE02HQ4R       0.044         0.007
+ FF04DQ4R       0.002        -0.013
+ FF08DQ4R       0.009         0.084*
+ EV03Q4R       -0.007         0.007
+ EV04Q4R        0.100*        0.373*
+ RA01Q4R       -0.040*        0.700*
+ RA03Q4R        0.190*        0.379*
+ AS01Q4R        0.659*       -0.054*
+ AS02Q4R        0.820*        0.071
+ HE05MQ4R       0.008        -0.020
+ HE12MQ4R       0.003         0.045
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1             2             3             4             5
+              ________      ________      ________      ________      ________
+      1         1.000
+      2         0.452*        1.000
+      3         0.216*        0.162*        1.000
+      4         0.347*        0.391*        0.337*        1.000
+      5         0.128*        0.240*        0.142*        0.335*        1.000
+      6         0.319*        0.407*        0.250*        0.552*        0.261*
+      7         0.277*        0.402*        0.254*        0.542*        0.285*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  6             7
+              ________      ________
+      6         1.000
+      7         0.422*        1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              HE01HQ4       SX03Q4R       SX04Q4R       HE01OQ4R      HE02OQ4R
+              ________      ________      ________      ________      ________
+      1         0.248         0.480         0.192         0.579         0.217
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              HE02HQ4R      FF04DQ4R      FF08DQ4R      EV03Q4R       EV04Q4R
+              ________      ________      ________      ________      ________
+      1         0.591         0.364         0.411        -0.123         0.615
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              RA01Q4R       RA03Q4R       AS01Q4R       AS02Q4R       HE05MQ4R
+              ________      ________      ________      ________      ________
+      1         0.510         0.640         0.449         0.317         0.534
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              HE12MQ4R
+              ________
+      1         0.495
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1             2             3             4             5
+              ________      ________      ________      ________      ________
+ HE01HQ4        0.083         0.005         0.006         0.012         0.011
+ SX03Q4R        0.089         0.131         0.019         0.025         0.026
+ SX04Q4R        0.013         0.102         0.011         0.015         0.014
+ HE01OQ4R       0.022         0.021         0.090         0.053         0.015
+ HE02OQ4R       0.015         0.014         0.123         0.008         0.009
+ HE02HQ4R       0.092         0.065         0.030         0.042         0.015
+ FF04DQ4R       0.018         0.020         0.020         0.029         0.035
+ FF08DQ4R       0.019         0.020         0.017         0.030         0.013
+ EV03Q4R        0.011         0.021         0.012         0.004         0.565
+ EV04Q4R        0.023         0.027         0.020         0.055         0.117
+ RA01Q4R        0.025         0.017         0.014         0.018         0.013
+ RA03Q4R        0.022         0.038         0.022         0.039         0.045
+ AS01Q4R        0.020         0.021         0.016         0.080         0.021
+ AS02Q4R        0.012         0.021         0.014         0.018         0.016
+ HE05MQ4R       0.022         0.023         0.021         0.028         0.018
+ HE12MQ4R       0.024         0.023         0.017         0.036         0.046
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  6             7
+              ________      ________
+ HE01HQ4        0.012         0.017
+ SX03Q4R        0.037         0.035
+ SX04Q4R        0.012         0.030
+ HE01OQ4R       0.025         0.029
+ HE02OQ4R       0.016         0.016
+ HE02HQ4R       0.027         0.027
+ FF04DQ4R       0.021         0.023
+ FF08DQ4R       0.028         0.034
+ EV03Q4R        0.008         0.010
+ EV04Q4R        0.046         0.057
+ RA01Q4R        0.015         0.054
+ RA03Q4R        0.041         0.065
+ AS01Q4R        0.111         0.018
+ AS02Q4R        0.092         0.047
+ HE05MQ4R       0.025         0.026
+ HE12MQ4R       0.024         0.033
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2             3             4             5
+              ________      ________      ________      ________      ________
+      1         0.000
+      2         0.043         0.000
+      3         0.042         0.040         0.000
+      4         0.053         0.044         0.052         0.000
+      5         0.061         0.112         0.070         0.166         0.000
+      6         0.053         0.043         0.043         0.046         0.128
+      7         0.058         0.041         0.048         0.043         0.102
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  6             7
+              ________      ________
+      6         0.000
+      7         0.044         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              HE01HQ4       SX03Q4R       SX04Q4R       HE01OQ4R      HE02OQ4R
+              ________      ________      ________      ________      ________
+      1         0.156         0.069         0.175         0.066         0.217
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              HE02HQ4R      FF04DQ4R      FF08DQ4R      EV03Q4R       EV04Q4R
+              ________      ________      ________      ________      ________
+      1         0.049         0.020         0.020         1.176         0.032
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              RA01Q4R       RA03Q4R       AS01Q4R       AS02Q4R       HE05MQ4R
+              ________      ________      ________      ________      ________
+      1         0.068         0.027         0.077         0.115         0.022
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              HE12MQ4R
+              ________
+      1         0.023
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1             2             3             4             5
+              ________      ________      ________      ________      ________
+ HE01HQ4       10.722        -3.872        -2.909        -2.473        -0.152
+ SX03Q4R        2.037         4.420        -1.882         1.590         1.235
+ SX04Q4R       -1.181         8.916         1.854        -1.272        -0.936
+ HE01OQ4R       0.236         1.258         5.436         4.912         0.368
+ HE02OQ4R       0.175        -1.325         7.240        -1.896         0.349
+ HE02HQ4R       5.284         1.206         3.338         2.606         0.431
+ FF04DQ4R       0.151        -0.534         1.231        26.575         1.240
+ FF08DQ4R       0.421        -0.100         1.675        23.367        -0.082
+ EV03Q4R        0.755         0.572         0.626        -0.566         1.867
+ EV04Q4R       -0.959        -1.569        -1.255         4.132         1.212
+ RA01Q4R        2.089         1.164         0.715        -0.257        -2.542
+ RA03Q4R       -0.459         3.137         1.527         0.862         0.852
+ AS01Q4R        1.806         0.063         0.938         1.736         0.618
+ AS02Q4R       -0.629         0.433        -0.325        -2.145        -1.160
+ HE05MQ4R      -0.277         1.514        -2.216        24.808         0.654
+ HE12MQ4R       1.346         0.982         0.753        18.587        -1.393
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  6             7
+              ________      ________
+ HE01HQ4       -1.368         0.485
+ SX03Q4R        1.274        -0.106
+ SX04Q4R       -1.557         0.512
+ HE01OQ4R       0.355         0.604
+ HE02OQ4R       0.094        -0.264
+ HE02HQ4R       1.623         0.270
+ FF04DQ4R       0.099        -0.591
+ FF08DQ4R       0.332         2.490
+ EV03Q4R       -0.781         0.669
+ EV04Q4R        2.167         6.497
+ RA01Q4R       -2.620        13.009
+ RA03Q4R        4.685         5.819
+ AS01Q4R        5.908        -3.060
+ AS02Q4R        8.884         1.496
+ HE05MQ4R       0.305        -0.777
+ HE12MQ4R       0.105         1.391
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2             3             4             5
+              ________      ________      ________      ________      ________
+      1         0.000
+      2        10.506         0.000
+      3         5.190         4.017         0.000
+      4         6.503         8.987         6.518         0.000
+      5         2.100         2.143         2.017         2.027         0.000
+      6         6.080         9.468         5.788        11.874         2.042
+      7         4.795         9.736         5.351        12.594         2.789
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  6             7
+              ________      ________
+      6         0.000
+      7         9.506         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              HE01HQ4       SX03Q4R       SX04Q4R       HE01OQ4R      HE02OQ4R
+              ________      ________      ________      ________      ________
+      1         1.592         6.958         1.095         8.724         1.001
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              HE02HQ4R      FF04DQ4R      FF08DQ4R      EV03Q4R       EV04Q4R
+              ________      ________      ________      ________      ________
+      1        12.148        17.768        20.909        -0.104        19.035
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              RA01Q4R       RA03Q4R       AS01Q4R       AS02Q4R       HE05MQ4R
+              ________      ________      ________      ________      ________
+      1         7.519        23.734         5.859         2.743        24.247
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              HE12MQ4R
+              ________
+      1        21.606
+
+
+           FACTOR STRUCTURE
+                  1             2             3             4             5
+              ________      ________      ________      ________      ________
+ HE01HQ4        0.866         0.366         0.160         0.262         0.094
+ SX03Q4R        0.467         0.696         0.126         0.352         0.214
+ SX04Q4R        0.392         0.898         0.156         0.334         0.200
+ HE01OQ4R       0.221         0.222         0.588         0.454         0.177
+ HE02OQ4R       0.182         0.122         0.884         0.280         0.120
+ HE02HQ4R       0.600         0.381         0.270         0.375         0.153
+ FF04DQ4R       0.277         0.306         0.290         0.796         0.304
+ FF08DQ4R       0.283         0.318         0.290         0.763         0.265
+ EV03Q4R        0.149         0.269         0.160         0.362         1.059
+ EV04Q4R        0.186         0.257         0.181         0.500         0.334
+ RA01Q4R        0.238         0.300         0.186         0.371         0.169
+ RA03Q4R        0.234         0.373         0.212         0.412         0.240
+ AS01Q4R        0.286         0.324         0.222         0.496         0.223
+ AS02Q4R        0.261         0.347         0.203         0.446         0.203
+ HE05MQ4R       0.237         0.291         0.188         0.680         0.239
+ HE12MQ4R       0.285         0.308         0.255         0.706         0.188
+
+
+           FACTOR STRUCTURE
+                  6             7
+              ________      ________
+ HE01HQ4        0.243         0.220
+ SX03Q4R        0.361         0.321
+ SX04Q4R        0.346         0.361
+ HE01OQ4R       0.296         0.300
+ HE02OQ4R       0.209         0.210
+ HE02HQ4R       0.323         0.280
+ FF04DQ4R       0.442         0.426
+ FF08DQ4R       0.440         0.476
+ EV03Q4R        0.279         0.313
+ EV04Q4R        0.389         0.549
+ RA01Q4R        0.272         0.697
+ RA03Q4R        0.433         0.542
+ AS01Q4R        0.732         0.318
+ AS02Q4R        0.824         0.392
+ HE05MQ4R       0.382         0.359
+ HE12MQ4R       0.401         0.416
+
+
+DIAGRAM INFORMATION
+
+  Mplus diagrams are currently not available for EFA.
+  No diagram output was produced.
+
+
+     Beginning Time:  08:30:48
+        Ending Time:  08:30:58
+       Elapsed Time:  00:00:10
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen

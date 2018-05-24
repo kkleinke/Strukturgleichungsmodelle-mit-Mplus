@@ -1,0 +1,332 @@
+Mplus VERSION 7.4
+MUTHEN & MUTHEN
+10/26/2016  10:47 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:  Moderation & Mediation (konditionale indirekte Effekte)
+          für latente Variablen;
+
+  DATA:   FILE IS modmedlatent.dat;
+
+  VARIABLE:
+          NAMES ARE
+              au01q3r  ! Verbrechen härter bestrafen
+              au02q3r  ! um Recht u. Ordnung zu bewahren, härter gegen Außenseiter vorgehen
+              ff04dq3r ! zu viele Ausländer in Deutschland
+              ff08dq3r ! wenn Arbeit knapp, Ausländer zurück
+              do01q3r  ! Gruppen, die unten sind, sollen unten bleiben
+              do02q3r  ! gibt Gruppen in der Bevölk., die weniger wert sind als andere
+              do03q3r  ! einige Gruppen sind nützlicher als andere
+              ka01q3r  ! wie oft Kontakt mit Ausländern in Nachbarschaft?
+              ka02q3r  ! wie oft Kontakt mit Ausländern am Arbeitsplatz?
+              ka03q3r  ! wie viele Freunde sind Ausländer?
+              sthreat  ! Ausl. bedrohen unsere Freiheiten und Rechte
+              tg05q3r; ! Ausl. bedrohen unseren Wohlstand
+
+          USEVARIABLES ARE
+              au01q3r au02q3r         ! Autoritarismus
+              ff04dq3r ff08dq3r       ! Vorurteile
+              do01q3r do02q3r do03q3r ! Dominanzorientierung
+              ka01q3r ka02q3r ka03q3r ! Kontakt
+              sthreat;                ! soziale Bedrohung
+
+          MISSING ARE all (99);
+
+  ANALYSIS:
+          TYPE IS RANDOM;
+          ALGORITHM IS INTEGRATION;
+
+  MODEL:
+                                        ! Messmodelle
+          prej     BY ff04dq3r ff08dq3r;
+
+          rwa      BY au01q3r* au02q3r;
+          rwa@1;   ! rwa wird standardisiert: -/+ 1 SD
+
+          contact  BY ka01q3r ka02q3r ka03q3r;
+
+          sdo      BY do01q3r do02q3r do03q3r;
+
+          rwaxcont | rwa XWITH contact; ! Interaktion
+
+          prej ON sthreat (b1);         ! Strukturmodelll
+          prej ON contact (cdash);
+          prej ON SDO;
+
+          sthreat ON contact (a1);
+          sthreat ON RWA (a2);
+          sthreat ON RWAXCONT (a3);
+          sthreat ON SDO;
+
+  MODEL CONSTRAINT:
+          NEW (LOrwa HIrwa INDLO INDHI);
+          LOrwa = -1;
+          HIrwa = 1;
+          INDLO = a1*b1+a3*b1*LOrwa;
+          INDHI = a1*b1+a3*b1*HIrwa;
+
+          PLOT(LOMOD HIMOD);
+          LOOP(XVAL,-1,1,0.1);
+          LOMOD = INDLO*XVAL;
+          HIMOD = INDHI*XVAL;
+
+  PLOT:   TYPE = PLOT2;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Moderation & Mediation (konditionale indirekte Effekte)
+für latente Variablen;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1343
+
+Number of dependent variables                                   11
+Number of independent variables                                  0
+Number of continuous latent variables                            5
+
+Observed dependent variables
+
+  Continuous
+   AU01Q3R     AU02Q3R     FF04DQ3R    FF08DQ3R    DO01Q3R     DO02Q3R
+   DO03Q3R     KA01Q3R     KA02Q3R     KA03Q3R     STHREAT
+
+Continuous latent variables
+   PREJ        RWA         CONTACT     SDO         RWAXCONT
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-02
+    Relative loglikelihood change                        0.100D-05
+    Derivative                                           0.100D-02
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-02
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-02
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Integration Specifications
+  Type                                                    STANDARD
+  Number of integration points                                  15
+  Dimensions of numerical integration                            2
+  Adaptive quadrature                                           ON
+Cholesky                                                       OFF
+
+Input data file(s)
+  modmedlatent.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            65
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR Y
+
+
+           Covariance Coverage
+              AU01Q3R       AU02Q3R       FF04DQ3R      FF08DQ3R      DO01Q3R
+              ________      ________      ________      ________      ________
+ AU01Q3R        0.990
+ AU02Q3R        0.979         0.987
+ FF04DQ3R       0.970         0.972         0.979
+ FF08DQ3R       0.969         0.969         0.963         0.977
+ DO01Q3R        0.978         0.977         0.969         0.968         0.989
+ DO02Q3R        0.974         0.972         0.966         0.963         0.974
+ DO03Q3R        0.971         0.968         0.963         0.959         0.972
+ KA01Q3R        0.748         0.746         0.742         0.738         0.748
+ KA02Q3R        0.841         0.837         0.829         0.831         0.842
+ KA03Q3R        0.990         0.987         0.979         0.977         0.989
+ STHREAT        0.978         0.975         0.969         0.966         0.976
+
+
+           Covariance Coverage
+              DO02Q3R       DO03Q3R       KA01Q3R       KA02Q3R       KA03Q3R
+              ________      ________      ________      ________      ________
+ DO02Q3R        0.984
+ DO03Q3R        0.969         0.980
+ KA01Q3R        0.745         0.744         0.756
+ KA02Q3R        0.838         0.833         0.649         0.849
+ KA03Q3R        0.984         0.980         0.756         0.849         1.000
+ STHREAT        0.973         0.968         0.748         0.841         0.987
+
+
+           Covariance Coverage
+              STHREAT
+              ________
+ STHREAT        0.987
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       42
+
+Loglikelihood
+
+          H0 Value                      -15909.818
+          H0 Scaling Correction Factor      1.1965
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   31903.637
+          Bayesian (BIC)                 32122.148
+          Sample-Size Adjusted BIC       31988.733
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ PREJ     BY
+    FF04DQ3R           1.000      0.000    999.000    999.000
+    FF08DQ3R           0.980      0.044     22.466      0.000
+
+ RWA      BY
+    AU01Q3R            0.547      0.027     20.494      0.000
+    AU02Q3R            0.742      0.027     27.552      0.000
+
+ CONTACT  BY
+    KA01Q3R            1.000      0.000    999.000    999.000
+    KA02Q3R            0.827      0.103      8.021      0.000
+    KA03Q3R            1.179      0.096     12.332      0.000
+
+ SDO      BY
+    DO01Q3R            1.000      0.000    999.000    999.000
+    DO02Q3R            0.967      0.083     11.640      0.000
+    DO03Q3R            1.332      0.123     10.855      0.000
+
+ PREJ       ON
+    CONTACT           -0.670      0.136     -4.918      0.000
+    SDO                0.875      0.195      4.493      0.000
+
+ PREJ       ON
+    STHREAT            0.312      0.047      6.665      0.000
+
+ STHREAT    ON
+    CONTACT           -0.229      0.088     -2.593      0.010
+    RWA                0.161      0.049      3.288      0.001
+    RWAXCONT          -0.179      0.085     -2.118      0.034
+    SDO                0.730      0.149      4.899      0.000
+
+ CONTACT  WITH
+    RWA               -0.209      0.022     -9.666      0.000
+
+ SDO      WITH
+    RWA                0.194      0.016     11.961      0.000
+    CONTACT           -0.033      0.008     -4.092      0.000
+
+ Intercepts
+    AU01Q3R            3.405      0.022    156.413      0.000
+    AU02Q3R            3.173      0.024    130.642      0.000
+    FF04DQ3R           2.058      0.095     21.682      0.000
+    FF08DQ3R           1.590      0.093     17.119      0.000
+    DO01Q3R            1.460      0.017     84.442      0.000
+    DO02Q3R            1.418      0.019     74.911      0.000
+    DO03Q3R            1.898      0.026     74.144      0.000
+    KA01Q3R            2.012      0.026     78.346      0.000
+    KA02Q3R            2.510      0.031     79.903      0.000
+    KA03Q3R            1.837      0.020     92.895      0.000
+    STHREAT            1.869      0.027     68.500      0.000
+
+ Variances
+    RWA                1.000      0.000    999.000    999.000
+    CONTACT            0.195      0.031      6.311      0.000
+    SDO                0.135      0.021      6.402      0.000
+
+ Residual Variances
+    AU01Q3R            0.327      0.022     14.859      0.000
+    AU02Q3R            0.232      0.030      7.644      0.000
+    FF04DQ3R           0.437      0.031     13.912      0.000
+    FF08DQ3R           0.384      0.029     13.341      0.000
+    DO01Q3R            0.258      0.024     10.746      0.000
+    DO02Q3R            0.347      0.029     12.137      0.000
+    DO03Q3R            0.622      0.037     16.808      0.000
+    KA01Q3R            0.514      0.033     15.730      0.000
+    KA02Q3R            0.992      0.037     27.124      0.000
+    KA03Q3R            0.253      0.036      7.057      0.000
+    STHREAT            0.455      0.023     19.551      0.000
+    PREJ               0.162      0.028      5.784      0.000
+
+New/Additional Parameters
+    LORWA             -1.000      0.000  *********      0.000
+    HIRWA              1.000      0.000  *********      0.000
+    INDLO             -0.016      0.026     -0.602      0.547
+    INDHI             -0.128      0.046     -2.799      0.005
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.857E-07
+       (ratio of smallest to largest eigenvalue)
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Loop plots
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    f:\fertig\begleitmaterial\kapitel 3\moderation_indirekt_latent.dgm
+
+     Beginning Time:  10:47:54
+        Ending Time:  10:48:11
+       Elapsed Time:  00:00:17
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen

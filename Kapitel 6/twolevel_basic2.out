@@ -1,0 +1,328 @@
+Mplus VERSION 7.4
+MUTHEN & MUTHEN
+03/22/2016  11:10 AM
+
+INPUT INSTRUCTIONS
+
+
+  TITLE:    Mehrebenenanalyse
+            Intergruppenkontakt als Individual- und Kontextvariable
+
+  DATA:     FILE IS GMF02_Querschnitt_MLM.dat;
+
+  VARIABLE: NAMES ARE qcp_ser kreis1 ka03w1r aa01w1r aa03w1r
+            ff04d1r ff08d1r ff03d1r tab02_08 contact prej;
+            USEVARIABLES ARE contact prej;
+            MISSING ARE contact prej (99);
+            CLUSTER IS kreis1;
+
+  ANALYSIS: TYPE IS TWOLEVEL BASIC;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Mehrebenenanalyse
+Intergruppenkontakt als Individual- und Kontextvariable
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        2722
+
+Number of dependent variables                                    2
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   CONTACT     PREJ
+
+Variables with special functions
+
+  Cluster variable      KREIS1
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  GMF02_Querschnitt_MLM.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             2
+     Number of clusters                        418
+
+       Size (s)    Cluster ID with Size s
+
+          1        9775 7318 7320 9462 3402 9263 9763 9479 9475 6535 9372
+                   7313 9473 7335 3359 9674 8121 5558 9361 7319 7332 6437
+                   9180 3155 8325 9279 8425 9463 3458 9673 9273 5914 9573
+                   15153 9262 7133 9778 8237
+          2        9190 8231 6633 8421 9377 1004 16054 7316 3452 5966 9186
+                   9779 7233 3455 9662 9464 9672 8225 9563 6434 9472 7338
+                   7134 9575 10043 5120 3456 15268 5370 9663 9261 9183
+                   9461 9574 9163 3461 3353 9161 7340 3360 9561 5122 1001
+                   10046 8211 13052 9764 15358 7131 9671 3354 16055 3361
+                   3157 3255 6635
+          3        3401 3252 7235 7312 13006 4012 16065 9371 9173 9175
+                   3462 9181 9777 7111 9678 3256 9376 9275 9661 9773 3156
+                   6411 1051 9276 8416 9572 6632 8135 3158 14290 8326 9565
+                   1061 6439 9576 9374 3355 3358 6636 3102 6533 8417 8236
+                   9174 5374 9188 7333 13001 15364 8126 9277 8216 9774
+                   9771 9679 7317
+          4        8426 1053 3103 7138 7137 7314 10045 10044 6438 9780
+                   9471 7211 9677 3151 9375 13002 3453 15265 16070 5366
+                   6634 1054 7140 9571 9478 10042 5316 9271 16075 15159
+                   9179 14264 13059 5314 1062 14375
+          5        13060 12053 3153 7334 8125 12062 9362 1059 5762 5154
+                   16068 7337 6532 3460 8337 5916 3454 15370 5754 8221
+                   8437 3257 3457 13051 9577 9474 9477 9676 3154 3403 5512
+                   5915 7331 15363
+          6        14285 8235 5974 14167 7315 8128 7339 6611 16066 3356
+                   6432 7141 5970 14389 5774 6413 6433 14263 12051 8315
+                   5124 13056 16052 7231 3352 13057 15362 5758 9177 7143
+                   16077 5566 12068 5117 12070 8117
+          7        8127 9761 6631 5313 16072 15266 3251 9373 14284 1003
+                   9178 9564 13055 9274 5958 8212 15151 14188 3101 13004
+                   14166 1055 5119 14171 6431 5513 14287 9187 6534 16071
+                   1058 16069 1002 3351 9772 16061 15260 13005
+          8        6436 5114 8311 3357 13058 8136 5354 3254 8436 13061
+                   9562 5166 5362 15355 15357 12071 8435 12052 12054 15101
+                   14383 5515 9189 15369 12063
+          9        15367 13054 8119 15261 16063 8115 3459 12061 5554 8336
+                   8415 14379 14191 6414 5954 5358 16062 1056 3404
+         10        1060 9184 8335 16073 5766 12065 6531 5711 14181 13062
+                   5378 5112 5570 5162
+         11        14280 14173 13053 5770 15154 8116 16064 12060 15352
+                   8118 16076 8317 12064 15171 14178 14292 14177 5170 3152
+         12        14272 5116 16053 14286 14161 6435 14374 5962 14193 8215
+                   16067 16074
+         13        12067 6412 12073 15256 8222 8111 10041
+         15        6440 5158 14182 12066 8226 5913
+         16        5978 13003 16051 12069 5113
+         17        5911 3253 4011
+         18        5382 15202 5111 12072
+         19        3201
+         21        15303 5562
+         32        9162
+         34        5315
+         38        14365
+         39        17200 14262
+         53        2000
+         64        18100
+
+     Average cluster size        6.512
+
+     Estimated Intraclass Correlations for the Y Variables
+
+                Intraclass              Intraclass
+     Variable  Correlation   Variable  Correlation
+
+     CONTACT      0.185      PREJ         0.081
+
+
+
+SUMMARY OF MISSING DATA PATTERNS
+
+
+     MISSING DATA PATTERNS (x = not missing)
+
+           1  2
+ CONTACT   x  x
+ PREJ      x
+
+
+     MISSING DATA PATTERN FREQUENCIES
+
+    Pattern   Frequency     Pattern   Frequency
+          1        2718           2           4
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              CONTACT       PREJ
+              ________      ________
+ CONTACT        1.000
+ PREJ           0.999         0.999
+
+
+
+
+
+RESULTS FOR BASIC ANALYSIS
+
+NOTE:  The sample statistics for within and between refer to the
+       maximum-likelihood estimated within and between covariance
+       matrices, respectively.
+
+
+     ESTIMATED SAMPLE STATISTICS FOR WITHIN
+
+
+           Means
+              CONTACT       PREJ
+              ________      ________
+ 1              0.000         0.000
+
+
+           Covariances
+              CONTACT       PREJ
+              ________      ________
+ CONTACT        0.477
+ PREJ          -0.198         0.654
+
+
+           Correlations
+              CONTACT       PREJ
+              ________      ________
+ CONTACT        1.000
+ PREJ          -0.355         1.000
+
+
+     ESTIMATED SAMPLE STATISTICS FOR BETWEEN
+
+
+           Means
+              CONTACT       PREJ
+              ________      ________
+ 1              2.153         2.294
+
+
+           Covariances
+              CONTACT       PREJ
+              ________      ________
+ CONTACT        0.108
+ PREJ          -0.075         0.057
+
+
+           Correlations
+              CONTACT       PREJ
+              ________      ________
+ CONTACT        1.000
+ PREJ          -0.955         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -6135.925
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     CONTACT               2.157       0.203       1.000   12.42%       1.333      2.000      2.000
+            2722.000       0.589      -0.827       4.000    0.92%       2.333      3.000
+     PREJ                  2.289       0.293       1.000   11.70%       1.667      2.000      2.333
+            2718.000       0.713      -0.690       4.000    6.22%       2.333      3.000
+
+
+DIAGRAM INFORMATION
+
+  Mplus diagrams are currently not available for multilevel analysis.
+  No diagram output was produced.
+
+
+     Beginning Time:  11:10:31
+        Ending Time:  11:10:31
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen

@@ -1,0 +1,71 @@
+VERSION 1.1.0
+INPUT
+TITLE:
+  Moderation & Mediation (konditionale indirekte Effekte)
+        für manifeste Variablen;
+
+DATA:
+   FILE IS MODMEDEXAMPLE.dat;
+VARIABLE:
+        NAMES ARE cthreat sthreat prej contact RWA SDO RWAXCONT SDOXCONT;
+        USEVARIABLES ARE
+        prej sthreat contact RWA RWAXCONT SDO;
+        MISSING ARE all (99);
+ANALYSIS:
+        BOOTSTRAP=10000;
+OUTPUT:
+ CINT(bcbootstrap);
+PLOT:
+   TYPE = PLOT2;
+MODEL:
+        [prej] (b0);
+        prej ON sthreat (b1);
+        prej ON contact (cdash);
+        prej ON SDO;
+        [sthreat] (a0);
+        sthreat ON contact (a1);
+        sthreat ON RWA (a2);
+        sthreat ON RWAXCONT (a3);
+        sthreat ON SDO;
+        contact rwa rwaxcont sdo;
+INPUT_END
+3
+0
+0
+0
+ML
+1
+GENERAL
+0
+6
+0
+0
+prej sthreat contact rwa rwaxcont sdo
+3
+2 1 0 0 0 0
+0
+0
+1 1 sthreat prej    0.486    0.026    0.435    0.536
+91 1 sthreat prej b1
+1 1 contact prej   -0.245    0.029   -0.303   -0.188
+91 1 contact prej cdash
+1 1 sdo prej    0.321    0.037    0.248    0.394
+1 1 contact sthreat   -0.092    0.029   -0.149   -0.034
+91 1 contact sthreat a1
+1 1 rwa sthreat    0.284    0.027    0.232    0.337
+91 1 rwa sthreat a2
+1 1 rwaxcont sthreat   -0.084    0.041   -0.166   -0.003
+91 1 rwaxcont sthreat a3
+1 1 sdo sthreat    0.353    0.040    0.274    0.431
+2 1 rwa contact   -0.119    0.013   -0.145   -0.094
+2 1 rwaxcont contact    0.036    0.014    0.009    0.062
+2 1 rwaxcont rwa    0.066    0.016    0.036    0.097
+2 1 sdo contact   -0.056    0.010   -0.075   -0.037
+2 1 sdo rwa    0.117    0.011    0.096    0.139
+2 1 sdo rwaxcont    0.019    0.007    0.005    0.032
+4 1 prej    0.488    0.019    0.450    0.526
+4 1 sthreat    0.511    0.020    0.471    0.550
+5 1 contact    0.459    0.017    0.426    0.491
+5 1 rwa    0.561    0.023    0.515    0.606
+5 1 rwaxcont    0.221    0.013    0.195    0.247
+5 1 sdo    0.312    0.012    0.289    0.335

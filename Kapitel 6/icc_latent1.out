@@ -1,0 +1,425 @@
+Mplus VERSION 7.4
+MUTHEN & MUTHEN
+10/13/2016   9:44 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:    Messfehlerkorrigierter Intraklassen-Korrelationskoeffizient (ICC)
+            für latente Variablen (SEM) - Modell 1
+
+  DATA:     FILE IS civics99.dat;
+
+  VARIABLE: NAMES ARE idschool bs4e3 bs4e7 bs4e10
+            bs4h2 bs4h3 bs4h5 bs4h6 bs4h2_r bs4h3_r bs4h5_r
+            schtyp;
+
+            MISSING ARE ALL (99);
+            CLUSTER IS idschool;
+
+            USEVARIABLES ARE
+                               ! "Immigrants’ children should have the same opportunities (R
+            bs4h2_r            !  for education that other children in the country have" (R)
+            bs4h3_r            ! "Immigrants who live in a country for several years should
+            bs4h5_r            ! "Immigrants should have all the same rights that everyone e
+            bs4h6              ! "Immigrants should be forbidden to engage in political acti
+            bs4e3              ! "The flag of this country [name of country] is important to
+            bs4e7              ! "I have great love for this country [name of country]"
+            bs4e10;            ! "The national anthem of this country [name of country] is i
+
+  ANALYSIS: TYPE IS TWOLEVEL;
+
+  MODEL:    %WITHIN%
+
+            pride_w BY
+            bs4e10
+            bs4e7
+            bs4e3;
+
+            pride_w (prid_var_w);
+
+            prej_w BY
+            bs4h2_r
+            bs4h3_r
+            bs4h5_r
+            bs4h6;
+
+            prej_w (prej_var_w);
+
+            %BETWEEN%
+
+            pride_b BY
+            bs4e10
+            bs4e7
+            bs4e3;
+
+            pride_b (prid_var_b);
+
+            prej_b BY
+            bs4h2_r
+            bs4h3_r
+            bs4h5_r
+            bs4h6;
+
+            prej_b (prej_var_b);
+
+  MODEL CONSTRAINT:
+
+            NEW (ICC_prid ICC_prej);
+            ICC_prid = prid_var_b/(prid_var_b + prid_var_w);
+            ICC_prej = prej_var_b/(prej_var_b + prej_var_w);
+
+  OUTPUT: cinterval;
+
+
+
+
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+                               ! "Immigrants’ children should have the same opportunities (R)
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+            bs4h3_r            ! "Immigrants who live in a country for several years should h
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+            bs4h5_r            ! "Immigrants should have all the same rights that everyone el
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+            bs4h6              ! "Immigrants should be forbidden to engage in political activ
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+            bs4e10;            ! "The national anthem of this country [name of country] is im
+   5 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Messfehlerkorrigierter Intraklassen-Korrelationskoeffizient (ICC)
+für latente Variablen (SEM) - Modell 1
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        2400
+
+Number of dependent variables                                    7
+Number of independent variables                                  0
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Continuous
+   BS4H2_R     BS4H3_R     BS4H5_R     BS4H6       BS4E3       BS4E7
+   BS4E10
+
+Continuous latent variables
+   PRIDE_W     PREJ_W      PRIDE_B     PREJ_B
+
+Variables with special functions
+
+  Cluster variable      IDSCHOOL
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  civics99.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            30
+     Number of clusters                        135
+
+     Average cluster size       17.778
+
+     Estimated Intraclass Correlations for the Y Variables
+
+                Intraclass              Intraclass              Intraclass
+     Variable  Correlation   Variable  Correlation   Variable  Correlation
+
+     BS4H2_R      0.130      BS4H3_R      0.094      BS4H5_R      0.098
+     BS4H6        0.067      BS4E3        0.142      BS4E7        0.125
+     BS4E10       0.134
+
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              BS4H2_R       BS4H3_R       BS4H5_R       BS4H6         BS4E3
+              ________      ________      ________      ________      ________
+ BS4H2_R        0.970
+ BS4H3_R        0.921         0.935
+ BS4H5_R        0.934         0.903         0.952
+ BS4H6          0.905         0.886         0.894         0.921
+ BS4E3          0.970         0.935         0.952         0.921         1.000
+ BS4E7          0.970         0.935         0.952         0.921         1.000
+ BS4E10         0.938         0.902         0.917         0.893         0.962
+
+
+           Covariance Coverage
+              BS4E7         BS4E10
+              ________      ________
+ BS4E7          1.000
+ BS4E10         0.962         0.962
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       37
+
+Loglikelihood
+
+          H0 Value                      -18541.986
+          H0 Scaling Correction Factor      1.3969
+            for MLR
+          H1 Value                      -18525.123
+          H1 Scaling Correction Factor      1.2056
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   37157.972
+          Bayesian (BIC)                 37371.952
+          Sample-Size Adjusted BIC       37254.394
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                             36.135*
+          Degrees of Freedom                    26
+          P-Value                           0.0892
+          Scaling Correction Factor         0.9333
+            for MLR
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.013
+
+CFI/TLI
+
+          CFI                                0.998
+          TLI                                0.997
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           4788.825
+          Degrees of Freedom                    42
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value for Within                   0.016
+          Value for Between                  0.024
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Within Level
+
+ PRIDE_W  BY
+    BS4E10             1.000      0.000    999.000    999.000
+    BS4E7              0.735      0.032     22.684      0.000
+    BS4E3              0.933      0.036     26.021      0.000
+
+ PREJ_W   BY
+    BS4H2_R            1.000      0.000    999.000    999.000
+    BS4H3_R            0.978      0.042     23.085      0.000
+    BS4H5_R            1.108      0.040     27.642      0.000
+    BS4H6              0.833      0.051     16.395      0.000
+
+ PREJ_W   WITH
+    PRIDE_W            0.155      0.019      7.974      0.000
+
+ Variances
+    PRIDE_W            0.623      0.030     20.437      0.000
+    PREJ_W             0.388      0.033     11.911      0.000
+
+ Residual Variances
+    BS4H2_R            0.240      0.017     14.003      0.000
+    BS4H3_R            0.372      0.021     17.891      0.000
+    BS4H5_R            0.269      0.018     14.609      0.000
+    BS4H6              0.520      0.031     16.730      0.000
+    BS4E3              0.345      0.029     11.714      0.000
+    BS4E7              0.509      0.023     22.072      0.000
+    BS4E10             0.246      0.025      9.663      0.000
+
+Between Level
+
+ PRIDE_B  BY
+    BS4E10             1.000      0.000    999.000    999.000
+    BS4E7              0.895      0.063     14.225      0.000
+    BS4E3              1.032      0.057     18.226      0.000
+
+ PREJ_B   BY
+    BS4H2_R            1.000      0.000    999.000    999.000
+    BS4H3_R            0.926      0.077     11.967      0.000
+    BS4H5_R            0.955      0.069     13.853      0.000
+    BS4H6              0.810      0.078     10.416      0.000
+
+ PREJ_B   WITH
+    PRIDE_B            0.085      0.015      5.837      0.000
+
+ Intercepts
+    BS4H2_R            1.937      0.032     61.181      0.000
+    BS4H3_R            2.229      0.030     73.808      0.000
+    BS4H5_R            2.107      0.031     68.504      0.000
+    BS4H6              2.089      0.027     75.982      0.000
+    BS4E3              2.751      0.039     71.397      0.000
+    BS4E7              2.795      0.036     78.435      0.000
+    BS4E10             2.622      0.037     69.937      0.000
+
+ Variances
+    PRIDE_B            0.132      0.022      6.111      0.000
+    PREJ_B             0.087      0.017      5.210      0.000
+
+ Residual Variances
+    BS4H2_R            0.007      0.004      1.714      0.087
+    BS4H3_R            0.003      0.004      0.657      0.511
+    BS4H5_R            0.001      0.004      0.321      0.748
+    BS4H6              0.001      0.006      0.134      0.893
+    BS4E3              0.007      0.007      0.892      0.372
+    BS4E7              0.016      0.007      2.210      0.027
+    BS4E10             0.002      0.004      0.524      0.600
+
+New/Additional Parameters
+    ICC_PRID           0.174      0.026      6.609      0.000
+    ICC_PREJ           0.183      0.030      6.135      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.170E-04
+       (ratio of smallest to largest eigenvalue)
+
+
+CONFIDENCE INTERVALS OF MODEL RESULTS
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+Within Level
+
+ PRIDE_W  BY
+    BS4E10           1.000       1.000       1.000       1.000       1.000       1.000       1.000
+    BS4E7            0.651       0.671       0.682       0.735       0.788       0.798       0.818
+    BS4E3            0.841       0.863       0.874       0.933       0.992       1.004       1.026
+
+ PREJ_W   BY
+    BS4H2_R          1.000       1.000       1.000       1.000       1.000       1.000       1.000
+    BS4H3_R          0.869       0.895       0.909       0.978       1.048       1.061       1.088
+    BS4H5_R          1.005       1.029       1.042       1.108       1.174       1.187       1.211
+    BS4H6            0.702       0.733       0.749       0.833       0.916       0.932       0.964
+
+ PREJ_W   WITH
+    PRIDE_W          0.105       0.117       0.123       0.155       0.187       0.193       0.205
+
+ Variances
+    PRIDE_W          0.545       0.564       0.573       0.623       0.673       0.683       0.702
+    PREJ_W           0.304       0.324       0.335       0.388       0.442       0.452       0.472
+
+ Residual Variances
+    BS4H2_R          0.196       0.206       0.212       0.240       0.268       0.273       0.284
+    BS4H3_R          0.318       0.331       0.338       0.372       0.406       0.412       0.425
+    BS4H5_R          0.221       0.233       0.238       0.269       0.299       0.305       0.316
+    BS4H6            0.440       0.459       0.469       0.520       0.572       0.581       0.601
+    BS4E3            0.269       0.287       0.296       0.345       0.393       0.402       0.420
+    BS4E7            0.450       0.464       0.471       0.509       0.547       0.555       0.569
+    BS4E10           0.180       0.196       0.204       0.246       0.288       0.296       0.311
+
+Between Level
+
+ PRIDE_B  BY
+    BS4E10           1.000       1.000       1.000       1.000       1.000       1.000       1.000
+    BS4E7            0.733       0.772       0.791       0.895       0.998       1.018       1.057
+    BS4E3            0.886       0.921       0.939       1.032       1.125       1.143       1.178
+
+ PREJ_B   BY
+    BS4H2_R          1.000       1.000       1.000       1.000       1.000       1.000       1.000
+    BS4H3_R          0.727       0.775       0.799       0.926       1.054       1.078       1.126
+    BS4H5_R          0.778       0.820       0.842       0.955       1.069       1.090       1.133
+    BS4H6            0.610       0.658       0.682       0.810       0.938       0.963       1.011
+
+ PREJ_B   WITH
+    PRIDE_B          0.048       0.057       0.061       0.085       0.109       0.114       0.123
+
+ Intercepts
+    BS4H2_R          1.855       1.875       1.885       1.937       1.989       1.999       2.018
+    BS4H3_R          2.151       2.169       2.179       2.229       2.278       2.288       2.306
+    BS4H5_R          2.028       2.047       2.056       2.107       2.158       2.167       2.186
+    BS4H6            2.019       2.036       2.044       2.089       2.135       2.143       2.160
+    BS4E3            2.651       2.675       2.687       2.751       2.814       2.826       2.850
+    BS4E7            2.703       2.725       2.736       2.795       2.853       2.865       2.886
+    BS4E10           2.525       2.548       2.560       2.622       2.684       2.695       2.718
+
+ Variances
+    PRIDE_B          0.076       0.089       0.096       0.132       0.167       0.174       0.187
+    PREJ_B           0.044       0.054       0.059       0.087       0.114       0.119       0.130
+
+ Residual Variances
+    BS4H2_R         -0.003      -0.001       0.000       0.007       0.014       0.015       0.017
+    BS4H3_R         -0.008      -0.005      -0.004       0.003       0.009       0.011       0.013
+    BS4H5_R         -0.010      -0.007      -0.006       0.001       0.009       0.010       0.013
+    BS4H6           -0.015      -0.011      -0.009       0.001       0.011       0.013       0.017
+    BS4E3           -0.013      -0.008      -0.006       0.007       0.019       0.021       0.026
+    BS4E7           -0.003       0.002       0.004       0.016       0.029       0.031       0.036
+    BS4E10          -0.009      -0.006      -0.005       0.002       0.010       0.011       0.014
+
+New/Additional Parameters
+    ICC_PRID         0.106       0.123       0.131       0.174       0.218       0.226       0.242
+    ICC_PREJ         0.106       0.124       0.134       0.183       0.231       0.241       0.259
+
+
+DIAGRAM INFORMATION
+
+  Mplus diagrams are currently not available for multilevel analysis.
+  No diagram output was produced.
+
+
+     Beginning Time:  21:44:04
+        Ending Time:  21:44:15
+       Elapsed Time:  00:00:11
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen

@@ -1,0 +1,81 @@
+
+TITLE:    Mehrebenenanalyse/Test eines Kontexteffekts 
+
+DATA:     FILE IS GMF02_Querschnitt_MLM.dat;
+
+VARIABLE: NAMES ARE qcp_ser kreis1 ka03w1r aa01w1r aa03w1r 
+          ff04d1r ff08d1r ff03d1r tab02_08 contact prej;
+          USEVARIABLES ARE contact prej;
+          MISSING ARE contact prej (99);
+          CLUSTER IS kreis1; 
+                
+ANALYSIS: TYPE IS TWOLEVEL;  
+
+MODEL:    %WITHIN%      
+          prej ON contact (gamma10);  ! Modellspezifikation auf der Individualebene
+                                      ! & Kennzeichnung des Within-Schätzers von 
+                                      ! Intergruppenkontakt
+          %BETWEEN%     
+          prej ON contact (gamma01);  ! Modellspezifikation auf der Kontextebene
+                                      ! & Kennzeichnung des Between-Schätzers von 
+                                      ! Intergruppenkontact
+          
+          MODEL CONSTRAINT:           ! Definition des neuen Parameters beta_c
+          new (beta_c);               
+          beta_c = gamma01 - gamma10; ! Test des Kontexteffekts beta_c
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+

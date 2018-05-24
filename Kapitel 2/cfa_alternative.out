@@ -1,0 +1,377 @@
+Mplus VERSION 7.4
+MUTHEN & MUTHEN
+09/16/2016   8:33 AM
+
+INPUT INSTRUCTIONS
+
+
+  TITLE:    Prüfung eines alternativen Messmodells
+
+  DATA:     FILE IS GMF05_Querschnitt_CFA.dat;
+
+  VARIABLE: NAMES ARE qcp_ser he01hq4 sx03q4r sx04q4r he01oq4r
+            he02oq4r he02hq4r ff04dq4r ff08dq4r ev03q4r ev04q4r
+            ra01q4r ra03q4r as01q4r as02q4r he05mq4r he12mq4r
+            ka05q4r zu01q4k;
+
+            USEVARIABLES ARE he01hq4 sx03q4r sx04q4r he01oq4r
+            he02oq4r he02hq4r ff04dq4r ff08dq4r ev03q4r ev04q4r
+            ra01q4r ra03q4r as01q4r as02q4r he05mq4r he12mq4r;
+
+            MISSING ARE he01oq4r he02oq4r (99);
+
+  MODEL:    gmf BY sx03q4r sx04q4r ! Spezifikation einer
+            he01hq4 he02hq4r       ! latenten Variablen
+            as01q4r as02q4r
+            ff04dq4r ff08dq4r
+            ra01q4r ra03q4r
+            he01oq4r he02oq4r
+            he05mq4r he12mq4r
+            ev03q4r ev04q4r;
+
+  OUTPUT:   STDYX;
+
+
+
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Prüfung eines alternativen Messmodells
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1778
+
+Number of dependent variables                                   16
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Continuous
+   HE01HQ4     SX03Q4R     SX04Q4R     HE01OQ4R    HE02OQ4R    HE02HQ4R
+   FF04DQ4R    FF08DQ4R    EV03Q4R     EV04Q4R     RA01Q4R     RA03Q4R
+   AS01Q4R     AS02Q4R     HE05MQ4R    HE12MQ4R
+
+Continuous latent variables
+   GMF
+
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+
+Input data file(s)
+  GMF05_Querschnitt_CFA.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             2
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              HE01HQ4       SX03Q4R       SX04Q4R       HE01OQ4R      HE02OQ4R
+              ________      ________      ________      ________      ________
+ HE01HQ4        1.000
+ SX03Q4R        1.000         1.000
+ SX04Q4R        1.000         1.000         1.000
+ HE01OQ4R       0.999         0.999         0.999         0.999
+ HE02OQ4R       0.999         0.999         0.999         0.999         0.999
+ HE02HQ4R       1.000         1.000         1.000         0.999         0.999
+ FF04DQ4R       1.000         1.000         1.000         0.999         0.999
+ FF08DQ4R       1.000         1.000         1.000         0.999         0.999
+ EV03Q4R        1.000         1.000         1.000         0.999         0.999
+ EV04Q4R        1.000         1.000         1.000         0.999         0.999
+ RA01Q4R        1.000         1.000         1.000         0.999         0.999
+ RA03Q4R        1.000         1.000         1.000         0.999         0.999
+ AS01Q4R        1.000         1.000         1.000         0.999         0.999
+ AS02Q4R        1.000         1.000         1.000         0.999         0.999
+ HE05MQ4R       1.000         1.000         1.000         0.999         0.999
+ HE12MQ4R       1.000         1.000         1.000         0.999         0.999
+
+
+           Covariance Coverage
+              HE02HQ4R      FF04DQ4R      FF08DQ4R      EV03Q4R       EV04Q4R
+              ________      ________      ________      ________      ________
+ HE02HQ4R       1.000
+ FF04DQ4R       1.000         1.000
+ FF08DQ4R       1.000         1.000         1.000
+ EV03Q4R        1.000         1.000         1.000         1.000
+ EV04Q4R        1.000         1.000         1.000         1.000         1.000
+ RA01Q4R        1.000         1.000         1.000         1.000         1.000
+ RA03Q4R        1.000         1.000         1.000         1.000         1.000
+ AS01Q4R        1.000         1.000         1.000         1.000         1.000
+ AS02Q4R        1.000         1.000         1.000         1.000         1.000
+ HE05MQ4R       1.000         1.000         1.000         1.000         1.000
+ HE12MQ4R       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              RA01Q4R       RA03Q4R       AS01Q4R       AS02Q4R       HE05MQ4R
+              ________      ________      ________      ________      ________
+ RA01Q4R        1.000
+ RA03Q4R        1.000         1.000
+ AS01Q4R        1.000         1.000         1.000
+ AS02Q4R        1.000         1.000         1.000         1.000
+ HE05MQ4R       1.000         1.000         1.000         1.000         1.000
+ HE12MQ4R       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              HE12MQ4R
+              ________
+ HE12MQ4R       1.000
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       48
+
+Loglikelihood
+
+          H0 Value                      -34249.455
+          H1 Value                      -33043.166
+
+Information Criteria
+
+          Akaike (AIC)                   68594.909
+          Bayesian (BIC)                 68858.105
+          Sample-Size Adjusted BIC       68705.612
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                           2412.577
+          Degrees of Freedom                   104
+          P-Value                           0.0000
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.112
+          90 Percent C.I.                    0.108  0.116
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.742
+          TLI                                0.702
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           9064.830
+          Degrees of Freedom                   120
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.071
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ GMF      BY
+    SX03Q4R            1.000      0.000    999.000    999.000
+    SX04Q4R            0.901      0.055     16.256      0.000
+    HE01HQ4            0.978      0.073     13.402      0.000
+    HE02HQ4R           1.161      0.074     15.712      0.000
+    AS01Q4R            1.150      0.066     17.490      0.000
+    AS02Q4R            0.952      0.055     17.216      0.000
+    FF04DQ4R           1.649      0.086     19.130      0.000
+    FF08DQ4R           1.602      0.084     19.181      0.000
+    RA01Q4R            0.863      0.057     15.122      0.000
+    RA03Q4R            0.913      0.055     16.541      0.000
+    HE01OQ4R           1.027      0.066     15.457      0.000
+    HE02OQ4R           0.713      0.059     11.999      0.000
+    HE05MQ4R           1.424      0.080     17.911      0.000
+    HE12MQ4R           1.350      0.073     18.490      0.000
+    EV03Q4R            0.892      0.063     14.129      0.000
+    EV04Q4R            1.274      0.076     16.816      0.000
+
+ Intercepts
+    HE01HQ4            2.022      0.027     76.313      0.000
+    SX03Q4R            1.912      0.021     91.559      0.000
+    SX04Q4R            1.702      0.019     88.721      0.000
+    HE01OQ4R           2.274      0.022    104.191      0.000
+    HE02OQ4R           2.303      0.021    107.158      0.000
+    HE02HQ4R           2.033      0.025     81.302      0.000
+    FF04DQ4R           2.691      0.023    114.733      0.000
+    FF08DQ4R           2.182      0.023     95.463      0.000
+    EV03Q4R            2.885      0.022    131.132      0.000
+    EV04Q4R            2.062      0.024     86.679      0.000
+    RA01Q4R            1.795      0.019     93.066      0.000
+    RA03Q4R            1.498      0.018     83.731      0.000
+    AS01Q4R            1.804      0.020     88.727      0.000
+    AS02Q4R            1.538      0.017     88.593      0.000
+    HE05MQ4R           2.117      0.023     90.111      0.000
+    HE12MQ4R           2.009      0.021     95.919      0.000
+
+ Variances
+    GMF                0.190      0.018     10.410      0.000
+
+ Residual Variances
+    HE01HQ4            1.067      0.037     29.057      0.000
+    SX03Q4R            0.586      0.021     28.296      0.000
+    SX04Q4R            0.500      0.018     28.373      0.000
+    HE01OQ4R           0.645      0.023     28.510      0.000
+    HE02OQ4R           0.724      0.025     29.238      0.000
+    HE02HQ4R           0.855      0.030     28.519      0.000
+    FF04DQ4R           0.461      0.018     24.943      0.000
+    FF08DQ4R           0.440      0.018     25.104      0.000
+    EV03Q4R            0.709      0.024     28.952      0.000
+    EV04Q4R            0.698      0.025     28.013      0.000
+    RA01Q4R            0.520      0.018     28.699      0.000
+    RA03Q4R            0.410      0.015     28.203      0.000
+    AS01Q4R            0.484      0.018     27.584      0.000
+    AS02Q4R            0.363      0.013     27.722      0.000
+    HE05MQ4R           0.595      0.022     27.102      0.000
+    HE12MQ4R           0.433      0.016     26.478      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ GMF      BY
+    SX03Q4R            0.495      0.020     24.992      0.000
+    SX04Q4R            0.486      0.020     24.259      0.000
+    HE01HQ4            0.382      0.022     17.324      0.000
+    HE02HQ4R           0.480      0.020     24.004      0.000
+    AS01Q4R            0.585      0.017     33.551      0.000
+    AS02Q4R            0.567      0.018     31.638      0.000
+    FF04DQ4R           0.727      0.013     54.901      0.000
+    FF08DQ4R           0.725      0.013     54.677      0.000
+    RA01Q4R            0.463      0.020     22.789      0.000
+    RA03Q4R            0.528      0.019     28.040      0.000
+    HE01OQ4R           0.487      0.020     24.596      0.000
+    HE02OQ4R           0.343      0.023     15.203      0.000
+    HE05MQ4R           0.627      0.016     38.718      0.000
+    HE12MQ4R           0.667      0.015     44.348      0.000
+    EV03Q4R            0.419      0.021     19.824      0.000
+    EV04Q4R            0.554      0.018     30.561      0.000
+
+ Intercepts
+    HE01HQ4            1.810      0.039     46.988      0.000
+    SX03Q4R            2.171      0.043     49.969      0.000
+    SX04Q4R            2.104      0.043     49.492      0.000
+    HE01OQ4R           2.472      0.048     51.723      0.000
+    HE02OQ4R           2.543      0.049     52.077      0.000
+    HE02HQ4R           1.928      0.040     48.085      0.000
+    FF04DQ4R           2.721      0.051     52.912      0.000
+    FF08DQ4R           2.264      0.045     50.576      0.000
+    EV03Q4R            3.110      0.057     54.283      0.000
+    EV04Q4R            2.056      0.042     49.129      0.000
+    RA01Q4R            2.207      0.044     50.209      0.000
+    RA03Q4R            1.986      0.041     48.573      0.000
+    AS01Q4R            2.104      0.043     49.493      0.000
+    AS02Q4R            2.101      0.042     49.470      0.000
+    HE05MQ4R           2.137      0.043     49.729      0.000
+    HE12MQ4R           2.275      0.045     50.643      0.000
+
+ Variances
+    GMF                1.000      0.000    999.000    999.000
+
+ Residual Variances
+    HE01HQ4            0.854      0.017     50.827      0.000
+    SX03Q4R            0.755      0.020     38.471      0.000
+    SX04Q4R            0.764      0.019     39.279      0.000
+    HE01OQ4R           0.763      0.019     39.587      0.000
+    HE02OQ4R           0.882      0.016     56.851      0.000
+    HE02HQ4R           0.769      0.019     40.054      0.000
+    FF04DQ4R           0.471      0.019     24.453      0.000
+    FF08DQ4R           0.474      0.019     24.657      0.000
+    EV03Q4R            0.824      0.018     46.427      0.000
+    EV04Q4R            0.693      0.020     34.505      0.000
+    RA01Q4R            0.786      0.019     41.862      0.000
+    RA03Q4R            0.721      0.020     36.292      0.000
+    AS01Q4R            0.658      0.020     32.303      0.000
+    AS02Q4R            0.678      0.020     33.323      0.000
+    HE05MQ4R           0.607      0.020     29.862      0.000
+    HE12MQ4R           0.556      0.020     27.721      0.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    HE01HQ4            0.146      0.017      8.662      0.000
+    SX03Q4R            0.245      0.020     12.496      0.000
+    SX04Q4R            0.236      0.019     12.129      0.000
+    HE01OQ4R           0.237      0.019     12.298      0.000
+    HE02OQ4R           0.118      0.016      7.602      0.000
+    HE02HQ4R           0.231      0.019     12.002      0.000
+    FF04DQ4R           0.529      0.019     27.450      0.000
+    FF08DQ4R           0.526      0.019     27.338      0.000
+    EV03Q4R            0.176      0.018      9.912      0.000
+    EV04Q4R            0.307      0.020     15.280      0.000
+    RA01Q4R            0.214      0.019     11.394      0.000
+    RA03Q4R            0.279      0.020     14.020      0.000
+    AS01Q4R            0.342      0.020     16.776      0.000
+    AS02Q4R            0.322      0.020     15.819      0.000
+    HE05MQ4R           0.393      0.020     19.359      0.000
+    HE12MQ4R           0.444      0.020     22.174      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.121E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    e:\fertig\begleitmaterial\kapitel 2\cfa_alternative.dgm
+
+     Beginning Time:  08:33:32
+        Ending Time:  08:33:33
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen

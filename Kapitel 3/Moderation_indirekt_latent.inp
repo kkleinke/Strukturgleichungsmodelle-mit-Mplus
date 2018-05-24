@@ -1,0 +1,68 @@
+TITLE:  Moderation & Mediation (konditionale indirekte Effekte) 
+        für latente Variablen;
+
+DATA:   FILE IS modmedlatent.dat;
+
+VARIABLE:
+        NAMES ARE 
+            au01q3r  ! Verbrechen härter bestrafen
+            au02q3r  ! um Recht u. Ordnung zu bewahren, härter gegen Außenseiter vorgehen
+            ff04dq3r ! zu viele Ausländer in Deutschland 
+            ff08dq3r ! wenn Arbeit knapp, Ausländer zurück
+            do01q3r  ! Gruppen, die unten sind, sollen unten bleiben
+            do02q3r  ! gibt Gruppen in der Bevölk., die weniger wert sind als andere
+            do03q3r  ! einige Gruppen sind nützlicher als andere
+            ka01q3r  ! wie oft Kontakt mit Ausländern in Nachbarschaft?
+            ka02q3r  ! wie oft Kontakt mit Ausländern am Arbeitsplatz?
+            ka03q3r  ! wie viele Freunde sind Ausländer?
+            sthreat  ! Ausl. bedrohen unsere Freiheiten und Rechte
+            tg05q3r; ! Ausl. bedrohen unseren Wohlstand
+    
+        USEVARIABLES ARE 
+            au01q3r au02q3r         ! Autoritarismus 
+            ff04dq3r ff08dq3r       ! Vorurteile
+            do01q3r do02q3r do03q3r ! Dominanzorientierung
+            ka01q3r ka02q3r ka03q3r ! Kontakt
+            sthreat;                ! soziale Bedrohung
+               
+        MISSING ARE all (99);
+
+ANALYSIS: 
+        TYPE IS RANDOM;      
+        ALGORITHM IS INTEGRATION;
+
+MODEL:  
+                                      ! Messmodelle
+        prej     BY ff04dq3r ff08dq3r;
+
+        rwa      BY au01q3r* au02q3r;
+        rwa@1;   ! rwa wird standardisiert: -/+ 1 SD
+        
+        contact  BY ka01q3r ka02q3r ka03q3r;
+        
+        sdo      BY do01q3r do02q3r do03q3r;
+
+        rwaxcont | rwa XWITH contact; ! Interaktion
+         
+        prej ON sthreat (b1);         ! Strukturmodelll
+        prej ON contact (cdash);
+        prej ON SDO;                      
+
+        sthreat ON contact (a1); 
+        sthreat ON RWA (a2); 
+        sthreat ON RWAXCONT (a3);
+        sthreat ON SDO;
+
+MODEL CONSTRAINT:
+        NEW (LOrwa HIrwa INDLO INDHI);
+        LOrwa = -1;
+        HIrwa = 1;
+        INDLO = a1*b1+a3*b1*LOrwa;
+        INDHI = a1*b1+a3*b1*HIrwa;
+          
+        PLOT(LOMOD HIMOD);
+        LOOP(XVAL,-1,1,0.1);
+        LOMOD = INDLO*XVAL;
+        HIMOD = INDHI*XVAL;
+
+PLOT:   TYPE = PLOT2;

@@ -1,0 +1,62 @@
+
+TITLE:    Multiple Gruppenvergleiche - Modell Metrische Invarianz
+
+DATA:     FILE IS GMF05_Querschnitt_CFA.dat;
+
+VARIABLE: NAMES ARE qcp_ser he01hq4 sx03q4r sx04q4r he01oq4r 
+          he02oq4r he02hq4r ff04dq4r ff08dq4r ev03q4r ev04q4r 
+          ra01q4r ra03q4r as01q4r as02q4r he05mq4r he12mq4r 
+          ka05q4r zu01q4k;
+          
+          USEVARIABLES ARE he01hq4 sx03q4r sx04q4r he01oq4r 
+          he02oq4r he02hq4r ff04dq4r ff08dq4r ev03q4r ev04q4r 
+          ra01q4r ra03q4r as01q4r as02q4r he05mq4r he12mq4r;
+          
+          MISSING ARE he01oq4r he02oq4r (99);
+          
+          USEOBSERVATIONS = zu01q4k EQ 2 OR zu01q4k EQ 3;
+          
+          GROUPING IS zu01q4k (2=mittel 3=hoch);       
+
+MODEL:    sexism BY sx03q4r* sx04q4r;
+          sexism@1;
+          homoph BY he01hq4* he02hq4r;
+          homoph@1;
+          antisem BY as01q4r* as02q4r;
+          antisem@1;
+          fremdenf BY ff04dq4r* ff08dq4r;
+          fremdenf@1;
+          rass BY ra01q4r* ra03q4r;
+          rass@1;
+          obdachl BY he01oq4r* he02oq4r;
+          obdachl@1;
+          islamph BY he05mq4r* he12mq4r;
+          islamph@1;
+          etabl BY ev03q4r* ev04q4r;
+          etabl@1;
+
+          MODEL hoch:     
+
+          ! sexism BY sx03q4r sx04q4r;     
+          ! homoph BY he01hq4 he02hq4r;  
+          ! antisem BY as01q4r as02q4r;  
+          fremdenf BY ff04dq4r;! ff08dq4r;
+          ! rass BY ra01q4r ra03q4r;
+          ! obdachl BY he01oq4r he02oq4r;
+          ! islamph BY he05mq4r he12mq4r;
+          ! etabl BY ev03q4r ev04q4r;
+
+          ! [sx03q4r sx04q4r];    
+          [he01hq4]; ! [he02hq4r];  
+          ! [as01q4r as02q4r];   
+          ! [ff04dq4r ff08dq4r];
+          ! [ra01q4r ra03q4r];
+          ! [he01oq4r he02oq4r];
+          ! [he05mq4r he12mq4r];
+          ! [ev03q4r ev04q4r];
+
+          ! [sexism-etabl@0];
+          sexism-etabl*;    
+
+OUTPUT:   MODINDICES;
+      

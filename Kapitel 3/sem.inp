@@ -1,0 +1,39 @@
+
+Title:    SEM Intergruppenkontakt und GMF
+
+Data:     FILE IS GMF07_Querschnitt_SEM.dat;
+          
+VARIABLE: NAMES ARE qcp_ser sx03q6r sx04q6r he01oq6r he02oq6r 
+          he01hq6 he02hq6r ff04dq6r ff08dq6r he05mq6r he12mq6r 
+          ev03q6r ev04q6r ra01q6r ra03q6r as01q6r as02q6r 
+          dy04q6r dy02q6r ka03nq4r;
+          
+          USEVARIABLES sx03q6r sx04q6r he01oq6r he02oq6r 
+          he01hq6 he02hq6r ff04dq6r ff08dq6r he05mq6r he12mq6r 
+          ev03q6r ev04q6r ra01q6r ra03q6r as01q6r as02q6r ka03nq4r;
+          
+          MISSING ARE ALL (99); 
+    
+MODEL:    sexism BY sx03q6r sx04q6r;      ! Messmodelle für die Elemente
+          homoph BY he01hq6 he02hq6r;     ! von GMF
+          antisem BY as01q6r as02q6r;
+          fremdenf BY ff04dq6r ff08dq6r;
+          rass BY ra01q6r ra03q6r;
+          obdachl BY he01oq6r he02oq6r;
+          islamph BY he05mq6r he12mq6r;
+          etabl BY ev03q6r ev04q6r;
+
+          GMF BY sexism homoph antisem fremdenf rass ! Messmodell GMF
+          obdachl islamph etabl;
+
+          GMF ON ka03nq4r;    ! Regression von GMF auf Intergruppenkontakt
+          
+OUTPUT:   STDYX; MODINDICES;
+
+
+
+
+
+
+
+

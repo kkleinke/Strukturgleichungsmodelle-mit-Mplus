@@ -1,0 +1,35 @@
+TITLE:  Moderation für manifeste Variablen;
+
+DATA:   FILE IS modmedexample.dat;
+
+VARIABLE:
+        NAMES ARE cthreat sthreat prej contact rwa sdo rwaxcont sdoxcont;
+    
+        USEVARIABLES ARE prej contact rwa sdo rwaxcont sdoxcont;
+    
+        MISSING ARE prej contact rwa sdo rwaxcont sdoxcont (99);
+
+MODEL:  
+        [prej] (b0);
+        prej ON 
+                contact (b1)
+                rwa (b2)
+                rwaxcont (b3) 
+                sdo  
+                sdoxcont;
+
+        rwa rwaxcont sdo sdoxcont;
+
+ MODEL CONSTRAINT:
+ 
+         PLOT(lo_rwa hi_rwa);
+         LOOP(contact, -0.7, 0.7, .1); ! +/- 0.7 entspricht etwa +/-1 SD
+         lo_rwa = b0 + (b1*contact) + (b2*(-0.7)) + (b3*contact* (-0.7));
+         hi_rwa = b0 + (b1*contact) + (b2*(0.7)) +(b3*contact*(0.7));
+
+         NEW(c_lo_rwa c_hi_rwa);
+         c_lo_rwa = b1 + (b3 * (-0.7));
+         c_hi_rwa  = b1 + (b3 * (0.7));
+
+PLOT:    TYPE IS PLOT2;
+

@@ -1,0 +1,388 @@
+Mplus VERSION 7.4
+MUTHEN & MUTHEN
+03/23/2016   1:30 PM
+
+INPUT INSTRUCTIONS
+
+
+  TITLE:    Konfirmatorische Mehrebenen-Faktorenanalyse
+
+  DATA:     FILE IS GMF02_Querschnitt_MLM.dat;
+
+  VARIABLE: NAMES ARE qcp_ser kreis1 ka03w1r aa01w1r aa03w1r
+            ff04d1r ff08d1r ff03d1r tab02_08 contact prej;
+            USEVARIABLES ARE ka03w1r aa01w1r aa03w1r
+            ff04d1r ff08d1r ff03d1r;
+            MISSING ARE ALL (99);
+            CLUSTER IS kreis1;
+
+  ANALYSIS: TYPE IS TWOLEVEL;
+
+  MODEL:    %WITHIN%
+            contactw BY ka03w1r aa01w1r aa03w1r; ! Messmodell für Intergruppen-
+            prejw BY ff04d1r ff08d1r ff03d1r;    ! kontakt und Fremdenfeindlich-
+                                                 ! keit auf der Individualebene
+
+            %BETWEEN%
+            contactb BY ka03w1r aa01w1r aa03w1r; ! Messmodell für Intergruppen-
+            prejb BY ff04d1r ff08d1r ff03d1r;    ! kontakt und Fremdenfeindlich-
+                                                 ! keit auf der Kontextebene
+
+            ka03w1r-aa03w1r@0;                   ! Fixierung der Residuen auf
+            ff04d1r-ff03d1r@0;                   ! Null
+
+  OUTPUT:   STDYX;
+
+
+
+
+
+
+
+
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Konfirmatorische Mehrebenen-Faktorenanalyse
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        2722
+
+Number of dependent variables                                    6
+Number of independent variables                                  0
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Continuous
+   KA03W1R     AA01W1R     AA03W1R     FF04D1R     FF08D1R     FF03D1R
+
+Continuous latent variables
+   CONTACTW    PREJW       CONTACTB    PREJB
+
+Variables with special functions
+
+  Cluster variable      KREIS1
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  GMF02_Querschnitt_MLM.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            13
+     Number of clusters                        418
+
+     Average cluster size        6.512
+
+     Estimated Intraclass Correlations for the Y Variables
+
+                Intraclass              Intraclass              Intraclass
+     Variable  Correlation   Variable  Correlation   Variable  Correlation
+
+     KA03W1R      0.134      AA01W1R      0.147      AA03W1R      0.116
+     FF04D1R      0.066      FF08D1R      0.051      FF03D1R      0.080
+
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              KA03W1R       AA01W1R       AA03W1R       FF04D1R       FF08D1R
+              ________      ________      ________      ________      ________
+ KA03W1R        0.999
+ AA01W1R        0.997         0.999
+ AA03W1R        0.997         0.997         0.999
+ FF04D1R        0.982         0.982         0.982         0.983
+ FF08D1R        0.980         0.980         0.980         0.968         0.982
+ FF03D1R        0.977         0.977         0.978         0.966         0.965
+
+
+           Covariance Coverage
+              FF03D1R
+              ________
+ FF03D1R        0.979
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       26
+
+Loglikelihood
+
+          H0 Value                      -19128.478
+          H0 Scaling Correction Factor      1.1289
+            for MLR
+          H1 Value                      -19101.185
+          H1 Scaling Correction Factor      0.9522
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   38308.957
+          Bayesian (BIC)                 38462.594
+          Sample-Size Adjusted BIC       38379.984
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                             73.434*
+          Degrees of Freedom                    22
+          P-Value                           0.0000
+          Scaling Correction Factor         0.7433
+            for MLR
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.029
+
+CFI/TLI
+
+          CFI                                0.990
+          TLI                                0.987
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           5305.244
+          Degrees of Freedom                    30
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value for Within                   0.017
+          Value for Between                  0.088
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Within Level
+
+ CONTACTW BY
+    KA03W1R            1.000      0.000    999.000    999.000
+    AA01W1R            1.423      0.065     21.980      0.000
+    AA03W1R            1.664      0.083     20.138      0.000
+
+ PREJW    BY
+    FF04D1R            1.000      0.000    999.000    999.000
+    FF08D1R            0.711      0.025     27.982      0.000
+    FF03D1R            0.851      0.025     33.842      0.000
+
+ PREJW    WITH
+    CONTACTW          -0.167      0.012    -14.521      0.000
+
+ Variances
+    CONTACTW           0.183      0.014     13.308      0.000
+    PREJW              0.732      0.030     24.493      0.000
+
+ Residual Variances
+    KA03W1R            0.261      0.012     22.077      0.000
+    AA01W1R            0.534      0.022     24.221      0.000
+    AA03W1R            0.433      0.024     17.843      0.000
+    FF04D1R            0.294      0.022     13.274      0.000
+    FF08D1R            0.454      0.019     23.863      0.000
+    FF03D1R            0.345      0.018     19.355      0.000
+
+Between Level
+
+ CONTACTB BY
+    KA03W1R            1.000      0.000    999.000    999.000
+    AA01W1R            1.497      0.119     12.608      0.000
+    AA03W1R            1.287      0.088     14.607      0.000
+
+ PREJB    BY
+    FF04D1R            1.000      0.000    999.000    999.000
+    FF08D1R            0.986      0.121      8.120      0.000
+    FF03D1R            1.292      0.154      8.371      0.000
+
+ PREJB    WITH
+    CONTACTB          -0.053      0.009     -5.697      0.000
+
+ Intercepts
+    KA03W1R            1.797      0.019     92.492      0.000
+    AA01W1R            2.068      0.028     73.064      0.000
+    AA03W1R            2.607      0.027     97.100      0.000
+    FF04D1R            2.515      0.026     97.860      0.000
+    FF08D1R            2.057      0.021     99.673      0.000
+    FF03D1R            2.298      0.024     97.367      0.000
+
+ Variances
+    CONTACTB           0.068      0.009      7.948      0.000
+    PREJB              0.043      0.013      3.264      0.001
+
+ Residual Variances
+    KA03W1R            0.000      0.000    999.000    999.000
+    AA01W1R            0.000      0.000    999.000    999.000
+    AA03W1R            0.000      0.000    999.000    999.000
+    FF04D1R            0.000      0.000    999.000    999.000
+    FF08D1R            0.000      0.000    999.000    999.000
+    FF03D1R            0.000      0.000    999.000    999.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Within Level
+
+ CONTACTW BY
+    KA03W1R            0.642      0.018     36.079      0.000
+    AA01W1R            0.640      0.019     33.437      0.000
+    AA03W1R            0.734      0.018     41.964      0.000
+
+ PREJW    BY
+    FF04D1R            0.845      0.013     64.006      0.000
+    FF08D1R            0.670      0.017     40.462      0.000
+    FF03D1R            0.778      0.013     58.867      0.000
+
+ PREJW    WITH
+    CONTACTW          -0.456      0.024    -18.637      0.000
+
+ Variances
+    CONTACTW           1.000      0.000    999.000    999.000
+    PREJW              1.000      0.000    999.000    999.000
+
+ Residual Variances
+    KA03W1R            0.588      0.023     25.694      0.000
+    AA01W1R            0.590      0.024     24.099      0.000
+    AA03W1R            0.461      0.026     17.921      0.000
+    FF04D1R            0.287      0.022     12.859      0.000
+    FF08D1R            0.551      0.022     24.850      0.000
+    FF03D1R            0.394      0.021     19.158      0.000
+
+Between Level
+
+ CONTACTB BY
+    KA03W1R            0.999      0.000  10767.881      0.000
+    AA01W1R            1.000      0.000  23666.234      0.000
+    AA03W1R            1.000      0.000  14162.188      0.000
+
+ PREJB    BY
+    FF04D1R            0.999      0.000   2842.100      0.000
+    FF08D1R            0.999      0.000   4298.861      0.000
+    FF03D1R            0.999      0.000   9165.942      0.000
+
+ PREJB    WITH
+    CONTACTB          -0.986      0.041    -23.805      0.000
+
+ Intercepts
+    KA03W1R            6.905      0.446     15.492      0.000
+    AA01W1R            5.308      0.349     15.228      0.000
+    AA03W1R            7.784      0.645     12.070      0.000
+    FF04D1R           12.056      1.817      6.634      0.000
+    FF08D1R            9.993      0.966     10.346      0.000
+    FF03D1R            8.525      0.671     12.699      0.000
+
+ Variances
+    CONTACTB           1.000      0.000    999.000    999.000
+    PREJB              1.000      0.000    999.000    999.000
+
+ Residual Variances
+    KA03W1R            0.001      0.000      7.960      0.000
+    AA01W1R            0.001      0.000      7.802      0.000
+    AA03W1R            0.001      0.000      6.321      0.000
+    FF04D1R            0.002      0.001      3.272      0.001
+    FF08D1R            0.002      0.000      5.087      0.000
+    FF03D1R            0.001      0.000      6.317      0.000
+
+
+R-SQUARE
+
+Within Level
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    KA03W1R            0.412      0.023     18.040      0.000
+    AA01W1R            0.410      0.024     16.719      0.000
+    AA03W1R            0.539      0.026     20.982      0.000
+    FF04D1R            0.713      0.022     32.003      0.000
+    FF08D1R            0.449      0.022     20.231      0.000
+    FF03D1R            0.606      0.021     29.434      0.000
+
+Between Level
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    KA03W1R            0.999      0.000   5383.941      0.000
+    AA01W1R            0.999      0.000   ********      0.000
+    AA03W1R            0.999      0.000   7081.094      0.000
+    FF04D1R            0.998      0.001   1421.050      0.000
+    FF08D1R            0.998      0.000   2149.431      0.000
+    FF03D1R            0.999      0.000   4582.971      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.146E-03
+       (ratio of smallest to largest eigenvalue)
+
+
+DIAGRAM INFORMATION
+
+  Mplus diagrams are currently not available for multilevel analysis.
+  No diagram output was produced.
+
+
+     Beginning Time:  13:30:49
+        Ending Time:  13:30:53
+       Elapsed Time:  00:00:04
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen

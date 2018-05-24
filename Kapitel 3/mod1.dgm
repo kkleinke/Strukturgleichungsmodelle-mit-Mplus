@@ -1,0 +1,51 @@
+VERSION 1.1.0
+INPUT
+TITLE:
+  Moderation für manifeste Variablen;
+
+DATA:
+   FILE IS modmedexample.dat;
+VARIABLE:
+        NAMES ARE cthreat sthreat prej contact rwa sdo rwaxcont sdoxcont;
+        USEVARIABLES ARE prej contact rwa sdo rwaxcont sdoxcont;
+        MISSING ARE prej contact rwa sdo rwaxcont sdoxcont (99);
+MODEL:
+  prej ON contact
+                rwa
+                rwaxcont
+                sdo
+                sdoxcont;
+        rwa rwaxcont sdo sdoxcont;
+INPUT_END
+2
+0
+0
+0
+ML
+1
+GENERAL
+0
+5
+0
+1
+prej rwa sdo rwaxcont sdoxcont contact
+2
+1 0 0 0 0 0
+0
+0
+1 1 contact prej   -0.201    0.030
+1 1 rwa prej    0.495    0.028
+1 1 rwaxcont prej   -0.101    0.045
+1 1 sdo prej    0.384    0.037
+1 1 sdoxcont prej    0.118    0.057
+2 1 sdo rwa    0.118    0.012
+2 1 rwaxcont rwa    0.066    0.010
+2 1 rwaxcont sdo    0.019    0.007
+2 1 sdoxcont rwa    0.021    0.007
+2 1 sdoxcont sdo   -0.020    0.006
+2 1 sdoxcont rwaxcont    0.050    0.005
+4 1 prej    0.498    0.019
+5 1 rwa    0.561    0.022
+5 1 sdo    0.312    0.012
+5 1 rwaxcont    0.221    0.009
+5 1 sdoxcont    0.132    0.005

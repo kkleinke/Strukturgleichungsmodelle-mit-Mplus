@@ -1,0 +1,320 @@
+Mplus VERSION 7.4
+MUTHEN & MUTHEN
+10/21/2016  10:00 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:  Moderation & Mediation (konditionale indirekte Effekte)
+          für manifeste Variablen;
+
+  DATA:   FILE IS MODMEDEXAMPLE.dat;
+
+  VARIABLE:
+          NAMES ARE cthreat sthreat prej contact RWA SDO RWAXCONT SDOXCONT;
+
+          USEVARIABLES ARE
+
+          prej sthreat contact RWA RWAXCONT SDO;
+
+          MISSING ARE all (99);
+
+  ANALYSIS:
+          TYPE=GENERAL;
+          ESTIMATOR=ML;
+          BOOTSTRAP=10000;
+
+  MODEL:
+          [prej] (b0);
+          prej ON sthreat (b1);
+          prej ON contact (cdash);
+          prej ON SDO;
+
+          [sthreat] (a0);
+          sthreat ON contact (a1);
+          sthreat ON RWA (a2);
+          sthreat ON RWAXCONT (a3);
+          sthreat ON SDO;
+
+          contact rwa rwaxcont sdo;
+
+  MODEL CONSTRAINT:
+          NEW (LOWrwa HIrwa INDLO INDHI);
+          LOWrwa=-0.7;
+          HIrwa=0.7;
+          INDLO =a1*b1+a3*b1*LOWrwa;
+          INDHI =a1*b1+a3*b1*HIrwa;
+
+          PLOT(LOMOD HIMOD);
+          LOOP(XVAL,-0.7,0.7,0.1);
+          LOMOD=INDLO*XVAL;
+          HIMOD=INDHI*XVAL;
+
+  PLOT:   TYPE = PLOT2;
+
+
+  OUTPUT: CINT(bcbootstrap);
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Moderation & Mediation (konditionale indirekte Effekte)
+für manifeste Variablen;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1343
+
+Number of dependent variables                                    2
+Number of independent variables                                  4
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   PREJ        STHREAT
+
+Observed independent variables
+   CONTACT     RWA         RWAXCONT    SDO
+
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Number of bootstrap draws
+    Requested                                                10000
+    Completed                                                10000
+
+Input data file(s)
+  MODMEDEXAMPLE.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             7
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              PREJ          STHREAT       CONTACT       RWA           RWAXCONT
+              ________      ________      ________      ________      ________
+ PREJ           0.993
+ STHREAT        0.981         0.987
+ CONTACT        0.993         0.987         1.000
+ RWA            0.992         0.984         0.998         0.998
+ RWAXCONT       0.992         0.984         0.998         0.998         0.998
+ SDO            0.993         0.986         0.999         0.997         0.997
+
+
+           Covariance Coverage
+              SDO
+              ________
+ SDO            0.999
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       25
+
+Loglikelihood
+
+          H0 Value                       -7618.493
+          H1 Value                       -7520.372
+
+Information Criteria
+
+          Akaike (AIC)                   15286.986
+          Bayesian (BIC)                 15417.053
+          Sample-Size Adjusted BIC       15337.639
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                            196.243
+          Degrees of Freedom                     2
+          P-Value                           0.0000
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.269
+          90 Percent C.I.                    0.238  0.301
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.819
+          TLI                                0.187
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           1084.759
+          Degrees of Freedom                     9
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.052
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ PREJ     ON
+    STHREAT            0.486      0.026     18.780      0.000
+    CONTACT           -0.245      0.029     -8.353      0.000
+    SDO                0.321      0.037      8.611      0.000
+
+ STHREAT  ON
+    CONTACT           -0.092      0.029     -3.113      0.002
+    RWA                0.284      0.027     10.619      0.000
+    RWAXCONT          -0.084      0.041     -2.040      0.041
+    SDO                0.353      0.040      8.821      0.000
+
+ RWA      WITH
+    CONTACT           -0.119      0.013     -9.224      0.000
+
+ RWAXCONT WITH
+    CONTACT            0.036      0.014      2.654      0.008
+    RWA                0.066      0.016      4.237      0.000
+
+ SDO      WITH
+    CONTACT           -0.056      0.010     -5.686      0.000
+    RWA                0.117      0.011     10.643      0.000
+    RWAXCONT           0.019      0.007      2.688      0.007
+
+ Means
+    CONTACT           -0.021      0.018     -1.116      0.264
+    RWA                0.017      0.021      0.800      0.424
+    RWAXCONT          -0.120      0.013     -9.297      0.000
+    SDO               -0.015      0.015     -0.986      0.324
+
+ Intercepts
+    PREJ               1.486      0.054     27.533      0.000
+    STHREAT            1.895      0.020     96.272      0.000
+
+ Variances
+    CONTACT            0.459      0.017     27.776      0.000
+    RWA                0.561      0.023     24.111      0.000
+    RWAXCONT           0.221      0.013     16.854      0.000
+    SDO                0.312      0.012     26.431      0.000
+
+ Residual Variances
+    PREJ               0.488      0.019     25.215      0.000
+    STHREAT            0.511      0.020     25.220      0.000
+
+New/Additional Parameters
+    LOWRWA            -0.700      0.000      0.000      1.000
+    HIRWA              0.700      0.000      0.000      1.000
+    INDLO             -0.016      0.019     -0.819      0.413
+    INDHI             -0.073      0.021     -3.447      0.001
+
+
+CONFIDENCE INTERVALS OF MODEL RESULTS
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ PREJ     ON
+    STHREAT          0.419       0.434       0.442       0.486       0.527       0.536       0.551
+    CONTACT         -0.320      -0.301      -0.293      -0.245      -0.196      -0.186      -0.168
+    SDO              0.225       0.248       0.260       0.321       0.382       0.393       0.418
+
+ STHREAT  ON
+    CONTACT         -0.164      -0.148      -0.139      -0.092      -0.043      -0.034      -0.013
+    RWA              0.214       0.232       0.240       0.284       0.329       0.336       0.354
+    RWAXCONT        -0.194      -0.168      -0.154      -0.084      -0.018      -0.004       0.019
+    SDO              0.249       0.274       0.287       0.353       0.418       0.432       0.455
+
+ RWA      WITH
+    CONTACT         -0.154      -0.145      -0.141      -0.119      -0.099      -0.095      -0.086
+
+ RWAXCONT WITH
+    CONTACT         -0.001       0.009       0.014       0.036       0.058       0.062       0.069
+    RWA              0.027       0.037       0.042       0.066       0.093       0.097       0.107
+
+ SDO      WITH
+    CONTACT         -0.081      -0.075      -0.072      -0.056      -0.039      -0.037      -0.030
+    RWA              0.089       0.096       0.099       0.117       0.135       0.139       0.145
+    RWAXCONT         0.000       0.005       0.007       0.019       0.030       0.032       0.037
+
+ Means
+    CONTACT         -0.068      -0.056      -0.050      -0.021       0.010       0.017       0.029
+    RWA             -0.036      -0.023      -0.017       0.017       0.051       0.058       0.071
+    RWAXCONT        -0.153      -0.145      -0.141      -0.120      -0.099      -0.095      -0.086
+    SDO             -0.053      -0.045      -0.040      -0.015       0.011       0.015       0.024
+
+ Intercepts
+    PREJ             1.348       1.380       1.397       1.486       1.575       1.592       1.628
+    STHREAT          1.844       1.855       1.861       1.895       1.926       1.932       1.944
+
+ Variances
+    CONTACT          0.418       0.427       0.432       0.459       0.487       0.492       0.503
+    RWA              0.503       0.517       0.525       0.561       0.601       0.609       0.623
+    RWAXCONT         0.190       0.197       0.201       0.221       0.244       0.248       0.256
+    SDO              0.282       0.290       0.293       0.312       0.332       0.336       0.344
+
+ Residual Variances
+    PREJ             0.441       0.452       0.459       0.488       0.522       0.528       0.544
+    STHREAT          0.460       0.473       0.480       0.511       0.546       0.552       0.563
+
+New/Additional Parameters
+    LOWRWA          -0.700      -0.700      -0.700      -0.700      -0.700      -0.700      -0.700
+    HIRWA            0.700       0.700       0.700       0.700       0.700       0.700       0.700
+    INDLO           -0.064      -0.053      -0.048      -0.016       0.016       0.023       0.035
+    INDHI           -0.130      -0.117      -0.109      -0.073      -0.040      -0.033      -0.021
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Loop plots
+  Bootstrap distributions
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    e:\fertig\begleitmaterial\kapitel 3\mod4.dgm
+
+     Beginning Time:  10:00:07
+        Ending Time:  10:01:35
+       Elapsed Time:  00:01:28
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen

@@ -1,0 +1,159 @@
+VERSION 1.1.0
+INPUT
+TITLE:
+    Konfirmatorische Faktorenanalyse mit Längsschnittdaten zur
+          Überprüfung der Messinvarianz - partielle Skalare Invarianz
+
+DATA:
+     FILE IS GMF_Panel_020304.dat;
+VARIABLE:
+ NAMES ARE qcp_ser con11 con12 con13 con21 con22 con23 con31 con32 con33
+          ff11 ff12 ff13 ff21 ff22 ff23 ff31 ff32 ff33;
+          USEVARIABLES ARE con11 con12 con13 con21 con22 con23
+          con31 con32 con33 ff11 ff12 ff13 ff21 ff22 ff23 ff31 ff32 ff33;
+          MISSING ARE all (99);
+OUTPUT:
+   MODINDICES;
+MODEL:
+    con1 BY con11
+          con21 (1)
+          con31 (2);
+          con2 BY con12
+          con22 (1)
+          con32 (2);
+          con3 BY con13
+          con23 (1)
+          con33 (2);
+          ff1 BY ff11
+          ff21 (3)
+          ff31 (4);
+          ff2 BY ff12
+          ff22 (3)
+          ff32 (4);
+          ff3 BY ff13
+          ff23 (3)
+          ff33 (4);
+          con11 WITH con12 con13;
+          con12 WITH con13;
+          con21 WITH con22 con23;
+          con22 WITH con23;
+          con31 WITH con32 con33;
+          con32 WITH con33;
+          ff11 WITH ff12 ff13;
+          ff12 WITH ff13;
+          ff21 WITH ff22 ff23;
+          ff22 WITH ff23;
+          ff31 WITH ff32 ff33;
+          ff32 WITH ff33;
+          [con11@0 con12@0 con13@0];
+          [con21 con22 con23] (5);
+          [con31 con32 con33] (6);
+          [ff11@0 ff12@0 ff13@0];
+          [ff22 ff23] (7);
+          [ff31 ff32 ff33] (8);
+          [con1 con2 con3];
+          [ff1 ff2 ff3];
+INPUT_END
+2
+0
+0
+0
+ML
+1
+GENERAL
+0
+18
+6
+0
+con11 con12 con13 con21 con22 con23 con31 con32 con33 ff11 ff12 ff13 ff21 ff22 ff23 ff31 ff32 ff33 con1 con2 con3 ff1 ff2 ff3
+1
+-1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0
+0
+6
+con1
+con11 con21 con31
+con2
+con12 con22 con32
+con3
+con13 con23 con33
+ff1
+ff11 ff21 ff31
+ff2
+ff12 ff22 ff32
+ff3
+ff13 ff23 ff33
+1 1 con1 con11    1.000    0.000
+1 1 con1 con21    1.374    0.065
+1 1 con1 con31    1.584    0.068
+1 1 con2 con12    1.000    0.000
+1 1 con2 con22    1.374    0.065
+1 1 con2 con32    1.584    0.068
+1 1 con3 con13    1.000    0.000
+1 1 con3 con23    1.374    0.065
+1 1 con3 con33    1.584    0.068
+1 1 ff1 ff11    1.000    0.000
+1 1 ff1 ff21    1.160    0.032
+1 1 ff1 ff31    0.843    0.029
+1 1 ff2 ff12    1.000    0.000
+1 1 ff2 ff22    1.160    0.032
+1 1 ff2 ff32    0.843    0.029
+1 1 ff3 ff13    1.000    0.000
+1 1 ff3 ff23    1.160    0.032
+1 1 ff3 ff33    0.843    0.029
+2 1 con11 con12    0.084    0.012
+2 1 con11 con13    0.089    0.012
+2 1 con12 con13    0.119    0.012
+2 1 con21 con22    0.199    0.026
+2 1 con21 con23    0.182    0.025
+2 1 con22 con23    0.246    0.026
+2 1 con31 con32    0.029    0.023
+2 1 con31 con33    0.051    0.024
+2 1 con32 con33    0.072    0.024
+2 1 ff11 ff12    0.071    0.017
+2 1 ff11 ff13    0.071    0.016
+2 1 ff12 ff13    0.094    0.016
+2 1 ff21 ff22    0.046    0.017
+2 1 ff21 ff23    0.048    0.017
+2 1 ff22 ff23    0.065    0.017
+2 1 ff31 ff32    0.154    0.018
+2 1 ff31 ff33    0.152    0.018
+2 1 ff32 ff33    0.146    0.017
+2 1 con2 con1    0.222    0.019
+2 1 con3 con1    0.210    0.018
+2 1 con3 con2    0.212    0.018
+2 1 ff1 con1   -0.194    0.019
+2 1 ff1 con2   -0.171    0.018
+2 1 ff1 con3   -0.163    0.018
+2 1 ff2 con1   -0.185    0.019
+2 1 ff2 con2   -0.166    0.018
+2 1 ff2 con3   -0.166    0.018
+2 1 ff2 ff1    0.525    0.036
+2 1 ff3 con1   -0.183    0.018
+2 1 ff3 con2   -0.166    0.017
+2 1 ff3 con3   -0.170    0.017
+2 1 ff3 ff1    0.480    0.034
+2 1 ff3 ff2    0.508    0.035
+4 1 con11    0.256    0.016
+4 1 con12    0.258    0.016
+4 1 con13    0.242    0.015
+4 1 con21    0.564    0.034
+4 1 con22    0.557    0.033
+4 1 con23    0.528    0.032
+4 1 con31    0.429    0.032
+4 1 con32    0.374    0.030
+4 1 con33    0.415    0.032
+4 1 ff11    0.358    0.024
+4 1 ff12    0.334    0.022
+4 1 ff13    0.280    0.020
+4 1 ff21    0.273    0.025
+4 1 ff22    0.183    0.020
+4 1 ff23    0.232    0.022
+4 1 ff31    0.419    0.024
+4 1 ff32    0.405    0.023
+4 1 ff33    0.385    0.022
+5 1 con1    0.242    0.021
+5 1 con2    0.232    0.020
+5 1 con3    0.227    0.020
+5 1 ff1    0.608    0.041
+5 1 ff2    0.591    0.040
+5 1 ff3    0.567    0.038

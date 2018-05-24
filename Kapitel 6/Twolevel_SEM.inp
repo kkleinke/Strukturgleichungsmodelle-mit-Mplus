@@ -1,0 +1,55 @@
+
+TITLE:    Mehrebenen-SEM
+
+DATA:     FILE IS GMF02_Querschnitt_MLM.dat;
+
+VARIABLE: NAMES ARE qcp_ser kreis1 ka03w1r aa01w1r aa03w1r 
+          ff04d1r ff08d1r ff03d1r tab02_08 contact prej;
+          USEVARIABLES ARE ka03w1r aa01w1r aa03w1r 
+          ff04d1r ff08d1r ff03d1r tab02_08;
+          MISSING ARE ALL (99);
+          CLUSTER IS kreis1; 
+          BETWEEN IS tab02_08;
+                        
+DEFINE:   CENTER tab02_08 (GRANDMEAN);
+
+ANALYSIS: TYPE IS TWOLEVEL;
+
+MODEL:    %WITHIN%
+          contactw BY ka03w1r aa01w1r aa03w1r; ! Messmodell für Intergruppen-
+          prejw BY ff04d1r ff08d1r ff03d1r;    ! kontakt und Fremdenfeindlich-
+                                               ! keit auf der Individualebene
+
+          prejw ON contactw;                   ! Strukturmodell auf der        
+                                               ! Individualebene
+          %BETWEEN%
+          contactb BY ka03w1r aa01w1r aa03w1r; ! Messmodell für Intergruppen-
+          prejb BY ff04d1r ff08d1r ff03d1r;    ! kontakt und Fremdenfeindlich-
+                                               ! keit auf der Kontextebene          
+          
+          ka03w1r-aa03w1r@0;                   ! Fixierung der Residuen auf 
+          ff04d1r-ff03d1r@0;                   ! Null
+                 
+          prejb ON contactb tab02_08;          ! Strukturmodell auf der 
+          contactb ON tab02_08;                ! Kontextebene
+
+          MODEL INDIRECT:                      ! Prüfung des indirekten Effekts
+          prejb IND tab02_08;
+
+OUTPUT:   STDYX;                                                                                                                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+

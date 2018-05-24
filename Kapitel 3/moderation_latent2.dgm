@@ -1,0 +1,110 @@
+VERSION 1.1.0
+INPUT
+TITLE:
+  Moderation für manifeste Variablen;
+
+DATA:
+   FILE IS modmedlatent.dat;
+VARIABLE:
+        NAMES ARE
+            au01q3r
+            au02q3r
+            ff04dq3r
+            ff08dq3r
+            do01q3r
+            do02q3r
+            do03q3r
+            ka01q3r
+            ka02q3r
+            ka03q3r
+            tg01q3r
+            tg05q3r;
+        USEVARIABLES ARE
+            au01q3r au02q3r
+            ff04dq3r ff08dq3r
+            do01q3r do02q3r do03q3r
+            ka01q3r ka02q3r ka03q3r;
+        MISSING ARE all (99);
+ANALYSIS:
+        TYPE IS RANDOM;
+        ALGORITHM IS INTEGRATION;
+PLOT:
+ TYPE = PLOT2;
+MODEL:
+        prej     BY ff04dq3r ff08dq3r;
+        [ff04dq3r@0];
+        rwa      BY au01q3r* au02q3r;
+        rwa@1;
+        contact  BY ka01q3r* ka02q3r ka03q3r;
+        contact@1;
+        sdo      BY do01q3r do02q3r do03q3r;
+        rwaxcont | rwa XWITH contact;
+        sdoxcont | sdo XWITH contact;
+        [prej] (b0);
+        prej ON contact (b1)
+                rwa (b2)
+                rwaxcont (b3)
+                sdo (b4)
+                sdoxcont (b5);
+INPUT_END
+2
+0
+0
+0
+MLR
+1
+GENERAL
+0
+10
+6
+0
+au01q3r au02q3r ff04dq3r ff08dq3r do01q3r do02q3r do03q3r ka01q3r ka02q3r ka03q3r prej rwa contact sdo rwaxcont sdoxcont
+2
+-1 -1 -1 -1 -1 -1 -1 -1 -1 -1 1 0 0 0 0 0
+0
+4
+prej
+ff04dq3r ff08dq3r
+rwa
+au01q3r au02q3r
+contact
+ka01q3r ka02q3r ka03q3r
+sdo
+do01q3r do02q3r do03q3r
+1 1 prej ff04dq3r    1.000    0.000
+1 1 prej ff08dq3r    0.967    0.045
+1 1 rwa au01q3r    0.563    0.026
+1 1 rwa au02q3r    0.718    0.025
+1 1 contact ka01q3r    0.456    0.033
+1 1 contact ka02q3r    0.372    0.041
+1 1 contact ka03q3r    0.542    0.033
+1 1 sdo do01q3r    1.000    0.000
+1 1 sdo do02q3r    0.933    0.083
+1 1 sdo do03q3r    1.273    0.126
+1 1 contact prej   -0.193    0.031
+91 1 contact prej b1
+1 1 rwa prej    0.404    0.033
+91 1 rwa prej b2
+1 1 rwaxcont prej   -0.175    0.037
+91 1 rwaxcont prej b3
+1 1 sdo prej    0.604    0.091
+91 1 sdo prej b4
+1 1 sdoxcont prej    0.277    0.103
+91 1 sdoxcont prej b5
+2 1 contact rwa   -0.402    0.036
+2 1 sdo rwa    0.169    0.015
+2 1 sdo contact   -0.089    0.017
+4 1 au01q3r    0.310    0.021
+4 1 au02q3r    0.268    0.026
+4 1 ff04dq3r    0.430    0.033
+4 1 ff08dq3r    0.390    0.029
+4 1 do01q3r    0.237    0.021
+4 1 do02q3r    0.337    0.028
+4 1 do03q3r    0.608    0.039
+4 1 ka01q3r    0.502    0.032
+4 1 ka02q3r    0.987    0.038
+4 1 ka03q3r    0.231    0.033
+4 1 prej    0.161    0.032
+5 1 rwa    1.000    0.000
+5 1 contact    1.000    0.000
+5 1 sdo    0.157    0.020

@@ -1,0 +1,205 @@
+Mplus VERSION 7.4
+MUTHEN & MUTHEN
+03/16/2016   9:34 AM
+
+INPUT INSTRUCTIONS
+
+
+  TITLE:    Mehrebenenanalyse
+            intercept-slope-as-outcome-model
+
+  DATA:     FILE IS EB47_1_Twolevel.dat;
+
+  VARIABLE: NAMES ARE country contact percent disc;
+            MISSING ARE ALL (99);
+            CLUSTER IS country;
+            BETWEEN IS percent;
+            WITHIN IS contact;
+
+  DEFINE:   CENTER percent (GRANDMEAN);
+
+  ANALYSIS: TYPE IS TWOLEVEL RANDOM;
+
+  MODEL:    %WITHIN%
+            s|disc ON contact;
+
+            %BETWEEN%
+            s disc ON percent;
+
+            s with disc;
+
+
+
+
+
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  12
+*** WARNING
+  Data set contains cases with missing on all variables except
+  x-variables.  These cases were not included in the analysis.
+  Number of cases with missing on all variables except x-variables:  2774
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Mehrebenenanalyse
+intercept-slope-as-outcome-model
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                       13368
+
+Number of dependent variables                                    1
+Number of independent variables                                  2
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Continuous
+   DISC
+
+Observed independent variables
+   CONTACT     PERCENT
+
+Continuous latent variables
+   S
+
+Variables with special functions
+
+  Cluster variable      COUNTRY
+
+  Within variables
+   CONTACT
+
+  Between variables
+   PERCENT
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  EB47_1_Twolevel.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+     Number of clusters                         15
+
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              DISC          CONTACT       PERCENT
+              ________      ________      ________
+ DISC           1.000
+ CONTACT        1.000         1.000
+ PERCENT        1.000         1.000         1.000
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        8
+
+Loglikelihood
+
+          H0 Value                      -15473.654
+          H0 Scaling Correction Factor      3.2132
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   30963.309
+          Bayesian (BIC)                 31023.314
+          Sample-Size Adjusted BIC       30997.890
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Within Level
+
+ Residual Variances
+    DISC               0.590      0.032     18.528      0.000
+
+Between Level
+
+ S          ON
+    PERCENT           -0.061      0.015     -4.115      0.000
+
+ DISC       ON
+    PERCENT            0.195      0.040      4.818      0.000
+
+ S        WITH
+    DISC              -0.028      0.014     -1.977      0.048
+
+ Intercepts
+    DISC               3.133      0.079     39.820      0.000
+    S                 -0.290      0.031     -9.229      0.000
+
+ Residual Variances
+    DISC               0.084      0.036      2.346      0.019
+    S                  0.012      0.006      1.872      0.061
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.910E-05
+       (ratio of smallest to largest eigenvalue)
+
+
+DIAGRAM INFORMATION
+
+  Mplus diagrams are currently not available for multilevel analysis.
+  No diagram output was produced.
+
+
+     Beginning Time:  09:34:22
+        Ending Time:  09:34:22
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen

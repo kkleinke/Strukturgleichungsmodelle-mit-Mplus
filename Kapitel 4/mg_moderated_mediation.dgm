@@ -1,0 +1,77 @@
+VERSION 1.1.0
+INPUT
+TITLE:
+  Moderierte Mediation, Multigruppen-Analysen
+
+DATA:
+   FILE IS "MG_moderated_mediation.dat";
+VARIABLE:
+        NAMES ARE Edu eastwest autho1 autho2 autho3 autho4 prej1 prej2 sdo1
+        sdo2 sdo3;
+        USEVARIABLES ARE Edu prej1 prej2 autho1 autho2;
+        MISSING ARE ALL (99);
+        GROUPIN IS eastwest (1 = west 2 = east);
+MODEL:
+        prej BY prej1 prej2;
+        autho BY autho1 autho2;
+        prej  ON edu;
+        autho ON edu (a_west);
+        prej  ON autho (b_west);
+MODEL EAST:
+        prej BY prej2;
+        prej ON autho (b_east);
+        prej ON edu;
+        autho ON edu (a_east);
+INPUT_END
+2
+0
+0
+0
+ML
+1
+GENERAL
+2
+WEST
+EAST
+4
+2
+1
+prej1 prej2 autho1 autho2 prej autho edu
+3
+-1 -1 -1 -1 2 1 0
+0
+2
+prej
+prej1 prej2
+autho
+autho1 autho2
+1 1 prej prej1    1.000    0.000
+1 1 prej prej2    1.198    0.133
+1 1 autho autho1    1.000    0.000
+1 1 autho autho2    1.265    0.094
+1 1 edu prej   -0.033    0.023
+1 1 edu autho   -0.179    0.024
+91 1 edu autho a_west
+1 1 autho prej    0.418    0.079
+91 1 autho prej b_west
+4 1 prej1    0.416    0.046
+4 1 prej2    0.272    0.052
+4 1 autho1    0.400    0.045
+4 1 autho2    0.280    0.055
+4 1 prej    0.181    0.035
+4 1 autho    0.292    0.042
+1 2 prej prej1    1.000    0.000
+1 2 prej prej2    1.401    0.259
+1 2 autho autho1    1.000    0.000
+1 2 autho autho2    1.265    0.094
+1 2 edu prej   -0.083    0.031
+1 2 edu autho   -0.117    0.019
+91 2 edu autho a_east
+1 2 autho prej    0.461    0.135
+91 2 autho prej b_east
+4 2 prej1    0.626    0.088
+4 2 prej2    0.242    0.123
+4 2 autho1    0.202    0.030
+4 2 autho2    0.198    0.043
+4 2 prej    0.256    0.065
+4 2 autho    0.191    0.031

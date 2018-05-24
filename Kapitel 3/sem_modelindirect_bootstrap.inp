@@ -1,0 +1,58 @@
+
+Title:    SEM Intergruppenkontakt und GMF, Model Indirect
+          Bootstrapping
+
+Data:     FILE IS GMF07_Querschnitt_SEM.dat;
+          
+VARIABLE: NAMES ARE qcp_ser sx03q6r sx04q6r he01oq6r he02oq6r 
+          he01hq6 he02hq6r ff04dq6r ff08dq6r he05mq6r he12mq6r 
+          ev03q6r ev04q6r ra01q6r ra03q6r as01q6r as02q6r 
+          dy04q6r dy02q6r ka03nq4r;
+          
+          USEVARIABLES sx03q6r sx04q6r he01oq6r he02oq6r 
+          he01hq6 he02hq6r ff04dq6r ff08dq6r he05mq6r he12mq6r 
+          ev03q6r ev04q6r ra01q6r ra03q6r as01q6r as02q6r ka03nq4r
+          dy04q6r dy02q6r;
+          
+          MISSING ARE ALL (99); 
+
+ANALYSIS: BOOTSTRAP = 1000;         ! Spezfikation der Anzahl an
+                                    ! Bootstrap-Stichproben
+    
+MODEL:    sexism BY sx03q6r sx04q6r;      ! Messmodelle für die Elemente
+          homoph BY he01hq6 he02hq6r;     ! von GMF
+          antisem BY as01q6r as02q6r;
+          fremdenf BY ff04dq6r ff08dq6r;
+          rass BY ra01q6r ra03q6r;
+          obdachl BY he01oq6r he02oq6r;
+          islamph BY he05mq6r he12mq6r;
+          etabl BY ev03q6r ev04q6r;
+
+          GMF BY sexism homoph antisem fremdenf rass ! Messmodell GMF
+          obdachl islamph etabl;
+          
+          wertsch BY dy04q6r dy02q6r;     ! Messmodell für Wertschätzung
+                                          ! kultureller Vielfalt
+          
+          GMF ON ka03nq4r;      ! Direkter Effekt von Kontakt auf GMF (c')
+          wertsch ON ka03nq4r;  ! Effekt von Kontakt auf Wertschätzung
+                                ! kultureller Vielfakt (a)
+         
+          GMF ON wertsch;       ! Effekt von Wert. kultureller Vielfalt
+                                ! auf GMF (b)
+          
+          MODEL INDIRECT:
+          GMF IND ka03nq4r;     ! Prüfung des indirekten Effekts von Kontakt
+                                ! auf GMF
+          
+OUTPUT:   STDYX; 
+          CINTERVAL(BCBOOTSTRAP); ! Anfordern von Konfidenzintervallen,
+                                  ! hier bias-korrigierte 
+                                  ! Bootstrap-Konfidenzintervalle
+
+
+
+
+
+
+

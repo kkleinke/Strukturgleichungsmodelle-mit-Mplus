@@ -1,0 +1,21 @@
+
+TITLE:    EFA basierend auf den Elementen Fremdenfeindlichkeit,
+          Rassismus und Islamophobie
+
+DATA:     FILE IS GMF05_Querschnitt_CFA.dat;
+       
+VARIABLE: NAMES ARE qcp_ser he01hq4 sx03q4r sx04q4r he01oq4r 
+          he02oq4r he02hq4r ff04dq4r ff08dq4r ev03q4r ev04q4r 
+          ra01q4r ra03q4r as01q4r as02q4r he05mq4r he12mq4r 
+          ka05q4r zu01q4k;
+          
+          USEVARIABLES ARE as01q4r as02q4r ra01q4r ra03q4r 
+          he05mq4r he12mq4r;
+          
+ANALYSIS: TYPE IS EFA 1 3;
+
+
+
+
+
+    

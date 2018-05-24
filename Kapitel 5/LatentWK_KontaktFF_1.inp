@@ -1,0 +1,42 @@
+TITLE:    Beispiel latentes Wachstumkurvenmodell (unkonditional)
+
+DATA:     FILE IS GMF_Panel_020304.dat;
+                    
+VARIABLE: NAMES ARE qcp_ser con11 con12 con13 con21 con22 con23 con31 con32 con33 
+          ff11 ff12 ff13 ff21 ff22 ff23 ff31 ff32 ff33;
+          
+          USEVARIABLES ARE ff11 ff12 ff13 ff21 ff22 ff23 ff31 ff32 ff33;
+          
+          MISSING ARE all (99);
+
+MODEL:    ff1 BY ff11 
+          ff21 (1)      ! Gleichheitsrestriktion korrespondierender Faktorladungen
+          ff31 (2);     ! über die Zeit
+          ff2 BY ff12 
+          ff22 (1) 
+          ff32 (2);
+          ff3 BY ff13 
+          ff23 (1) 
+          ff33 (2);
+
+          i s | ff1@0 ff2@1 ff3@2; ! Spezifikation der latenten Wachstumsfaktoren
+                                   ! Hier Spezifikation eines linearen Slope-Faktors
+          
+          [i];      ! Mittelwert des latenten Intercept-Faktors
+
+          [ff11@0 ff12@0 ff13@0];  
+          [ff22 ff23] (3);      ! Gleicheitsrestriktion korrespondierender Intercepts
+          [ff31 ff33] (4);      ! orientiert an den Ergebnissen der Längsschnitt-CFA
+
+          ff11 WITH ff12 ff13;
+          ff12 WITH ff13;
+          ff21 WITH ff22 ff23;
+          ff22 WITH ff23;
+          ff31 WITH ff32 ff33;
+          ff32 WITH ff33;
+
+OUTPUT:   STDYX;
+
+PLOT:     TYPE = PLOT3;
+          SERIES = ff1 (s) ff2 (s) ff3 (s);
+

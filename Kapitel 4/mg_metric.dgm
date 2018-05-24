@@ -1,0 +1,219 @@
+VERSION 1.1.0
+INPUT
+TITLE:
+    Multiple Gruppenvergleiche - Modell Metrische Invarianz
+
+DATA:
+     FILE IS GMF05_Querschnitt_CFA.dat;
+VARIABLE:
+ NAMES ARE qcp_ser he01hq4 sx03q4r sx04q4r he01oq4r
+          he02oq4r he02hq4r ff04dq4r ff08dq4r ev03q4r ev04q4r
+          ra01q4r ra03q4r as01q4r as02q4r he05mq4r he12mq4r
+          ka05q4r zu01q4k;
+          USEVARIABLES ARE he01hq4 sx03q4r sx04q4r he01oq4r
+          he02oq4r he02hq4r ff04dq4r ff08dq4r ev03q4r ev04q4r
+          ra01q4r ra03q4r as01q4r as02q4r he05mq4r he12mq4r;
+          MISSING ARE he01oq4r he02oq4r (99);
+          USEOBSERVATIONS = zu01q4k EQ 2 OR zu01q4k EQ 3;
+          GROUPING IS zu01q4k (2=mittel 3=hoch);
+OUTPUT:
+   MODINDICES;
+MODEL:
+    sexism BY sx03q4r* sx04q4r;
+          sexism@1;
+          homoph BY he01hq4* he02hq4r;
+          homoph@1;
+          antisem BY as01q4r* as02q4r;
+          antisem@1;
+          fremdenf BY ff04dq4r* ff08dq4r;
+          fremdenf@1;
+          rass BY ra01q4r* ra03q4r;
+          rass@1;
+          obdachl BY he01oq4r* he02oq4r;
+          obdachl@1;
+          islamph BY he05mq4r* he12mq4r;
+          islamph@1;
+          etabl BY ev03q4r* ev04q4r;
+          etabl@1;
+MODEL HOCH:
+          [sx03q4r sx04q4r];
+          [he01hq4 he02hq4r];
+          [as01q4r as02q4r];
+          [ff04dq4r ff08dq4r];
+          [ra01q4r ra03q4r];
+          [he01oq4r he02oq4r];
+          [he05mq4r he12mq4r];
+          [ev03q4r ev04q4r];
+          [sexism-etabl@0];
+          sexism-etabl*;
+INPUT_END
+2
+0
+0
+0
+ML
+1
+GENERAL
+2
+MITTEL
+HOCH
+16
+8
+0
+he01hq4 sx03q4r sx04q4r he01oq4r he02oq4r he02hq4r ff04dq4r ff08dq4r ev03q4r ev04q4r ra01q4r ra03q4r as01q4r as02q4r he05mq4r he12mq4r sexism homoph antisem fremdenf rass obdachl islamph etabl
+1
+-1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0
+0
+8
+sexism
+sx03q4r sx04q4r
+homoph
+he01hq4 he02hq4r
+antisem
+as01q4r as02q4r
+fremdenf
+ff04dq4r ff08dq4r
+rass
+ra01q4r ra03q4r
+obdachl
+he01oq4r he02oq4r
+islamph
+he05mq4r he12mq4r
+etabl
+ev03q4r ev04q4r
+1 1 sexism sx03q4r    0.673    0.031
+1 1 sexism sx04q4r    0.610    0.029
+1 1 homoph he01hq4    0.739    0.042
+1 1 homoph he02hq4r    0.780    0.044
+1 1 antisem as01q4r    0.747    0.035
+1 1 antisem as02q4r    0.545    0.028
+1 1 fremdenf ff04dq4r    0.744    0.032
+1 1 fremdenf ff08dq4r    0.659    0.032
+1 1 rass ra01q4r    0.446    0.035
+1 1 rass ra03q4r    0.409    0.034
+1 1 obdachl he01oq4r    0.774    0.043
+1 1 obdachl he02oq4r    0.558    0.036
+1 1 islamph he05mq4r    0.649    0.035
+1 1 islamph he12mq4r    0.650    0.034
+1 1 etabl ev03q4r    0.452    0.036
+1 1 etabl ev04q4r    0.710    0.051
+2 1 homoph sexism    0.500    0.050
+2 1 antisem sexism    0.381    0.048
+2 1 antisem homoph    0.301    0.054
+2 1 fremdenf sexism    0.210    0.053
+2 1 fremdenf homoph    0.300    0.056
+2 1 fremdenf antisem    0.528    0.044
+2 1 rass sexism    0.498    0.063
+2 1 rass homoph    0.291    0.072
+2 1 rass antisem    0.560    0.064
+2 1 rass fremdenf    0.570    0.064
+2 1 obdachl sexism    0.157    0.054
+2 1 obdachl homoph    0.272    0.058
+2 1 obdachl antisem    0.290    0.053
+2 1 obdachl fremdenf    0.429    0.051
+2 1 obdachl rass    0.450    0.067
+2 1 islamph sexism    0.340    0.055
+2 1 islamph homoph    0.361    0.059
+2 1 islamph antisem    0.499    0.050
+2 1 islamph fremdenf    0.945    0.035
+2 1 islamph rass    0.599    0.067
+2 1 islamph obdachl    0.410    0.054
+2 1 etabl sexism    0.366    0.060
+2 1 etabl homoph    0.172    0.066
+2 1 etabl antisem    0.531    0.056
+2 1 etabl fremdenf    0.581    0.055
+2 1 etabl rass    0.823    0.072
+2 1 etabl obdachl    0.317    0.061
+2 1 etabl islamph    0.593    0.059
+4 1 he01hq4    0.696    0.061
+4 1 sx03q4r    0.281    0.032
+4 1 sx04q4r    0.254    0.027
+4 1 he01oq4r    0.285    0.057
+4 1 he02oq4r    0.524    0.042
+4 1 he02hq4r    0.561    0.061
+4 1 ff04dq4r    0.346    0.032
+4 1 ff08dq4r    0.406    0.032
+4 1 ev03q4r    0.669    0.044
+4 1 ev04q4r    0.518    0.063
+4 1 ra01q4r    0.465    0.035
+4 1 ra03q4r    0.378    0.029
+4 1 as01q4r    0.222    0.037
+4 1 as02q4r    0.294    0.025
+4 1 he05mq4r    0.543    0.040
+4 1 he12mq4r    0.420    0.035
+5 1 sexism    1.000    0.000
+5 1 homoph    1.000    0.000
+5 1 antisem    1.000    0.000
+5 1 fremdenf    1.000    0.000
+5 1 rass    1.000    0.000
+5 1 obdachl    1.000    0.000
+5 1 islamph    1.000    0.000
+5 1 etabl    1.000    0.000
+1 2 sexism sx03q4r    0.673    0.031
+1 2 sexism sx04q4r    0.610    0.029
+1 2 homoph he01hq4    0.739    0.042
+1 2 homoph he02hq4r    0.780    0.044
+1 2 antisem as01q4r    0.747    0.035
+1 2 antisem as02q4r    0.545    0.028
+1 2 fremdenf ff04dq4r    0.744    0.032
+1 2 fremdenf ff08dq4r    0.659    0.032
+1 2 rass ra01q4r    0.446    0.035
+1 2 rass ra03q4r    0.409    0.034
+1 2 obdachl he01oq4r    0.774    0.043
+1 2 obdachl he02oq4r    0.558    0.036
+1 2 islamph he05mq4r    0.649    0.035
+1 2 islamph he12mq4r    0.650    0.034
+1 2 etabl ev03q4r    0.452    0.036
+1 2 etabl ev04q4r    0.710    0.051
+2 2 homoph sexism    0.526    0.057
+2 2 antisem sexism    0.296    0.038
+2 2 antisem homoph    0.342    0.044
+2 2 fremdenf sexism    0.400    0.048
+2 2 fremdenf homoph    0.430    0.055
+2 2 fremdenf antisem    0.423    0.047
+2 2 rass sexism    0.382    0.055
+2 2 rass homoph    0.391    0.060
+2 2 rass antisem    0.328    0.048
+2 2 rass fremdenf    0.556    0.069
+2 2 obdachl sexism    0.247    0.043
+2 2 obdachl homoph    0.356    0.053
+2 2 obdachl antisem    0.308    0.042
+2 2 obdachl fremdenf    0.505    0.058
+2 2 obdachl rass    0.337    0.056
+2 2 islamph sexism    0.392    0.049
+2 2 islamph homoph    0.450    0.057
+2 2 islamph antisem    0.423    0.047
+2 2 islamph fremdenf    0.810    0.080
+2 2 islamph rass    0.525    0.068
+2 2 islamph obdachl    0.432    0.054
+2 2 etabl sexism    0.319    0.052
+2 2 etabl homoph    0.287    0.056
+2 2 etabl antisem    0.347    0.049
+2 2 etabl fremdenf    0.619    0.074
+2 2 etabl rass    0.566    0.080
+2 2 etabl obdachl    0.354    0.057
+2 2 etabl islamph    0.536    0.068
+4 2 he01hq4    0.591    0.043
+4 2 sx03q4r    0.230    0.022
+4 2 sx04q4r    0.159    0.017
+4 2 he01oq4r    0.180    0.046
+4 2 he02oq4r    0.485    0.033
+4 2 he02hq4r    0.271    0.037
+4 2 ff04dq4r    0.303    0.024
+4 2 ff08dq4r    0.306    0.021
+4 2 ev03q4r    0.605    0.035
+4 2 ev04q4r    0.404    0.045
+4 2 ra01q4r    0.352    0.022
+4 2 ra03q4r    0.207    0.015
+4 2 as01q4r    0.242    0.023
+4 2 as02q4r    0.163    0.013
+4 2 he05mq4r    0.427    0.027
+4 2 he12mq4r    0.254    0.020
+5 2 sexism    0.765    0.079
+5 2 homoph    0.964    0.114
+5 2 antisem    0.571    0.062
+5 2 fremdenf    0.906    0.099
+5 2 rass    0.647    0.122
+5 2 obdachl    0.951    0.110
+5 2 islamph    0.818    0.101
+5 2 etabl    0.812    0.135

@@ -1,0 +1,278 @@
+Mplus VERSION 7.4
+MUTHEN & MUTHEN
+10/13/2016   9:38 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: Manuelle Berechnung ICC für manifeste Variablen
+
+  DATA: FILE IS civics99.dat;
+
+  VARIABLE:
+  NAMES ARE
+  idschool
+  bs4e3 bs4e7 bs4e10
+  bs4h2 bs4h3 bs4h5 bs4h6
+  bs4h2_r bs4h3_r bs4h5_r
+  schtyp;
+
+  MISSING ARE ALL (99);
+  CLUSTER IS idschool;
+
+  USEVARIABLES ARE prej pride;
+
+  DEFINE:
+  pride = MEAN (bs4e3 bs4e7 bs4e10);
+  prej =  MEAN (bs4h2_r bs4h3_r bs4h5_r bs4h6);
+
+  ANALYSIS:
+  TYPE IS TWOLEVEL;
+
+  MODEL:
+
+  %WITHIN%
+  prej (prej_var_w);
+  pride (pride_var_w);
+
+  %BETWEEN%
+  prej (prej_var_b);
+  pride(pride_var_b);
+
+  MODEL CONSTRAINT:
+
+  NEW (ICC_prej ICC_pride);
+  ICC_prej = prej_var_b/(prej_var_b + prej_var_w);
+  ICC_pride = pride_var_b/(pride_var_b + pride_var_w);
+
+  OUTPUT: cinterval;
+
+
+
+
+
+
+
+
+
+
+*** WARNING in MODEL command
+  Variable is uncorrelated with all other variables: PREJ
+*** WARNING in MODEL command
+  Variable is uncorrelated with all other variables: PRIDE
+*** WARNING in MODEL command
+  At least one variable is uncorrelated with all other variables in the model.
+  Check that this is what is intended.
+   3 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Manuelle Berechnung ICC für manifeste Variablen
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        2400
+
+Number of dependent variables                                    2
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   PREJ        PRIDE
+
+Variables with special functions
+
+  Cluster variable      IDSCHOOL
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  civics99.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             2
+     Number of clusters                        135
+
+     Average cluster size       17.778
+
+     Estimated Intraclass Correlations for the Y Variables
+
+                Intraclass              Intraclass
+     Variable  Correlation   Variable  Correlation
+
+     PREJ         0.135      PRIDE        0.172
+
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              PREJ          PRIDE
+              ________      ________
+ PREJ           0.994
+ PRIDE          0.994         1.000
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        6
+
+Loglikelihood
+
+          H0 Value                       -5490.587
+          H0 Scaling Correction Factor      1.1212
+            for MLR
+          H1 Value                       -5371.743
+          H1 Scaling Correction Factor      1.2423
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   10993.173
+          Bayesian (BIC)                 11027.873
+          Sample-Size Adjusted BIC       11008.809
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                            148.053*
+          Degrees of Freedom                     2
+          P-Value                           0.0000
+          Scaling Correction Factor         1.6054
+            for MLR
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.174
+
+CFI/TLI
+
+          CFI                                0.000
+          TLI                                0.000
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                            148.063
+          Degrees of Freedom                     2
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value for Within                   0.152
+          Value for Between                  0.455
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Within Level
+
+ Variances
+    PREJ               0.467      0.020     23.307      0.000
+    PRIDE              0.616      0.018     34.058      0.000
+
+Between Level
+
+ Means
+    PREJ               2.085      0.027     76.627      0.000
+    PRIDE              2.726      0.035     78.323      0.000
+
+ Variances
+    PREJ               0.071      0.011      6.439      0.000
+    PRIDE              0.125      0.019      6.511      0.000
+
+New/Additional Parameters
+    ICC_PREJ           0.132      0.018      7.210      0.000
+    ICC_PRID           0.169      0.023      7.230      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.816E-04
+       (ratio of smallest to largest eigenvalue)
+
+
+CONFIDENCE INTERVALS OF MODEL RESULTS
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+Within Level
+
+ Variances
+    PREJ             0.416       0.428       0.434       0.467       0.500       0.507       0.519
+    PRIDE            0.570       0.581       0.587       0.616       0.646       0.652       0.663
+
+Between Level
+
+ Means
+    PREJ             2.015       2.032       2.040       2.085       2.130       2.139       2.155
+    PRIDE            2.636       2.657       2.668       2.726       2.783       2.794       2.815
+
+ Variances
+    PREJ             0.043       0.049       0.053       0.071       0.089       0.093       0.100
+    PRIDE            0.076       0.088       0.094       0.125       0.157       0.163       0.175
+
+New/Additional Parameters
+    ICC_PREJ         0.085       0.096       0.102       0.132       0.162       0.168       0.179
+    ICC_PRID         0.109       0.123       0.131       0.169       0.208       0.215       0.229
+
+
+DIAGRAM INFORMATION
+
+  Mplus diagrams are currently not available for multilevel analysis.
+  No diagram output was produced.
+
+
+     Beginning Time:  21:38:23
+        Ending Time:  21:38:24
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen

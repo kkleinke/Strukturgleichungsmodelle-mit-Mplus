@@ -1,0 +1,42 @@
+TITLE:  Moderierte Mediation, Multigruppen-Analysen
+        
+DATA:   FILE IS "MG_moderated_mediation.dat";
+
+VARIABLE:
+        NAMES ARE Edu eastwest autho1 autho2 autho3 autho4 prej1 prej2 sdo1
+        sdo2 sdo3;
+
+        USEVARIABLES ARE Edu prej1 prej2 autho1 autho2;
+
+        MISSING ARE ALL (99);
+
+        GROUPIN IS eastwest (1 = west 2 = east);
+
+MODEL:
+        prej BY prej1 prej2;         ! Messmodell für Vorurteile 
+        autho BY autho1 autho2;      ! Messmodell für Autoritarismus
+
+        prej  ON edu;                ! Direkter Effekt
+        autho ON edu (a_west);       ! Pfad_a 
+        prej  ON autho (b_west);     ! Pfad_b 
+
+MODEL EAST:                          ! Modell Gruppe 'East'
+
+        prej BY prej2;               ! Messmodell Gruppe 'East'
+
+        prej ON autho (b_east);      ! Pfad_b 
+        prej ON edu;                 ! Direkter Effekt
+        autho ON edu (a_east);       ! Pfad_a 
+
+MODEL CONSTRAINT:                
+
+NEW 
+(ind_west ind_east ind_diff);    ! Anforderung von drei neuen Parametern:
+                                 ! Indirekte Effekte für
+                                 ! Gruppe 'west', Gruppe 'east', und deren 
+                                 ! Differenz
+                                 
+ind_west = a_west*b_west;       ! Indirekter Effekt a_west*b_west
+ind_east = a_east*b_east;       ! Indirekter Effekt a_east*b_east
+ind_diff = ind_west - ind_east; ! Differenz der indirekten Effekte
+

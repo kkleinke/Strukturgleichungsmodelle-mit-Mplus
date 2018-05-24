@@ -1,0 +1,851 @@
+Mplus VERSION 7.4
+MUTHEN & MUTHEN
+09/16/2016   8:46 AM
+
+INPUT INSTRUCTIONS
+
+
+  Title:    SEM Intergruppenkontakt und GMF, Model Indirect
+            Bootstrapping
+
+  Data:     FILE IS GMF07_Querschnitt_SEM.dat;
+
+  VARIABLE: NAMES ARE qcp_ser sx03q6r sx04q6r he01oq6r he02oq6r
+            he01hq6 he02hq6r ff04dq6r ff08dq6r he05mq6r he12mq6r
+            ev03q6r ev04q6r ra01q6r ra03q6r as01q6r as02q6r
+            dy04q6r dy02q6r ka03nq4r;
+
+            USEVARIABLES sx03q6r sx04q6r he01oq6r he02oq6r
+            he01hq6 he02hq6r ff04dq6r ff08dq6r he05mq6r he12mq6r
+            ev03q6r ev04q6r ra01q6r ra03q6r as01q6r as02q6r ka03nq4r
+            dy04q6r dy02q6r;
+
+            MISSING ARE ALL (99);
+
+  ANALYSIS: BOOTSTRAP = 1000;         ! Spezfikation der Anzahl an
+                                      ! Bootstrap-Stichproben
+
+  MODEL:    sexism BY sx03q6r sx04q6r;      ! Messmodelle für die Elemente
+            homoph BY he01hq6 he02hq6r;     ! von GMF
+            antisem BY as01q6r as02q6r;
+            fremdenf BY ff04dq6r ff08dq6r;
+            rass BY ra01q6r ra03q6r;
+            obdachl BY he01oq6r he02oq6r;
+            islamph BY he05mq6r he12mq6r;
+            etabl BY ev03q6r ev04q6r;
+
+            GMF BY sexism homoph antisem fremdenf rass ! Messmodell GMF
+            obdachl islamph etabl;
+
+            wertsch BY dy04q6r dy02q6r;     ! Messmodell für Wertschätzung
+                                            ! kultureller Vielfalt
+
+            GMF ON ka03nq4r;      ! Direkter Effekt von Kontakt auf GMF (c')
+            wertsch ON ka03nq4r;  ! Effekt von Kontakt auf Wertschätzung
+                                  ! kultureller Vielfakt (a)
+
+            GMF ON wertsch;       ! Effekt von Wert. kultureller Vielfalt
+                                  ! auf GMF (b)
+
+            MODEL INDIRECT:
+            GMF IND ka03nq4r;     ! Prüfung des indirekten Effekts von Kontakt
+                                  ! auf GMF
+
+  OUTPUT:   STDYX;
+            CINTERVAL(BCBOOTSTRAP); ! Anfordern von Konfidenzintervallen,
+                                    ! hier bias-korrigierte
+                                    ! Bootstrap-Konfidenzintervalle
+
+
+
+
+
+
+
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+SEM Intergruppenkontakt und GMF, Model Indirect
+Bootstrapping
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         864
+
+Number of dependent variables                                   18
+Number of independent variables                                  1
+Number of continuous latent variables                           10
+
+Observed dependent variables
+
+  Continuous
+   SX03Q6R     SX04Q6R     HE01OQ6R    HE02OQ6R    HE01HQ6     HE02HQ6R
+   FF04DQ6R    FF08DQ6R    HE05MQ6R    HE12MQ6R    EV03Q6R     EV04Q6R
+   RA01Q6R     RA03Q6R     AS01Q6R     AS02Q6R     DY04Q6R     DY02Q6R
+
+Observed independent variables
+   KA03NQ4R
+
+Continuous latent variables
+   SEXISM      HOMOPH      ANTISEM     FREMDENF    RASS        OBDACHL
+   ISLAMPH     ETABL       GMF         WERTSCH
+
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Number of bootstrap draws
+    Requested                                                 1000
+    Completed                                                 1000
+
+Input data file(s)
+  GMF07_Querschnitt_SEM.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            44
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              SX03Q6R       SX04Q6R       HE01OQ6R      HE02OQ6R      HE01HQ6
+              ________      ________      ________      ________      ________
+ SX03Q6R        0.997
+ SX04Q6R        0.993         0.997
+ HE01OQ6R       0.990         0.990         0.993
+ HE02OQ6R       0.986         0.985         0.984         0.988
+ HE01HQ6        0.997         0.995         0.992         0.988         0.999
+ HE02HQ6R       0.991         0.990         0.986         0.985         0.993
+ FF04DQ6R       0.985         0.985         0.984         0.979         0.987
+ FF08DQ6R       0.987         0.986         0.983         0.980         0.990
+ HE05MQ6R       0.983         0.983         0.980         0.976         0.985
+ HE12MQ6R       0.979         0.978         0.976         0.973         0.981
+ EV03Q6R        0.988         0.988         0.985         0.981         0.991
+ EV04Q6R        0.993         0.993         0.990         0.985         0.995
+ RA01Q6R        0.991         0.991         0.988         0.984         0.993
+ RA03Q6R        0.992         0.992         0.988         0.984         0.994
+ AS01Q6R        0.979         0.978         0.976         0.971         0.981
+ AS02Q6R        0.978         0.977         0.973         0.972         0.980
+ DY04Q6R        0.991         0.991         0.987         0.983         0.993
+ DY02Q6R        0.988         0.987         0.984         0.980         0.991
+ KA03NQ4R       0.997         0.997         0.993         0.988         0.999
+
+
+           Covariance Coverage
+              HE02HQ6R      FF04DQ6R      FF08DQ6R      HE05MQ6R      HE12MQ6R
+              ________      ________      ________      ________      ________
+ HE02HQ6R       0.993
+ FF04DQ6R       0.983         0.988
+ FF08DQ6R       0.985         0.983         0.990
+ HE05MQ6R       0.979         0.977         0.977         0.986
+ HE12MQ6R       0.977         0.973         0.976         0.973         0.981
+ EV03Q6R        0.985         0.981         0.983         0.978         0.975
+ EV04Q6R        0.990         0.985         0.986         0.983         0.978
+ RA01Q6R        0.987         0.984         0.984         0.981         0.977
+ RA03Q6R        0.988         0.984         0.985         0.981         0.977
+ AS01Q6R        0.976         0.970         0.972         0.968         0.966
+ AS02Q6R        0.976         0.970         0.972         0.966         0.965
+ DY04Q6R        0.987         0.983         0.984         0.980         0.976
+ DY02Q6R        0.985         0.979         0.981         0.978         0.973
+ KA03NQ4R       0.993         0.988         0.990         0.986         0.981
+
+
+           Covariance Coverage
+              EV03Q6R       EV04Q6R       RA01Q6R       RA03Q6R       AS01Q6R
+              ________      ________      ________      ________      ________
+ EV03Q6R        0.992
+ EV04Q6R        0.988         0.997
+ RA01Q6R        0.986         0.991         0.994
+ RA03Q6R        0.987         0.992         0.991         0.995
+ AS01Q6R        0.973         0.978         0.978         0.978         0.981
+ AS02Q6R        0.973         0.978         0.975         0.976         0.969
+ DY04Q6R        0.986         0.991         0.988         0.990         0.977
+ DY02Q6R        0.983         0.987         0.986         0.987         0.976
+ KA03NQ4R       0.992         0.997         0.994         0.995         0.981
+
+
+           Covariance Coverage
+              AS02Q6R       DY04Q6R       DY02Q6R       KA03NQ4R
+              ________      ________      ________      ________
+ AS02Q6R        0.980
+ DY04Q6R        0.976         0.994
+ DY02Q6R        0.973         0.987         0.991
+ KA03NQ4R       0.980         0.994         0.991         1.000
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       65
+
+Loglikelihood
+
+          H0 Value                      -17541.365
+          H1 Value                      -17307.112
+
+Information Criteria
+
+          Akaike (AIC)                   35212.730
+          Bayesian (BIC)                 35522.232
+          Sample-Size Adjusted BIC       35315.809
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                            468.506
+          Degrees of Freedom                   142
+          P-Value                           0.0000
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.052
+          90 Percent C.I.                    0.046  0.057
+          Probability RMSEA <= .05           0.299
+
+CFI/TLI
+
+          CFI                                0.935
+          TLI                                0.921
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           5168.583
+          Degrees of Freedom                   171
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.047
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ SEXISM   BY
+    SX03Q6R            1.000      0.000    999.000    999.000
+    SX04Q6R            1.061      0.108      9.790      0.000
+
+ HOMOPH   BY
+    HE01HQ6            1.000      0.000    999.000    999.000
+    HE02HQ6R           1.000      0.101      9.888      0.000
+
+ ANTISEM  BY
+    AS01Q6R            1.000      0.000    999.000    999.000
+    AS02Q6R            0.867      0.072     12.092      0.000
+
+ FREMDENF BY
+    FF04DQ6R           1.000      0.000    999.000    999.000
+    FF08DQ6R           0.875      0.041     21.193      0.000
+
+ RASS     BY
+    RA01Q6R            1.000      0.000    999.000    999.000
+    RA03Q6R            1.150      0.126      9.114      0.000
+
+ OBDACHL  BY
+    HE01OQ6R           1.000      0.000    999.000    999.000
+    HE02OQ6R           0.702      0.078      9.010      0.000
+
+ ISLAMPH  BY
+    HE05MQ6R           1.000      0.000    999.000    999.000
+    HE12MQ6R           1.052      0.048     22.127      0.000
+
+ ETABL    BY
+    EV03Q6R            1.000      0.000    999.000    999.000
+    EV04Q6R            1.063      0.097     10.993      0.000
+
+ WERTSCH  BY
+    DY04Q6R            1.000      0.000    999.000    999.000
+    DY02Q6R            1.018      0.065     15.591      0.000
+
+ GMF      BY
+    SEXISM             1.000      0.000    999.000    999.000
+    HOMOPH             1.438      0.174      8.249      0.000
+    ANTISEM            1.419      0.196      7.229      0.000
+    FREMDENF           2.623      0.334      7.853      0.000
+    RASS               1.239      0.174      7.112      0.000
+    OBDACHL            1.513      0.231      6.560      0.000
+    ISLAMPH            2.323      0.312      7.447      0.000
+    ETABL              1.621      0.207      7.833      0.000
+
+ GMF      ON
+    WERTSCH           -0.266      0.034     -7.716      0.000
+
+ GMF      ON
+    KA03NQ4R          -0.033      0.016     -2.075      0.038
+
+ WERTSCH  ON
+    KA03NQ4R           0.241      0.038      6.349      0.000
+
+ Intercepts
+    SX03Q6R            2.027      0.048     42.477      0.000
+    SX04Q6R            1.800      0.045     40.342      0.000
+    HE01OQ6R           2.485      0.061     40.555      0.000
+    HE02OQ6R           2.513      0.046     54.487      0.000
+    HE01HQ6            2.133      0.063     33.822      0.000
+    HE02HQ6R           2.210      0.061     36.369      0.000
+    FF04DQ6R           2.940      0.088     33.531      0.000
+    FF08DQ6R           2.413      0.080     30.102      0.000
+    HE05MQ6R           2.514      0.080     31.542      0.000
+    HE12MQ6R           2.419      0.083     29.160      0.000
+    EV03Q6R            2.684      0.063     42.850      0.000
+    EV04Q6R            2.395      0.067     35.774      0.000
+    RA01Q6R            1.965      0.052     37.909      0.000
+    RA03Q6R            1.697      0.060     28.328      0.000
+    AS01Q6R            1.905      0.058     33.044      0.000
+    AS02Q6R            1.679      0.053     31.416      0.000
+    DY04Q6R            2.574      0.079     32.446      0.000
+    DY02Q6R            2.555      0.079     32.334      0.000
+
+ Residual Variances
+    SX03Q6R            0.368      0.040      9.165      0.000
+    SX04Q6R            0.157      0.040      3.897      0.000
+    HE01OQ6R           0.356      0.068      5.255      0.000
+    HE02OQ6R           0.544      0.041     13.195      0.000
+    HE01HQ6            0.474      0.062      7.598      0.000
+    HE02HQ6R           0.449      0.065      6.929      0.000
+    FF04DQ6R           0.361      0.029     12.476      0.000
+    FF08DQ6R           0.339      0.027     12.789      0.000
+    HE05MQ6R           0.498      0.034     14.758      0.000
+    HE12MQ6R           0.259      0.029      8.924      0.000
+    EV03Q6R            0.604      0.044     13.673      0.000
+    EV04Q6R            0.560      0.047     11.905      0.000
+    RA01Q6R            0.456      0.032     14.355      0.000
+    RA03Q6R            0.285      0.031      9.300      0.000
+    AS01Q6R            0.257      0.035      7.324      0.000
+    AS02Q6R            0.237      0.028      8.559      0.000
+    DY04Q6R            0.286      0.031      9.139      0.000
+    DY02Q6R            0.268      0.029      9.366      0.000
+    SEXISM             0.271      0.037      7.385      0.000
+    HOMOPH             0.422      0.057      7.373      0.000
+    ANTISEM            0.231      0.032      7.251      0.000
+    FREMDENF           0.020      0.025      0.827      0.409
+    RASS               0.056      0.018      3.128      0.002
+    OBDACHL            0.409      0.066      6.159      0.000
+    ISLAMPH            0.072      0.023      3.085      0.002
+    ETABL              0.166      0.033      5.080      0.000
+    GMF                0.045      0.012      3.855      0.000
+    WERTSCH            0.396      0.037     10.638      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ SEXISM   BY
+    SX03Q6R            0.698      0.039     17.841      0.000
+    SX04Q6R            0.845      0.043     19.833      0.000
+
+ HOMOPH   BY
+    HE01HQ6            0.743      0.040     18.679      0.000
+    HE02HQ6R           0.751      0.042     17.887      0.000
+
+ ANTISEM  BY
+    AS01Q6R            0.775      0.035     22.334      0.000
+    AS02Q6R            0.743      0.035     21.372      0.000
+
+ FREMDENF BY
+    FF04DQ6R           0.778      0.021     37.679      0.000
+    FF08DQ6R           0.745      0.024     31.307      0.000
+
+ RASS     BY
+    RA01Q6R            0.527      0.040     13.022      0.000
+    RA03Q6R            0.670      0.039     17.119      0.000
+
+ OBDACHL  BY
+    HE01OQ6R           0.789      0.046     17.289      0.000
+    HE02OQ6R           0.589      0.041     14.408      0.000
+
+ ISLAMPH  BY
+    HE05MQ6R           0.704      0.025     28.522      0.000
+    HE12MQ6R           0.822      0.022     37.264      0.000
+
+ ETABL    BY
+    EV03Q6R            0.616      0.035     17.373      0.000
+    EV04Q6R            0.654      0.036     18.065      0.000
+
+ WERTSCH  BY
+    DY04Q6R            0.773      0.029     26.913      0.000
+    DY02Q6R            0.789      0.026     30.886      0.000
+
+ GMF      BY
+    SEXISM             0.471      0.043     11.073      0.000
+    HOMOPH             0.524      0.039     13.532      0.000
+    ANTISEM            0.635      0.038     16.596      0.000
+    FREMDENF           0.981      0.022     43.825      0.000
+    RASS               0.823      0.047     17.494      0.000
+    OBDACHL            0.550      0.043     12.696      0.000
+    ISLAMPH            0.923      0.025     37.250      0.000
+    ETABL              0.742      0.042     17.851      0.000
+
+ GMF      ON
+    WERTSCH           -0.622      0.039    -15.926      0.000
+
+ GMF      ON
+    KA03NQ4R          -0.083      0.038     -2.184      0.029
+
+ WERTSCH  ON
+    KA03NQ4R           0.261      0.039      6.755      0.000
+
+ Intercepts
+    SX03Q6R            2.395      0.058     41.568      0.000
+    SX04Q6R            2.427      0.068     35.471      0.000
+    HE01OQ6R           2.561      0.064     39.952      0.000
+    HE02OQ6R           2.754      0.064     42.928      0.000
+    HE01HQ6            2.075      0.055     37.871      0.000
+    HE02HQ6R           2.176      0.056     38.892      0.000
+    FF04DQ6R           3.074      0.095     32.239      0.000
+    FF08DQ6R           2.763      0.089     31.203      0.000
+    HE05MQ6R           2.529      0.078     32.543      0.000
+    HE12MQ6R           2.702      0.089     30.362      0.000
+    EV03Q6R            2.721      0.068     40.285      0.000
+    EV04Q6R            2.422      0.063     38.335      0.000
+    RA01Q6R            2.474      0.063     39.278      0.000
+    RA03Q6R            2.360      0.075     31.447      0.000
+    AS01Q6R            2.375      0.066     35.931      0.000
+    AS02Q6R            2.311      0.073     31.713      0.000
+    DY04Q6R            3.052      0.131     23.324      0.000
+    DY02Q6R            3.037      0.134     22.672      0.000
+
+ Residual Variances
+    SX03Q6R            0.513      0.054      9.422      0.000
+    SX04Q6R            0.286      0.073      3.938      0.000
+    HE01OQ6R           0.378      0.072      5.219      0.000
+    HE02OQ6R           0.653      0.048     13.650      0.000
+    HE01HQ6            0.449      0.059      7.592      0.000
+    HE02HQ6R           0.436      0.063      6.895      0.000
+    FF04DQ6R           0.395      0.032     12.322      0.000
+    FF08DQ6R           0.445      0.035     12.600      0.000
+    HE05MQ6R           0.504      0.035     14.541      0.000
+    HE12MQ6R           0.324      0.036      8.948      0.000
+    EV03Q6R            0.620      0.044     14.224      0.000
+    EV04Q6R            0.573      0.047     12.129      0.000
+    RA01Q6R            0.722      0.042     17.023      0.000
+    RA03Q6R            0.551      0.052     10.543      0.000
+    AS01Q6R            0.399      0.053      7.478      0.000
+    AS02Q6R            0.449      0.051      8.713      0.000
+    DY04Q6R            0.402      0.044      9.093      0.000
+    DY02Q6R            0.378      0.040      9.370      0.000
+    SEXISM             0.778      0.040     19.412      0.000
+    HOMOPH             0.725      0.040     17.951      0.000
+    ANTISEM            0.597      0.048     12.393      0.000
+    FREMDENF           0.037      0.044      0.842      0.400
+    RASS               0.322      0.078      4.137      0.000
+    OBDACHL            0.698      0.048     14.655      0.000
+    ISLAMPH            0.148      0.046      3.227      0.001
+    ETABL              0.450      0.062      7.310      0.000
+    GMF                0.579      0.045     12.721      0.000
+    WERTSCH            0.932      0.020     46.528      0.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    SX03Q6R            0.487      0.054      8.940      0.000
+    SX04Q6R            0.714      0.073      9.830      0.000
+    HE01OQ6R           0.622      0.072      8.595      0.000
+    HE02OQ6R           0.347      0.048      7.241      0.000
+    HE01HQ6            0.551      0.059      9.329      0.000
+    HE02HQ6R           0.564      0.063      8.933      0.000
+    FF04DQ6R           0.605      0.032     18.857      0.000
+    FF08DQ6R           0.555      0.035     15.734      0.000
+    HE05MQ6R           0.496      0.035     14.319      0.000
+    HE12MQ6R           0.676      0.036     18.709      0.000
+    EV03Q6R            0.380      0.044      8.716      0.000
+    EV04Q6R            0.427      0.047      9.050      0.000
+    RA01Q6R            0.278      0.042      6.548      0.000
+    RA03Q6R            0.449      0.052      8.580      0.000
+    AS01Q6R            0.601      0.053     11.269      0.000
+    AS02Q6R            0.551      0.051     10.710      0.000
+    DY04Q6R            0.598      0.044     13.519      0.000
+    DY02Q6R            0.622      0.040     15.417      0.000
+
+     Latent                                         Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    SEXISM             0.222      0.040      5.538      0.000
+    HOMOPH             0.275      0.040      6.800      0.000
+    ANTISEM            0.403      0.048      8.363      0.000
+    FREMDENF           0.963      0.044     21.917      0.000
+    RASS               0.678      0.078      8.701      0.000
+    OBDACHL            0.302      0.048      6.354      0.000
+    ISLAMPH            0.852      0.046     18.594      0.000
+    ETABL              0.550      0.062      8.932      0.000
+    GMF                0.421      0.045      9.257      0.000
+    WERTSCH            0.068      0.020      3.396      0.001
+
+
+TOTAL, TOTAL INDIRECT, SPECIFIC INDIRECT, AND DIRECT EFFECTS
+
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Effects from KA03NQ4R to GMF
+
+  Total               -0.097      0.019     -5.110      0.000
+  Total indirect      -0.064      0.013     -5.025      0.000
+
+  Specific indirect
+
+    GMF
+    WERTSCH
+    KA03NQ4R          -0.064      0.013     -5.025      0.000
+
+  Direct
+    GMF
+    KA03NQ4R          -0.033      0.016     -2.075      0.038
+
+
+
+STANDARDIZED TOTAL, TOTAL INDIRECT, SPECIFIC INDIRECT, AND DIRECT EFFECTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Effects from KA03NQ4R to GMF
+
+  Total               -0.245      0.038     -6.439      0.000
+  Total indirect      -0.162      0.027     -5.932      0.000
+
+  Specific indirect
+
+    GMF
+    WERTSCH
+    KA03NQ4R          -0.162      0.027     -5.932      0.000
+
+  Direct
+    GMF
+    KA03NQ4R          -0.083      0.038     -2.184      0.029
+
+
+
+
+CONFIDENCE INTERVALS OF MODEL RESULTS
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ SEXISM   BY
+    SX03Q6R          1.000       1.000       1.000       1.000       1.000       1.000       1.000
+    SX04Q6R          0.806       0.876       0.907       1.061       1.262       1.312       1.394
+
+ HOMOPH   BY
+    HE01HQ6          1.000       1.000       1.000       1.000       1.000       1.000       1.000
+    HE02HQ6R         0.738       0.819       0.839       1.000       1.166       1.208       1.266
+
+ ANTISEM  BY
+    AS01Q6R          1.000       1.000       1.000       1.000       1.000       1.000       1.000
+    AS02Q6R          0.708       0.741       0.761       0.867       0.998       1.025       1.066
+
+ FREMDENF BY
+    FF04DQ6R         1.000       1.000       1.000       1.000       1.000       1.000       1.000
+    FF08DQ6R         0.763       0.793       0.810       0.875       0.944       0.957       0.980
+
+ RASS     BY
+    RA01Q6R          1.000       1.000       1.000       1.000       1.000       1.000       1.000
+    RA03Q6R          0.857       0.935       0.966       1.150       1.374       1.423       1.582
+
+ OBDACHL  BY
+    HE01OQ6R         1.000       1.000       1.000       1.000       1.000       1.000       1.000
+    HE02OQ6R         0.511       0.563       0.583       0.702       0.843       0.858       0.919
+
+ ISLAMPH  BY
+    HE05MQ6R         1.000       1.000       1.000       1.000       1.000       1.000       1.000
+    HE12MQ6R         0.925       0.960       0.976       1.052       1.130       1.150       1.189
+
+ ETABL    BY
+    EV03Q6R          1.000       1.000       1.000       1.000       1.000       1.000       1.000
+    EV04Q6R          0.845       0.903       0.926       1.063       1.247       1.274       1.325
+
+ WERTSCH  BY
+    DY04Q6R          1.000       1.000       1.000       1.000       1.000       1.000       1.000
+    DY02Q6R          0.878       0.902       0.923       1.018       1.137       1.166       1.234
+
+ GMF      BY
+    SEXISM           1.000       1.000       1.000       1.000       1.000       1.000       1.000
+    HOMOPH           1.059       1.133       1.177       1.438       1.726       1.796       1.964
+    ANTISEM          0.990       1.090       1.135       1.419       1.778       1.876       2.076
+    FREMDENF         1.928       2.104       2.165       2.623       3.272       3.426       3.830
+    RASS             0.883       0.956       0.988       1.239       1.559       1.641       1.772
+    OBDACHL          1.041       1.141       1.183       1.513       1.947       2.025       2.189
+    ISLAMPH          1.715       1.837       1.923       2.323       2.924       3.112       3.562
+    ETABL            1.171       1.277       1.331       1.621       1.989       2.115       2.268
+
+ GMF      ON
+    WERTSCH         -0.368      -0.342      -0.326      -0.266      -0.215      -0.205      -0.184
+
+ GMF      ON
+    KA03NQ4R        -0.074      -0.064      -0.058      -0.033      -0.007      -0.003       0.004
+
+ WERTSCH  ON
+    KA03NQ4R         0.141       0.169       0.178       0.241       0.305       0.316       0.343
+
+ Intercepts
+    SX03Q6R          1.899       1.933       1.948       2.027       2.104       2.117       2.154
+    SX04Q6R          1.688       1.725       1.737       1.800       1.882       1.897       1.931
+    HE01OQ6R         2.338       2.368       2.383       2.485       2.584       2.605       2.640
+    HE02OQ6R         2.404       2.428       2.444       2.513       2.594       2.615       2.648
+    HE01HQ6          1.978       2.004       2.028       2.133       2.237       2.254       2.299
+    HE02HQ6R         2.052       2.083       2.097       2.210       2.303       2.318       2.358
+    FF04DQ6R         2.688       2.759       2.786       2.940       3.076       3.102       3.142
+    FF08DQ6R         2.210       2.246       2.269       2.413       2.547       2.566       2.604
+    HE05MQ6R         2.312       2.356       2.378       2.514       2.646       2.675       2.706
+    HE12MQ6R         2.209       2.252       2.278       2.419       2.557       2.576       2.619
+    EV03Q6R          2.530       2.565       2.583       2.684       2.785       2.810       2.851
+    EV04Q6R          2.235       2.270       2.286       2.395       2.505       2.530       2.573
+    RA01Q6R          1.841       1.870       1.888       1.965       2.055       2.076       2.111
+    RA03Q6R          1.545       1.584       1.597       1.697       1.795       1.818       1.848
+    AS01Q6R          1.769       1.794       1.811       1.905       1.999       2.021       2.049
+    AS02Q6R          1.548       1.578       1.594       1.679       1.772       1.785       1.833
+    DY04Q6R          2.356       2.410       2.431       2.574       2.695       2.719       2.775
+    DY02Q6R          2.373       2.396       2.424       2.555       2.685       2.710       2.760
+
+ Residual Variances
+    SX03Q6R          0.256       0.291       0.304       0.368       0.433       0.453       0.469
+    SX04Q6R          0.048       0.072       0.088       0.157       0.217       0.228       0.252
+    HE01OQ6R         0.152       0.209       0.235       0.356       0.464       0.478       0.512
+    HE02OQ6R         0.434       0.461       0.475       0.544       0.613       0.624       0.653
+    HE01HQ6          0.286       0.343       0.370       0.474       0.570       0.591       0.633
+    HE02HQ6R         0.268       0.323       0.345       0.449       0.558       0.580       0.617
+    FF04DQ6R         0.284       0.305       0.315       0.361       0.409       0.417       0.434
+    FF08DQ6R         0.272       0.291       0.299       0.339       0.386       0.397       0.410
+    HE05MQ6R         0.417       0.436       0.444       0.498       0.557       0.568       0.596
+    HE12MQ6R         0.189       0.204       0.217       0.259       0.309       0.322       0.354
+    EV03Q6R          0.494       0.516       0.533       0.604       0.675       0.688       0.715
+    EV04Q6R          0.442       0.469       0.486       0.560       0.641       0.656       0.685
+    RA01Q6R          0.384       0.401       0.413       0.456       0.517       0.526       0.547
+    RA03Q6R          0.209       0.230       0.239       0.285       0.341       0.355       0.377
+    AS01Q6R          0.174       0.193       0.202       0.257       0.317       0.335       0.357
+    AS02Q6R          0.173       0.189       0.196       0.237       0.289       0.296       0.317
+    DY04Q6R          0.204       0.226       0.239       0.286       0.342       0.355       0.370
+    DY02Q6R          0.184       0.208       0.218       0.268       0.312       0.321       0.332
+    SEXISM           0.192       0.206       0.214       0.271       0.340       0.354       0.382
+    HOMOPH           0.293       0.323       0.336       0.422       0.526       0.547       0.608
+    ANTISEM          0.159       0.176       0.185       0.231       0.290       0.305       0.336
+    FREMDENF        -0.056      -0.028      -0.018       0.020       0.062       0.074       0.089
+    RASS             0.013       0.026       0.030       0.056       0.088       0.095       0.108
+    OBDACHL          0.271       0.301       0.313       0.409       0.530       0.561       0.597
+    ISLAMPH          0.011       0.024       0.033       0.072       0.111       0.116       0.129
+    ETABL            0.086       0.109       0.119       0.166       0.225       0.237       0.266
+    GMF              0.020       0.026       0.028       0.045       0.067       0.072       0.080
+    WERTSCH          0.302       0.328       0.339       0.396       0.461       0.475       0.494
+
+
+CONFIDENCE INTERVALS OF STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ SEXISM   BY
+    SX03Q6R          0.594       0.617       0.629       0.698       0.756       0.770       0.795
+    SX04Q6R          0.722       0.762       0.775       0.845       0.913       0.926       0.955
+
+ HOMOPH   BY
+    HE01HQ6          0.625       0.657       0.677       0.743       0.804       0.816       0.853
+    HE02HQ6R         0.638       0.664       0.680       0.751       0.819       0.828       0.860
+
+ ANTISEM  BY
+    AS01Q6R          0.663       0.698       0.714       0.775       0.825       0.835       0.854
+    AS02Q6R          0.646       0.669       0.680       0.743       0.795       0.805       0.824
+
+ FREMDENF BY
+    FF04DQ6R         0.727       0.738       0.745       0.778       0.812       0.817       0.831
+    FF08DQ6R         0.678       0.691       0.703       0.745       0.781       0.787       0.798
+
+ RASS     BY
+    RA01Q6R          0.422       0.443       0.459       0.527       0.596       0.607       0.619
+    RA03Q6R          0.561       0.590       0.600       0.670       0.730       0.742       0.763
+
+ OBDACHL  BY
+    HE01OQ6R         0.662       0.696       0.707       0.789       0.861       0.876       0.908
+    HE02OQ6R         0.475       0.509       0.521       0.589       0.654       0.666       0.682
+
+ ISLAMPH  BY
+    HE05MQ6R         0.629       0.649       0.662       0.704       0.743       0.749       0.760
+    HE12MQ6R         0.754       0.772       0.783       0.822       0.855       0.861       0.874
+
+ ETABL    BY
+    EV03Q6R          0.514       0.544       0.555       0.616       0.672       0.681       0.712
+    EV04Q6R          0.564       0.584       0.594       0.654       0.710       0.726       0.747
+
+ WERTSCH  BY
+    DY04Q6R          0.691       0.709       0.719       0.773       0.814       0.821       0.840
+    DY02Q6R          0.723       0.740       0.747       0.789       0.830       0.838       0.853
+
+ GMF      BY
+    SEXISM           0.365       0.385       0.397       0.471       0.538       0.549       0.575
+    HOMOPH           0.409       0.438       0.454       0.524       0.583       0.593       0.611
+    ANTISEM          0.529       0.554       0.569       0.635       0.695       0.707       0.716
+    FREMDENF         0.918       0.936       0.945       0.981       1.016       1.026       1.047
+    RASS             0.696       0.733       0.746       0.823       0.898       0.919       0.952
+    OBDACHL          0.435       0.465       0.478       0.550       0.619       0.633       0.657
+    ISLAMPH          0.864       0.874       0.884       0.923       0.966       0.975       0.989
+    ETABL            0.630       0.657       0.674       0.742       0.807       0.823       0.847
+
+ GMF      ON
+    WERTSCH         -0.733      -0.703      -0.685      -0.622      -0.561      -0.553      -0.525
+
+ GMF      ON
+    KA03NQ4R        -0.173      -0.154      -0.145      -0.083      -0.017      -0.007       0.011
+
+ WERTSCH  ON
+    KA03NQ4R         0.148       0.185       0.196       0.261       0.325       0.335       0.354
+
+ Intercepts
+    SX03Q6R          2.261       2.291       2.309       2.395       2.494       2.510       2.534
+    SX04Q6R          2.237       2.281       2.306       2.427       2.534       2.558       2.598
+    HE01OQ6R         2.402       2.429       2.443       2.561       2.658       2.674       2.717
+    HE02OQ6R         2.583       2.625       2.647       2.754       2.860       2.876       2.908
+    HE01HQ6          1.931       1.964       1.983       2.075       2.162       2.182       2.219
+    HE02HQ6R         2.043       2.069       2.085       2.176       2.270       2.287       2.322
+    FF04DQ6R         2.840       2.877       2.906       3.074       3.227       3.249       3.289
+    FF08DQ6R         2.525       2.580       2.611       2.763       2.902       2.934       2.996
+    HE05MQ6R         2.339       2.381       2.403       2.529       2.658       2.685       2.732
+    HE12MQ6R         2.468       2.516       2.548       2.702       2.830       2.856       2.916
+    EV03Q6R          2.546       2.586       2.609       2.721       2.827       2.855       2.899
+    EV04Q6R          2.258       2.297       2.315       2.422       2.524       2.545       2.592
+    RA01Q6R          2.318       2.358       2.377       2.474       2.579       2.602       2.649
+    RA03Q6R          2.184       2.210       2.230       2.360       2.478       2.499       2.539
+    AS01Q6R          2.208       2.244       2.262       2.375       2.482       2.508       2.531
+    AS02Q6R          2.114       2.173       2.189       2.311       2.428       2.453       2.490
+    DY04Q6R          2.725       2.800       2.832       3.052       3.261       3.308       3.375
+    DY02Q6R          2.710       2.780       2.806       3.037       3.251       3.296       3.353
+
+ Residual Variances
+    SX03Q6R          0.366       0.407       0.428       0.513       0.604       0.618       0.643
+    SX04Q6R          0.086       0.139       0.165       0.286       0.399       0.418       0.472
+    HE01OQ6R         0.174       0.233       0.257       0.378       0.500       0.514       0.541
+    HE02OQ6R         0.533       0.556       0.572       0.653       0.728       0.741       0.773
+    HE01HQ6          0.270       0.333       0.354       0.449       0.540       0.567       0.606
+    HE02HQ6R         0.257       0.314       0.330       0.436       0.536       0.557       0.586
+    FF04DQ6R         0.307       0.330       0.340       0.395       0.445       0.455       0.471
+    FF08DQ6R         0.362       0.380       0.390       0.445       0.505       0.522       0.538
+    HE05MQ6R         0.423       0.439       0.447       0.504       0.562       0.576       0.603
+    HE12MQ6R         0.235       0.258       0.270       0.324       0.386       0.404       0.423
+    EV03Q6R          0.491       0.535       0.549       0.620       0.691       0.703       0.730
+    EV04Q6R          0.439       0.472       0.495       0.573       0.647       0.658       0.679
+    RA01Q6R          0.610       0.630       0.644       0.722       0.789       0.802       0.821
+    RA03Q6R          0.418       0.448       0.465       0.551       0.639       0.651       0.680
+    AS01Q6R          0.268       0.302       0.319       0.399       0.489       0.511       0.561
+    AS02Q6R          0.320       0.351       0.366       0.449       0.537       0.552       0.576
+    DY04Q6R          0.289       0.326       0.337       0.402       0.483       0.497       0.522
+    DY02Q6R          0.272       0.296       0.311       0.378       0.441       0.451       0.475
+    SEXISM           0.667       0.697       0.710       0.778       0.842       0.851       0.867
+    HOMOPH           0.627       0.647       0.660       0.725       0.793       0.807       0.830
+    ANTISEM          0.486       0.499       0.517       0.597       0.676       0.693       0.719
+    FREMDENF        -0.105      -0.054      -0.033       0.037       0.107       0.123       0.154
+    RASS             0.091       0.156       0.191       0.322       0.443       0.462       0.499
+    OBDACHL          0.561       0.599       0.617       0.698       0.771       0.784       0.810
+    ISLAMPH          0.009       0.049       0.067       0.148       0.218       0.235       0.251
+    ETABL            0.280       0.321       0.347       0.450       0.546       0.568       0.600
+    GMF              0.449       0.482       0.497       0.579       0.646       0.659       0.684
+    WERTSCH          0.873       0.888       0.895       0.932       0.961       0.966       0.976
+
+
+CONFIDENCE INTERVALS OF TOTAL, TOTAL INDIRECT, SPECIFIC INDIRECT, AND DIRECT EFFECTS
+
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+Effects from KA03NQ4R to GMF
+
+  Total             -0.148      -0.139      -0.131      -0.097      -0.067      -0.063      -0.054
+  Total indirect    -0.099      -0.091      -0.088      -0.064      -0.045      -0.042      -0.035
+
+  Specific indirect
+
+    GMF
+    WERTSCH
+    KA03NQ4R        -0.099      -0.091      -0.088      -0.064      -0.045      -0.042      -0.035
+
+  Direct
+    GMF
+    KA03NQ4R        -0.074      -0.064      -0.058      -0.033      -0.007      -0.003       0.004
+
+
+
+CONFIDENCE INTERVALS OF STANDARDIZED TOTAL, TOTAL INDIRECT, SPECIFIC INDIRECT, AND DIRECT EFFECTS
+
+
+STDYX Standardization
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+Effects from KA03NQ4R to GMF
+
+  Total             -0.332      -0.312      -0.303      -0.245      -0.175      -0.164      -0.141
+  Total indirect    -0.234      -0.222      -0.216      -0.162      -0.123      -0.114      -0.096
+
+  Specific indirect
+
+    GMF
+    WERTSCH
+    KA03NQ4R        -0.234      -0.222      -0.216      -0.162      -0.123      -0.114      -0.096
+
+  Direct
+    GMF
+    KA03NQ4R        -0.173      -0.154      -0.145      -0.083      -0.017      -0.007       0.011
+
+
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    e:\fertig\begleitmaterial\kapitel 3\sem_modelindirect_bootstrap.dgm
+
+     Beginning Time:  08:46:43
+        Ending Time:  08:51:19
+       Elapsed Time:  00:04:36
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen

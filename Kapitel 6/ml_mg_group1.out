@@ -1,0 +1,338 @@
+Mplus VERSION 7.4
+MUTHEN & MUTHEN
+10/13/2016   9:11 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: Multipler Gruppenvergleich für Mehrebenenanalysen,
+         separates Modell Gruppe 1
+
+  DATA: FILE IS civics99.dat;
+
+  VARIABLE:
+  NAMES ARE
+  idschool
+  bs4e3 bs4e7 bs4e10
+  bs4h2 bs4h3 bs4h5 bs4h6
+  bs4h2_r bs4h3_r bs4h5_r
+  schtyp;
+
+  USEVARIABLES ARE
+  bs4h6 bs4h2_r bs4h3_r bs4h5_r
+  bs4e3 bs4e7 bs4e10;
+
+  MISSING ARE ALL (99);
+  USEOBSERVATIONS IS (schtyp EQ 1);
+  CLUSTER IS idschool;
+  !GROUPING IS schtyp (1 = Gymnasium 2 = Real&Haupt);
+
+  ANALYSIS:
+  TYPE IS TWOLEVEL;
+
+  MODEL:
+
+  %WITHIN%
+
+  pride_w by bs4e10* bs4e7 bs4e3; ! Ladung des ersten Indikators wird frei geschätzt
+  pride_w@1;                      ! Fixierung der Varianz auf 1
+
+  prej_w by bs4h2_r* bs4h3_r bs4h5_r bs4h6;
+  prej_w@1;
+
+  %BETWEEN%
+
+  pride_b by bs4e10* bs4e7 bs4e3;
+  pride_b@1;
+
+  prej_b by bs4h2_r* bs4h3_r bs4h5_r bs4h6;
+  prej_b@1;
+
+  BS4E10@0;
+
+  !BS4E3@0;
+
+  Output: Modindices;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Multipler Gruppenvergleich für Mehrebenenanalysen,
+separates Modell Gruppe 1
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1048
+
+Number of dependent variables                                    7
+Number of independent variables                                  0
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Continuous
+   BS4H6       BS4H2_R     BS4H3_R     BS4H5_R     BS4E3       BS4E7
+   BS4E10
+
+Continuous latent variables
+   PRIDE_W     PREJ_W      PRIDE_B     PREJ_B
+
+Variables with special functions
+
+  Cluster variable      IDSCHOOL
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  civics99.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            23
+     Number of clusters                         56
+
+     Average cluster size       18.714
+
+     Estimated Intraclass Correlations for the Y Variables
+
+                Intraclass              Intraclass              Intraclass
+     Variable  Correlation   Variable  Correlation   Variable  Correlation
+
+     BS4H6        0.099      BS4H2_R      0.185      BS4H3_R      0.092
+     BS4H5_R      0.130      BS4E3        0.142      BS4E7        0.106
+     BS4E10       0.135
+
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              BS4H6         BS4H2_R       BS4H3_R       BS4H5_R       BS4E3
+              ________      ________      ________      ________      ________
+ BS4H6          0.939
+ BS4H2_R        0.922         0.976
+ BS4H3_R        0.907         0.929         0.945
+ BS4H5_R        0.911         0.942         0.908         0.959
+ BS4E3          0.939         0.976         0.945         0.959         1.000
+ BS4E7          0.939         0.976         0.945         0.959         1.000
+ BS4E10         0.916         0.949         0.918         0.930         0.969
+
+
+           Covariance Coverage
+              BS4E7         BS4E10
+              ________      ________
+ BS4E7          1.000
+ BS4E10         0.969         0.969
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       36
+
+Loglikelihood
+
+          H0 Value                       -7875.964
+          H0 Scaling Correction Factor      1.4050
+            for MLR
+          H1 Value                       -7852.256
+          H1 Scaling Correction Factor      1.1193
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   15823.928
+          Bayesian (BIC)                 16002.295
+          Sample-Size Adjusted BIC       15887.954
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                             64.224*
+          Degrees of Freedom                    27
+          P-Value                           0.0001
+          Scaling Correction Factor         0.7383
+            for MLR
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.036
+
+CFI/TLI
+
+          CFI                                0.985
+          TLI                                0.977
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           2605.375
+          Degrees of Freedom                    42
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value for Within                   0.022
+          Value for Between                  0.025
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Within Level
+
+ PRIDE_W  BY
+    BS4E10             0.801      0.029     28.006      0.000
+    BS4E7              0.562      0.029     19.371      0.000
+    BS4E3              0.764      0.034     22.708      0.000
+
+ PREJ_W   BY
+    BS4H2_R            0.571      0.040     14.329      0.000
+    BS4H3_R            0.560      0.029     19.596      0.000
+    BS4H5_R            0.656      0.028     23.477      0.000
+    BS4H6              0.567      0.030     18.602      0.000
+
+ PREJ_W   WITH
+    PRIDE_W            0.324      0.051      6.342      0.000
+
+ Variances
+    PRIDE_W            1.000      0.000    999.000    999.000
+    PREJ_W             1.000      0.000    999.000    999.000
+
+ Residual Variances
+    BS4H6              0.392      0.039      9.989      0.000
+    BS4H2_R            0.209      0.021      9.776      0.000
+    BS4H3_R            0.358      0.028     12.602      0.000
+    BS4H5_R            0.244      0.024     10.335      0.000
+    BS4E3              0.333      0.053      6.308      0.000
+    BS4E7              0.515      0.030     17.010      0.000
+    BS4E10             0.227      0.034      6.584      0.000
+
+Between Level
+
+ PRIDE_B  BY
+    BS4E10             0.369      0.039      9.467      0.000
+    BS4E7              0.287      0.049      5.875      0.000
+    BS4E3              0.365      0.041      8.890      0.000
+
+ PREJ_B   BY
+    BS4H2_R            0.330      0.044      7.568      0.000
+    BS4H3_R            0.261      0.033      7.848      0.000
+    BS4H5_R            0.318      0.029     11.085      0.000
+    BS4H6              0.278      0.026     10.623      0.000
+
+ PREJ_B   WITH
+    PRIDE_B            0.751      0.107      7.025      0.000
+
+ Intercepts
+    BS4H6              2.031      0.045     44.744      0.000
+    BS4H2_R            1.877      0.052     35.972      0.000
+    BS4H3_R            2.144      0.043     50.327      0.000
+    BS4H5_R            2.067      0.050     41.627      0.000
+    BS4E3              2.559      0.060     42.568      0.000
+    BS4E7              2.652      0.051     52.365      0.000
+    BS4E10             2.472      0.058     42.982      0.000
+
+ Variances
+    PRIDE_B            1.000      0.000    999.000    999.000
+    PREJ_B             1.000      0.000    999.000    999.000
+
+ Residual Variances
+    BS4H6              0.001      0.006      0.102      0.919
+    BS4H2_R            0.012      0.005      2.118      0.034
+    BS4H3_R            0.000      0.006      0.077      0.939
+    BS4H5_R            0.000      0.008      0.025      0.980
+    BS4E3              0.018      0.013      1.384      0.166
+    BS4E7              0.015      0.012      1.249      0.212
+    BS4E10             0.000      0.000    999.000    999.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.148E-03
+       (ratio of smallest to largest eigenvalue)
+
+
+MODEL MODIFICATION INDICES
+
+NOTE:  Modification indices for direct effects of observed dependent variables
+regressed on covariates may not be included.  To include these, request
+MODINDICES (ALL).
+
+Minimum M.I. value for printing the modification index    10.000
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+Within Level
+
+BY Statements
+
+PRIDE_W  BY BS4H5_R               10.693    -0.067     -0.067       -0.081
+
+WITH Statements
+
+BS4H2_R  WITH BS4H6               26.147    -0.067     -0.067       -0.235
+BS4H5_R  WITH BS4H6               12.345     0.053      0.053        0.171
+BS4H5_R  WITH BS4H3_R             19.532    -0.066     -0.066       -0.222
+BS4E10   WITH BS4H5_R             11.056    -0.035     -0.035       -0.151
+
+Between Level
+
+
+DIAGRAM INFORMATION
+
+  Mplus diagrams are currently not available for multilevel analysis.
+  No diagram output was produced.
+
+
+     Beginning Time:  21:11:49
+        Ending Time:  21:11:56
+       Elapsed Time:  00:00:07
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen

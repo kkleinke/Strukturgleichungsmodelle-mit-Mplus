@@ -1,0 +1,491 @@
+Mplus VERSION 7.4
+MUTHEN & MUTHEN
+09/15/2016   8:02 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:    Beispiel latentes Wachstumkurvenmodell (unkonditional)
+
+  DATA:     FILE IS GMF_Panel_020304.dat;
+
+  VARIABLE: NAMES ARE qcp_ser con11 con12 con13 con21 con22 con23 con31 con32 con33
+            ff11 ff12 ff13 ff21 ff22 ff23 ff31 ff32 ff33;
+
+            USEVARIABLES ARE ff11 ff12 ff13 ff21 ff22 ff23 ff31 ff32 ff33;
+
+            MISSING ARE all (99);
+
+  MODEL:    ff1 BY ff11
+            ff21 (1)      ! Gleichheitsrestriktion korrespondierender Faktorladungen
+            ff31 (2);     ! über die Zeit
+            ff2 BY ff12
+            ff22 (1)
+            ff32 (2);
+            ff3 BY ff13
+            ff23 (1)
+            ff33 (2);
+
+            i s | ff1@0 ff2@1 ff3@2; ! Spezifikation der latenten Wachstumsfaktoren
+                                     ! Hier Spezifikation eines linearen Slope-Faktors
+
+            [i];      ! Mittelwert des latenten Intercept-Faktors
+
+            [ff11@0 ff12@0 ff13@0];
+            [ff22 ff23] (3);      ! Gleicheitsrestriktion korrespondierender Intercepts
+            [ff31 ff33] (4);      ! orientiert an den Ergebnissen der Längsschnitt-CFA
+
+            ff11 WITH ff12 ff13;
+            ff12 WITH ff13;
+            ff21 WITH ff22 ff23;
+            ff22 WITH ff23;
+            ff31 WITH ff32 ff33;
+            ff32 WITH ff33;
+
+  OUTPUT:   STDYX;
+
+  PLOT:     TYPE = PLOT3;
+            SERIES = ff1 (s) ff2 (s) ff3 (s);
+
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Beispiel latentes Wachstumkurvenmodell (unkonditional)
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         825
+
+Number of dependent variables                                    9
+Number of independent variables                                  0
+Number of continuous latent variables                            5
+
+Observed dependent variables
+
+  Continuous
+   FF11        FF12        FF13        FF21        FF22        FF23
+   FF31        FF32        FF33
+
+Continuous latent variables
+   FF1         FF2         FF3         I           S
+
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+
+Input data file(s)
+  GMF_Panel_020304.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            26
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              FF11          FF12          FF13          FF21          FF22
+              ________      ________      ________      ________      ________
+ FF11           0.984
+ FF12           0.977         0.990
+ FF13           0.972         0.975         0.984
+ FF21           0.975         0.977         0.972         0.987
+ FF22           0.971         0.978         0.971         0.972         0.985
+ FF23           0.970         0.976         0.971         0.972         0.972
+ FF31           0.971         0.976         0.968         0.973         0.972
+ FF32           0.979         0.985         0.978         0.982         0.979
+ FF33           0.975         0.978         0.977         0.976         0.973
+
+
+           Covariance Coverage
+              FF23          FF31          FF32          FF33
+              ________      ________      ________      ________
+ FF23           0.984
+ FF31           0.971         0.984
+ FF32           0.978         0.979         0.994
+ FF33           0.973         0.972         0.982         0.988
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       32
+
+Loglikelihood
+
+          H0 Value                       -7481.790
+          H1 Value                       -7459.196
+
+Information Criteria
+
+          Akaike (AIC)                   15027.580
+          Bayesian (BIC)                 15178.472
+          Sample-Size Adjusted BIC       15076.852
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                             45.187
+          Degrees of Freedom                    22
+          P-Value                           0.0025
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.036
+          90 Percent C.I.                    0.021  0.051
+          Probability RMSEA <= .05           0.943
+
+CFI/TLI
+
+          CFI                                0.996
+          TLI                                0.993
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           5257.695
+          Degrees of Freedom                    36
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.021
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ I        |
+    FF1                1.000      0.000    999.000    999.000
+    FF2                1.000      0.000    999.000    999.000
+    FF3                1.000      0.000    999.000    999.000
+
+ S        |
+    FF1                0.000      0.000    999.000    999.000
+    FF2                1.000      0.000    999.000    999.000
+    FF3                2.000      0.000    999.000    999.000
+
+ FF1      BY
+    FF11               1.000      0.000    999.000    999.000
+    FF21               1.170      0.033     34.933      0.000
+    FF31               0.842      0.029     29.089      0.000
+
+ FF2      BY
+    FF12               1.000      0.000    999.000    999.000
+    FF22               1.170      0.033     34.933      0.000
+    FF32               0.842      0.029     29.089      0.000
+
+ FF3      BY
+    FF13               1.000      0.000    999.000    999.000
+    FF23               1.170      0.033     34.933      0.000
+    FF33               0.842      0.029     29.089      0.000
+
+ S        WITH
+    I                 -0.044      0.016     -2.795      0.005
+
+ FF11     WITH
+    FF12               0.077      0.018      4.343      0.000
+    FF13               0.077      0.017      4.575      0.000
+
+ FF12     WITH
+    FF13               0.098      0.017      5.938      0.000
+
+ FF21     WITH
+    FF22               0.037      0.018      2.046      0.041
+    FF23               0.039      0.018      2.127      0.033
+
+ FF22     WITH
+    FF23               0.056      0.018      3.186      0.001
+
+ FF31     WITH
+    FF32               0.158      0.018      8.698      0.000
+    FF33               0.154      0.018      8.705      0.000
+
+ FF32     WITH
+    FF33               0.151      0.018      8.589      0.000
+
+ Means
+    I                  2.299      0.032     71.750      0.000
+    S                  0.079      0.012      6.697      0.000
+
+ Intercepts
+    FF11               0.000      0.000    999.000    999.000
+    FF12               0.000      0.000    999.000    999.000
+    FF13               0.000      0.000    999.000    999.000
+    FF21              -0.199      0.083     -2.406      0.016
+    FF22              -0.293      0.083     -3.521      0.000
+    FF23              -0.293      0.083     -3.521      0.000
+    FF31               0.088      0.072      1.219      0.223
+    FF32               0.149      0.074      2.019      0.044
+    FF33               0.088      0.072      1.219      0.223
+    FF1                0.000      0.000    999.000    999.000
+    FF2                0.000      0.000    999.000    999.000
+    FF3                0.000      0.000    999.000    999.000
+
+ Variances
+    I                  0.565      0.044     12.830      0.000
+    S                  0.036      0.013      2.734      0.006
+
+ Residual Variances
+    FF11               0.367      0.025     14.715      0.000
+    FF12               0.337      0.022     15.042      0.000
+    FF13               0.285      0.020     13.948      0.000
+    FF21               0.258      0.026      9.981      0.000
+    FF22               0.176      0.021      8.198      0.000
+    FF23               0.222      0.023      9.598      0.000
+    FF31               0.423      0.024     17.328      0.000
+    FF32               0.408      0.023     17.406      0.000
+    FF33               0.389      0.022     17.297      0.000
+    FF1                0.040      0.027      1.513      0.130
+    FF2                0.073      0.014      5.221      0.000
+    FF3                0.031      0.025      1.247      0.213
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ I        |
+    FF1                0.966      0.022     43.136      0.000
+    FF2                0.982      0.019     52.963      0.000
+    FF3                1.001      0.035     28.620      0.000
+
+ S        |
+    FF1                0.000      0.000    999.000    999.000
+    FF2                0.246      0.042      5.823      0.000
+    FF3                0.502      0.094      5.347      0.000
+
+ FF1      BY
+    FF11               0.789      0.016     50.177      0.000
+    FF21               0.873      0.014     63.136      0.000
+    FF31               0.710      0.018     39.682      0.000
+
+ FF2      BY
+    FF12               0.797      0.015     54.087      0.000
+    FF22               0.906      0.012     72.915      0.000
+    FF32               0.710      0.018     38.997      0.000
+
+ FF3      BY
+    FF13               0.815      0.015     55.983      0.000
+    FF23               0.881      0.013     65.581      0.000
+    FF33               0.712      0.018     39.256      0.000
+
+ S        WITH
+    I                 -0.309      0.064     -4.794      0.000
+
+ FF11     WITH
+    FF12               0.220      0.045      4.917      0.000
+    FF13               0.237      0.045      5.222      0.000
+
+ FF12     WITH
+    FF13               0.317      0.043      7.383      0.000
+
+ FF21     WITH
+    FF22               0.175      0.074      2.355      0.019
+    FF23               0.161      0.068      2.383      0.017
+
+ FF22     WITH
+    FF23               0.284      0.069      4.098      0.000
+
+ FF31     WITH
+    FF32               0.379      0.034     11.061      0.000
+    FF33               0.380      0.035     10.928      0.000
+
+ FF32     WITH
+    FF33               0.378      0.034     10.997      0.000
+
+ Means
+    I                  3.058      0.128     23.957      0.000
+    S                  0.419      0.098      4.278      0.000
+
+ Intercepts
+    FF11               0.000      0.000    999.000    999.000
+    FF12               0.000      0.000    999.000    999.000
+    FF13               0.000      0.000    999.000    999.000
+    FF21              -0.191      0.079     -2.425      0.015
+    FF22              -0.296      0.083     -3.555      0.000
+    FF23              -0.294      0.083     -3.561      0.000
+    FF31               0.096      0.079      1.205      0.228
+    FF32               0.164      0.083      1.981      0.048
+    FF33               0.099      0.082      1.205      0.228
+    FF1                0.000      0.000    999.000    999.000
+    FF2                0.000      0.000    999.000    999.000
+    FF3                0.000      0.000    999.000    999.000
+
+ Variances
+    I                  1.000      0.000    999.000    999.000
+    S                  1.000      0.000    999.000    999.000
+
+ Residual Variances
+    FF11               0.377      0.025     15.192      0.000
+    FF12               0.365      0.023     15.545      0.000
+    FF13               0.336      0.024     14.134      0.000
+    FF21               0.238      0.024      9.841      0.000
+    FF22               0.180      0.022      7.999      0.000
+    FF23               0.223      0.024      9.430      0.000
+    FF31               0.497      0.025     19.574      0.000
+    FF32               0.496      0.026     19.182      0.000
+    FF33               0.494      0.026     19.128      0.000
+    FF1                0.067      0.043      1.542      0.123
+    FF2                0.124      0.021      6.029      0.000
+    FF3                0.056      0.044      1.260      0.208
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    FF11               0.623      0.025     25.089      0.000
+    FF12               0.635      0.023     27.044      0.000
+    FF13               0.664      0.024     27.991      0.000
+    FF21               0.762      0.024     31.568      0.000
+    FF22               0.820      0.022     36.458      0.000
+    FF23               0.777      0.024     32.791      0.000
+    FF31               0.503      0.025     19.841      0.000
+    FF32               0.504      0.026     19.498      0.000
+    FF33               0.506      0.026     19.628      0.000
+
+     Latent                                         Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    FF1                0.933      0.043     21.568      0.000
+    FF2                0.876      0.021     42.435      0.000
+    FF3                0.944      0.044     21.305      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.585E-03
+       (ratio of smallest to largest eigenvalue)
+
+
+SAMPLE STATISTICS FOR ESTIMATED FACTOR SCORES
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              FF1           FF1_SE        FF2           FF2_SE        FF3
+              ________      ________      ________      ________      ________
+ 1              2.298         0.271         2.380         0.245         2.456
+
+
+           Means
+              FF3_SE        I             I_SE          S             S_SE
+              ________      ________      ________      ________      ________
+ 1              0.256         2.299         0.282         0.079         0.147
+
+
+           Covariances
+              FF1           FF1_SE        FF2           FF2_SE        FF3
+              ________      ________      ________      ________      ________
+ FF1            0.532
+ FF1_SE         0.000         0.000
+ FF2            0.491         0.000         0.526
+ FF2_SE         0.000         0.000         0.000         0.000
+ FF3            0.452         0.000         0.474         0.000         0.498
+ FF3_SE         0.000         0.000         0.000         0.000         0.000
+ I              0.506         0.000         0.486         0.000         0.449
+ I_SE           0.000         0.000         0.000         0.000         0.000
+ S             -0.028         0.000        -0.008         0.000         0.014
+ S_SE           0.000         0.000         0.000         0.000         0.000
+
+
+           Covariances
+              FF3_SE        I             I_SE          S             S_SE
+              ________      ________      ________      ________      ________
+ FF3_SE         0.000
+ I              0.000         0.486
+ I_SE           0.000         0.000         0.000
+ S              0.000        -0.020         0.000         0.014
+ S_SE           0.000         0.000         0.000         0.000         0.000
+
+
+           Correlations
+              FF1           FF1_SE        FF2           FF2_SE        FF3
+              ________      ________      ________      ________      ________
+ FF1            1.000
+ FF1_SE         0.006         1.000
+ FF2            0.928         0.023         1.000
+ FF2_SE        -0.010         0.258         0.010         1.000
+ FF3            0.878         0.016         0.926        -0.008         1.000
+ FF3_SE        -0.012         0.324        -0.010         0.349        -0.010
+ I              0.995         0.011         0.961        -0.006         0.913
+ I_SE           0.001         0.977         0.021         0.448         0.010
+ S             -0.325         0.017        -0.092         0.003         0.167
+ S_SE           0.005         0.826         0.015         0.286         0.011
+
+
+           Correlations
+              FF3_SE        I             I_SE          S             S_SE
+              ________      ________      ________      ________      ________
+ FF3_SE         1.000
+ I             -0.011         1.000
+ I_SE           0.421         0.006         1.000
+ S              0.005        -0.248         0.015         1.000
+ S_SE           0.782         0.007         0.848         0.012         1.000
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms (sample values, estimated factor scores, estimated values, residuals)
+  Scatterplots (sample values, estimated factor scores, estimated values, residuals)
+  Estimated means
+  Latent variable distribution plots
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    e:\fertig\begleitmaterial\kapitel 5\latentwk_kontaktff_1.dgm
+
+     Beginning Time:  20:02:35
+        Ending Time:  20:02:41
+       Elapsed Time:  00:00:06
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen

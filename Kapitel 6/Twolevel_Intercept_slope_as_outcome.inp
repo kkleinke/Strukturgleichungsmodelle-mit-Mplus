@@ -1,0 +1,25 @@
+
+TITLE:    Mehrebenenanalyse
+          intercept-slope-as-outcome-model
+
+DATA:     FILE IS EB47_1_Twolevel.dat;
+
+VARIABLE: NAMES ARE country contact percent disc;
+          MISSING ARE ALL (99);
+          CLUSTER IS country; 
+          BETWEEN IS percent;
+          WITHIN IS contact;
+
+DEFINE:   CENTER percent (GRANDMEAN);
+
+ANALYSIS: TYPE IS TWOLEVEL RANDOM;
+       
+MODEL:    %WITHIN%
+          s|disc ON contact;
+         
+          %BETWEEN%
+          s disc ON percent;
+
+          s with disc;
+ 
+

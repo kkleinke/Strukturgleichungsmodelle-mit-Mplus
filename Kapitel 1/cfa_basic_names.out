@@ -1,0 +1,402 @@
+Mplus VERSION 7.4
+MUTHEN & MUTHEN
+09/16/2016   8:28 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:    Einlesen des Datensatzes "GMF05_Querschnitt_CFA.dat"
+
+  DATA:     FILE IS GMF05_Querschnitt_CFA.dat;
+
+  VARIABLE: NAMES ARE qcp_ser he01hq4 sx03q4r sx04q4r he01oq4r
+            he02oq4r he02hq4r ff04dq4r ff08dq4r ev03q4r ev04q4r
+            ra01q4r ra03q4r as01q4r as02q4r he05mq4r he12mq4r
+            ka05q4r zu01q4k;
+
+            MISSING ARE he01oq4r he02oq4r (99) zu01q4k (9 99);
+
+            USEVARIABLES ARE he01hq4 sx03q4r sx04q4r he01oq4r
+            he02oq4r he02hq4r ff04dq4r ff08dq4r ev03q4r ev04q4r
+            ra01q4r ra03q4r as01q4r as02q4r he05mq4r he12mq4r
+            ka05q4r zu01q4k;
+
+  ANALYSIS: TYPE IS BASIC;
+
+
+
+
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Einlesen des Datensatzes "GMF05_Querschnitt_CFA.dat"
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1778
+
+Number of dependent variables                                   18
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   HE01HQ4     SX03Q4R     SX04Q4R     HE01OQ4R    HE02OQ4R    HE02HQ4R
+   FF04DQ4R    FF08DQ4R    EV03Q4R     EV04Q4R     RA01Q4R     RA03Q4R
+   AS01Q4R     AS02Q4R     HE05MQ4R    HE12MQ4R    KA05Q4R     ZU01Q4K
+
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+
+Input data file(s)
+  GMF05_Querschnitt_CFA.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             3
+
+
+SUMMARY OF MISSING DATA PATTERNS
+
+
+     MISSING DATA PATTERNS (x = not missing)
+
+           1  2  3
+ HE01HQ4   x  x  x
+ SX03Q4R   x  x  x
+ SX04Q4R   x  x  x
+ HE01OQ4R  x  x
+ HE02OQ4R  x  x
+ HE02HQ4R  x  x  x
+ FF04DQ4R  x  x  x
+ FF08DQ4R  x  x  x
+ EV03Q4R   x  x  x
+ EV04Q4R   x  x  x
+ RA01Q4R   x  x  x
+ RA03Q4R   x  x  x
+ AS01Q4R   x  x  x
+ AS02Q4R   x  x  x
+ HE05MQ4R  x  x  x
+ HE12MQ4R  x  x  x
+ KA05Q4R   x  x  x
+ ZU01Q4K   x     x
+
+
+     MISSING DATA PATTERN FREQUENCIES
+
+    Pattern   Frequency     Pattern   Frequency     Pattern   Frequency
+          1        1752           2          24           3           2
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              HE01HQ4       SX03Q4R       SX04Q4R       HE01OQ4R      HE02OQ4R
+              ________      ________      ________      ________      ________
+ HE01HQ4        1.000
+ SX03Q4R        1.000         1.000
+ SX04Q4R        1.000         1.000         1.000
+ HE01OQ4R       0.999         0.999         0.999         0.999
+ HE02OQ4R       0.999         0.999         0.999         0.999         0.999
+ HE02HQ4R       1.000         1.000         1.000         0.999         0.999
+ FF04DQ4R       1.000         1.000         1.000         0.999         0.999
+ FF08DQ4R       1.000         1.000         1.000         0.999         0.999
+ EV03Q4R        1.000         1.000         1.000         0.999         0.999
+ EV04Q4R        1.000         1.000         1.000         0.999         0.999
+ RA01Q4R        1.000         1.000         1.000         0.999         0.999
+ RA03Q4R        1.000         1.000         1.000         0.999         0.999
+ AS01Q4R        1.000         1.000         1.000         0.999         0.999
+ AS02Q4R        1.000         1.000         1.000         0.999         0.999
+ HE05MQ4R       1.000         1.000         1.000         0.999         0.999
+ HE12MQ4R       1.000         1.000         1.000         0.999         0.999
+ KA05Q4R        1.000         1.000         1.000         0.999         0.999
+ ZU01Q4K        0.987         0.987         0.987         0.985         0.985
+
+
+           Covariance Coverage
+              HE02HQ4R      FF04DQ4R      FF08DQ4R      EV03Q4R       EV04Q4R
+              ________      ________      ________      ________      ________
+ HE02HQ4R       1.000
+ FF04DQ4R       1.000         1.000
+ FF08DQ4R       1.000         1.000         1.000
+ EV03Q4R        1.000         1.000         1.000         1.000
+ EV04Q4R        1.000         1.000         1.000         1.000         1.000
+ RA01Q4R        1.000         1.000         1.000         1.000         1.000
+ RA03Q4R        1.000         1.000         1.000         1.000         1.000
+ AS01Q4R        1.000         1.000         1.000         1.000         1.000
+ AS02Q4R        1.000         1.000         1.000         1.000         1.000
+ HE05MQ4R       1.000         1.000         1.000         1.000         1.000
+ HE12MQ4R       1.000         1.000         1.000         1.000         1.000
+ KA05Q4R        1.000         1.000         1.000         1.000         1.000
+ ZU01Q4K        0.987         0.987         0.987         0.987         0.987
+
+
+           Covariance Coverage
+              RA01Q4R       RA03Q4R       AS01Q4R       AS02Q4R       HE05MQ4R
+              ________      ________      ________      ________      ________
+ RA01Q4R        1.000
+ RA03Q4R        1.000         1.000
+ AS01Q4R        1.000         1.000         1.000
+ AS02Q4R        1.000         1.000         1.000         1.000
+ HE05MQ4R       1.000         1.000         1.000         1.000         1.000
+ HE12MQ4R       1.000         1.000         1.000         1.000         1.000
+ KA05Q4R        1.000         1.000         1.000         1.000         1.000
+ ZU01Q4K        0.987         0.987         0.987         0.987         0.987
+
+
+           Covariance Coverage
+              HE12MQ4R      KA05Q4R       ZU01Q4K
+              ________      ________      ________
+ HE12MQ4R       1.000
+ KA05Q4R        1.000         1.000
+ ZU01Q4K        0.987         0.987         0.987
+
+
+
+
+
+RESULTS FOR BASIC ANALYSIS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              HE01HQ4       SX03Q4R       SX04Q4R       HE01OQ4R      HE02OQ4R
+              ________      ________      ________      ________      ________
+      1         2.022         1.912         1.702         2.274         2.303
+
+
+           Means
+              HE02HQ4R      FF04DQ4R      FF08DQ4R      EV03Q4R       EV04Q4R
+              ________      ________      ________      ________      ________
+      1         2.033         2.691         2.182         2.885         2.062
+
+
+           Means
+              RA01Q4R       RA03Q4R       AS01Q4R       AS02Q4R       HE05MQ4R
+              ________      ________      ________      ________      ________
+      1         1.795         1.498         1.804         1.538         2.117
+
+
+           Means
+              HE12MQ4R      KA05Q4R       ZU01Q4K
+              ________      ________      ________
+      1         2.009         1.893         2.231
+
+
+           Covariances
+              HE01HQ4       SX03Q4R       SX04Q4R       HE01OQ4R      HE02OQ4R
+              ________      ________      ________      ________      ________
+ HE01HQ4        1.249
+ SX03Q4R        0.380         0.776
+ SX04Q4R        0.286         0.442         0.654
+ HE01OQ4R       0.173         0.143         0.150         0.846
+ HE02OQ4R       0.135         0.077         0.087         0.428         0.820
+ HE02HQ4R       0.599         0.331         0.283         0.243         0.220
+ FF04DQ4R       0.234         0.237         0.210         0.355         0.214
+ FF08DQ4R       0.232         0.249         0.211         0.311         0.213
+ EV03Q4R        0.115         0.194         0.169         0.166         0.114
+ EV04Q4R        0.156         0.199         0.180         0.223         0.136
+ RA01Q4R        0.176         0.171         0.179         0.157         0.114
+ RA03Q4R        0.155         0.197         0.201         0.167         0.120
+ AS01Q4R        0.213         0.227         0.190         0.192         0.149
+ AS02Q4R        0.162         0.192         0.176         0.169         0.110
+ HE05MQ4R       0.192         0.219         0.200         0.258         0.138
+ HE12MQ4R       0.217         0.213         0.189         0.267         0.170
+ KA05Q4R       -0.044        -0.051        -0.040        -0.033        -0.010
+ ZU01Q4K       -0.140        -0.190        -0.179        -0.116        -0.043
+
+
+           Covariances
+              HE02HQ4R      FF04DQ4R      FF08DQ4R      EV03Q4R       EV04Q4R
+              ________      ________      ________      ________      ________
+ HE02HQ4R       1.111
+ FF04DQ4R       0.308         0.978
+ FF08DQ4R       0.296         0.590         0.929
+ EV03Q4R        0.168         0.300         0.256         0.860
+ EV04Q4R        0.223         0.388         0.385         0.333         1.006
+ RA01Q4R        0.188         0.236         0.258         0.141         0.308
+ RA03Q4R        0.181         0.243         0.259         0.182         0.263
+ AS01Q4R        0.243         0.327         0.340         0.191         0.287
+ AS02Q4R        0.209         0.264         0.245         0.148         0.235
+ HE05MQ4R       0.288         0.543         0.459         0.237         0.349
+ HE12MQ4R       0.272         0.467         0.476         0.167         0.323
+ KA05Q4R       -0.045        -0.057        -0.068        -0.029        -0.047
+ ZU01Q4K       -0.188        -0.250        -0.236        -0.136        -0.160
+
+
+           Covariances
+              RA01Q4R       RA03Q4R       AS01Q4R       AS02Q4R       HE05MQ4R
+              ________      ________      ________      ________      ________
+ RA01Q4R        0.661
+ RA03Q4R        0.226         0.569
+ AS01Q4R        0.141         0.202         0.735
+ AS02Q4R        0.154         0.211         0.376         0.536
+ HE05MQ4R       0.202         0.199         0.296         0.221         0.981
+ HE12MQ4R       0.200         0.209         0.260         0.215         0.436
+ KA05Q4R       -0.041        -0.049        -0.026        -0.017        -0.036
+ ZU01Q4K       -0.150        -0.181        -0.155        -0.150        -0.198
+
+
+           Covariances
+              HE12MQ4R      KA05Q4R       ZU01Q4K
+              ________      ________      ________
+ HE12MQ4R       0.780
+ KA05Q4R       -0.060         0.096
+ ZU01Q4K       -0.166         0.037         0.601
+
+
+           Correlations
+              HE01HQ4       SX03Q4R       SX04Q4R       HE01OQ4R      HE02OQ4R
+              ________      ________      ________      ________      ________
+ HE01HQ4        1.000
+ SX03Q4R        0.386         1.000
+ SX04Q4R        0.317         0.620         1.000
+ HE01OQ4R       0.169         0.176         0.202         1.000
+ HE02OQ4R       0.133         0.097         0.119         0.514         1.000
+ HE02HQ4R       0.509         0.356         0.332         0.250         0.231
+ FF04DQ4R       0.212         0.272         0.262         0.390         0.239
+ FF08DQ4R       0.215         0.294         0.271         0.351         0.244
+ EV03Q4R        0.111         0.238         0.225         0.195         0.136
+ EV04Q4R        0.139         0.225         0.222         0.241         0.149
+ RA01Q4R        0.194         0.238         0.272         0.210         0.155
+ RA03Q4R        0.184         0.297         0.330         0.240         0.175
+ AS01Q4R        0.222         0.300         0.274         0.244         0.191
+ AS02Q4R        0.198         0.298         0.297         0.251         0.166
+ HE05MQ4R       0.174         0.251         0.250         0.283         0.153
+ HE12MQ4R       0.220         0.274         0.264         0.329         0.212
+ KA05Q4R       -0.128        -0.189        -0.159        -0.117        -0.036
+ ZU01Q4K       -0.161        -0.278        -0.286        -0.162        -0.061
+
+
+           Correlations
+              HE02HQ4R      FF04DQ4R      FF08DQ4R      EV03Q4R       EV04Q4R
+              ________      ________      ________      ________      ________
+ HE02HQ4R       1.000
+ FF04DQ4R       0.295         1.000
+ FF08DQ4R       0.291         0.619         1.000
+ EV03Q4R        0.172         0.327         0.287         1.000
+ EV04Q4R        0.211         0.391         0.399         0.358         1.000
+ RA01Q4R        0.219         0.294         0.329         0.187         0.377
+ RA03Q4R        0.228         0.326         0.356         0.261         0.348
+ AS01Q4R        0.268         0.385         0.411         0.240         0.333
+ AS02Q4R        0.271         0.364         0.347         0.218         0.320
+ HE05MQ4R       0.276         0.554         0.481         0.258         0.351
+ HE12MQ4R       0.292         0.535         0.560         0.204         0.365
+ KA05Q4R       -0.137        -0.185        -0.228        -0.102        -0.153
+ ZU01Q4K       -0.230        -0.325        -0.316        -0.189        -0.206
+
+
+           Correlations
+              RA01Q4R       RA03Q4R       AS01Q4R       AS02Q4R       HE05MQ4R
+              ________      ________      ________      ________      ________
+ RA01Q4R        1.000
+ RA03Q4R        0.369         1.000
+ AS01Q4R        0.202         0.313         1.000
+ AS02Q4R        0.258         0.382         0.600         1.000
+ HE05MQ4R       0.251         0.266         0.348         0.305         1.000
+ HE12MQ4R       0.279         0.313         0.344         0.333         0.498
+ KA05Q4R       -0.164        -0.209        -0.099        -0.076        -0.118
+ ZU01Q4K       -0.239        -0.310        -0.233        -0.264        -0.258
+
+
+           Correlations
+              HE12MQ4R      KA05Q4R       ZU01Q4K
+              ________      ________      ________
+ HE12MQ4R       1.000
+ KA05Q4R       -0.219         1.000
+ ZU01Q4K       -0.243         0.156         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -35227.117
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     HE01HQ4               2.022       0.640       1.000   45.33%       1.000      1.000      2.000
+            1778.000       1.249      -1.029       4.000   15.92%       2.000      3.000
+     SX03Q4R               1.912       0.808       1.000   36.28%       1.000      2.000      2.000
+            1778.000       0.776       0.009       4.000    7.26%       2.000      3.000
+     SX04Q4R               1.702       1.149       1.000   47.13%       1.000      1.000      2.000
+            1778.000       0.654       0.969       4.000    4.89%       2.000      2.000
+     HE01OQ4R              2.274       0.478       1.000   18.75%       2.000      2.000      2.000
+            1776.000       0.846      -0.546       4.000   13.57%       2.000      3.000
+     HE02OQ4R              2.303       0.300       1.000   18.92%       2.000      2.000      2.000
+            1776.000       0.820      -0.664       4.000   11.60%       2.000      3.000
+     HE02HQ4R              2.033       0.701       1.000   39.03%       1.000      2.000      2.000
+            1778.000       1.111      -0.739       4.000   14.96%       2.000      3.000
+     FF04DQ4R              2.691      -0.121       1.000   12.43%       2.000      2.000      3.000
+            1778.000       0.978      -1.066       4.000   25.87%       3.000      4.000
+     FF08DQ4R              2.182       0.588       1.000   24.58%       1.000      2.000      2.000
+            1778.000       0.929      -0.556       4.000   14.29%       2.000      3.000
+     EV03Q4R               2.885      -0.374       1.000    8.10%       2.000      3.000      3.000
+            1778.000       0.860      -0.789       4.000   29.92%       3.000      4.000
+     EV04Q4R               2.062       0.598       1.000   35.15%       1.000      2.000      2.000
+            1778.000       1.006      -0.735       4.000   12.15%       2.000      3.000
+     RA01Q4R               1.795       0.883       1.000   40.83%       1.000      1.000      2.000
+            1778.000       0.661       0.312       4.000    4.39%       2.000      2.000
+     RA03Q4R               1.498       1.583       1.000   62.71%       1.000      1.000      1.000
+            1778.000       0.569       2.102       4.000    3.26%       1.000      2.000
+     AS01Q4R               1.804       1.006       1.000   41.28%       1.000      1.000      2.000
+            1778.000       0.735       0.460       4.000    6.47%       2.000      2.000
+     AS02Q4R               1.538       1.416       0.912    0.06%       1.000      1.000      1.000
+            1778.000       0.536       1.824       4.000    2.87%       2.000      2.000
+     HE05MQ4R              2.117       0.635       1.000   29.81%       1.000      2.000      2.000
+            1778.000       0.981      -0.591       4.000   14.12%       2.000      3.000
+     HE12MQ4R              2.009       0.745       1.000   29.75%       1.000      2.000      2.000
+            1778.000       0.780      -0.018       4.000    8.77%       2.000      3.000
+     KA05Q4R               1.893      -2.536       1.000   10.74%       2.000      2.000      2.000
+            1778.000       0.096       4.429       2.000   89.26%       2.000      2.000
+     ZU01Q4K               2.232      -0.426       1.000   21.09%       1.000      2.000      2.000
+            1754.000       0.600      -1.220       3.000   44.30%       3.000      3.000
+
+
+DIAGRAM INFORMATION
+
+  Mplus diagrams are currently not available for TYPE=BASIC.
+  No diagram output was produced.
+
+
+     Beginning Time:  08:28:40
+        Ending Time:  08:28:42
+       Elapsed Time:  00:00:02
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen

@@ -1,0 +1,48 @@
+TITLE: Multipler Gruppenvergleich für Mehrebenenanalysen, 
+       separates Modell Gruppe 1   
+
+DATA: FILE IS civics99.dat;
+
+VARIABLE: 
+NAMES ARE 
+idschool
+bs4e3 bs4e7 bs4e10
+bs4h2 bs4h3 bs4h5 bs4h6
+bs4h2_r bs4h3_r bs4h5_r
+schtyp;
+
+USEVARIABLES ARE
+bs4h6 bs4h2_r bs4h3_r bs4h5_r
+bs4e3 bs4e7 bs4e10;
+
+MISSING ARE ALL (99);
+USEOBSERVATIONS IS (schtyp EQ 1);
+CLUSTER IS idschool;
+!GROUPING IS schtyp (1 = Gymnasium 2 = Real&Haupt);
+
+ANALYSIS: 
+TYPE IS TWOLEVEL;
+
+MODEL:
+
+%WITHIN%
+
+pride_w by bs4e10* bs4e7 bs4e3; ! Ladung des ersten Indikators wird frei geschätzt
+pride_w@1;                      ! Fixierung der Varianz auf 1
+
+prej_w by bs4h2_r* bs4h3_r bs4h5_r bs4h6;
+prej_w@1;
+ 
+%BETWEEN%
+
+pride_b by bs4e10* bs4e7 bs4e3;
+pride_b@1; 
+
+prej_b by bs4h2_r* bs4h3_r bs4h5_r bs4h6;
+prej_b@1;
+
+BS4E10@0;
+ 
+!BS4E3@0;
+
+Output: Modindices;

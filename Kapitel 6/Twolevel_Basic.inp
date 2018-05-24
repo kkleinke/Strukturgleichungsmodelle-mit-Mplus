@@ -1,0 +1,21 @@
+
+TITLE:    Mehrebenenanalyse
+          Nullmodel
+
+DATA:     FILE IS EB47_1_Twolevel.dat;
+
+VARIABLE: NAMES ARE country contact percent disc;
+          CLUSTER IS country; 
+          USEVARIABLES IS disc;
+          MISSING ARE ALL (99);
+
+ANALYSIS: TYPE IS TWOLEVEL BASIC;
+       
+
+
+ 
+
+
+
+
+

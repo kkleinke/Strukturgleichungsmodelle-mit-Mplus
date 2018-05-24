@@ -1,0 +1,1197 @@
+Mplus VERSION 7.4
+MUTHEN & MUTHEN
+03/23/2016   7:44 PM
+
+INPUT INSTRUCTIONS
+
+
+  TITLE:    Explorative Mehrebenen-Faktorenanalyse
+
+  DATA:     FILE IS GMF02_Querschnitt_MLM.dat;
+
+  VARIABLE: NAMES ARE qcp_ser kreis1 ka03w1r aa01w1r aa03w1r
+            ff04d1r ff08d1r ff03d1r tab02_08 contact prej;
+            USEVARIABLES ARE ka03w1r aa01w1r aa03w1r
+            ff04d1r ff08d1r ff03d1r;
+            MISSING ARE ALL (99);
+            CLUSTER IS kreis1;
+
+  ANALYSIS: TYPE IS TWOLEVEL EFA 1 2 1 2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Explorative Mehrebenen-Faktorenanalyse
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        2722
+
+Number of dependent variables                                    6
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   KA03W1R     AA01W1R     AA03W1R     FF04D1R     FF08D1R     FF03D1R
+
+Variables with special functions
+
+  Cluster variable      KREIS1
+
+Estimator                                                       ML
+Rotation                                                    GEOMIN
+Row standardization                                    CORRELATION
+Type of rotation                                           OBLIQUE
+Epsilon value                                               Varies
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization Specifications for the Exploratory Factor Analysis
+Rotation Algorithm
+  Number of random starts                                       30
+  Maximum number of iterations                               10000
+  Derivative convergence criterion                       0.100D-04
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  GMF02_Querschnitt_MLM.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            13
+     Number of clusters                        418
+
+     Average cluster size        6.512
+
+     Estimated Intraclass Correlations for the Y Variables
+
+                Intraclass              Intraclass              Intraclass
+     Variable  Correlation   Variable  Correlation   Variable  Correlation
+
+     KA03W1R      0.134      AA01W1R      0.147      AA03W1R      0.116
+     FF04D1R      0.066      FF08D1R      0.051      FF03D1R      0.080
+
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              KA03W1R       AA01W1R       AA03W1R       FF04D1R       FF08D1R
+              ________      ________      ________      ________      ________
+ KA03W1R        0.999
+ AA01W1R        0.997         0.999
+ AA03W1R        0.997         0.997         0.999
+ FF04D1R        0.982         0.982         0.982         0.983
+ FF08D1R        0.980         0.980         0.980         0.968         0.982
+ FF03D1R        0.977         0.977         0.978         0.966         0.965
+
+
+           Covariance Coverage
+              FF03D1R
+              ________
+ FF03D1R        0.979
+
+
+
+RESULTS FOR EXPLORATORY FACTOR ANALYSIS
+
+
+           EIGENVALUES FOR WITHIN LEVEL SAMPLE CORRELATION MATRIX
+                  1             2             3             4             5
+              ________      ________      ________      ________      ________
+      1         2.774         1.305         0.588         0.510         0.494
+
+
+           EIGENVALUES FOR WITHIN LEVEL SAMPLE CORRELATION MATRIX
+                  6
+              ________
+      1         0.330
+
+
+           EIGENVALUES FOR BETWEEN LEVEL SAMPLE CORRELATION MATRIX
+                  1             2             3             4             5
+              ________      ________      ________      ________      ________
+      1         5.548         0.298         0.085         0.043         0.021
+
+
+           EIGENVALUES FOR BETWEEN LEVEL SAMPLE CORRELATION MATRIX
+                  6
+              ________
+      1         0.004
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 1 WITHIN FACTOR(S) AND 1 BETWEEN FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       30
+
+Loglikelihood
+
+          H0 Value                      -19622.742
+          H1 Value                      -19101.185
+
+Information Criteria
+
+          Akaike (AIC)                   39305.485
+          Bayesian (BIC)                 39482.758
+          Sample-Size Adjusted BIC       39387.439
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                           1043.114
+          Degrees of Freedom                    18
+          P-Value                           0.0000
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.145
+
+CFI/TLI
+
+          CFI                                0.807
+          TLI                                0.678
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           5328.318
+          Degrees of Freedom                    30
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value for Within                   0.123
+          Value for Between                  0.044
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       2.18248
+
+
+
+WITHIN LEVEL RESULTS
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1
+              ________
+ KA03W1R       -0.353*
+ AA01W1R       -0.385*
+ AA03W1R       -0.405*
+ FF04D1R        0.823*
+ FF08D1R        0.679*
+ FF03D1R        0.779*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1
+              ________
+      1         1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              KA03W1R       AA01W1R       AA03W1R       FF04D1R       FF08D1R
+              ________      ________      ________      ________      ________
+      1         0.875         0.852         0.836         0.323         0.539
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              FF03D1R
+              ________
+      1         0.392
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1
+              ________
+ KA03W1R        0.020
+ AA01W1R        0.020
+ AA03W1R        0.020
+ FF04D1R        0.011
+ FF08D1R        0.013
+ FF03D1R        0.011
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1
+              ________
+      1         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              KA03W1R       AA01W1R       AA03W1R       FF04D1R       FF08D1R
+              ________      ________      ________      ________      ________
+      1         0.014         0.015         0.016         0.017         0.018
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              FF03D1R
+              ________
+      1         0.017
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1
+              ________
+ KA03W1R      -17.390
+ AA01W1R      -19.398
+ AA03W1R      -20.740
+ FF04D1R       78.199
+ FF08D1R       51.363
+ FF03D1R       70.865
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1
+              ________
+      1         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              KA03W1R       AA01W1R       AA03W1R       FF04D1R       FF08D1R
+              ________      ________      ________      ________      ________
+      1        60.977        55.818        52.977        18.668        30.039
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              FF03D1R
+              ________
+      1        22.883
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 1 WITHIN FACTOR(S) AND 1 BETWEEN FACTOR(S):
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       5.59354
+
+
+
+BETWEEN LEVEL RESULTS
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1
+              ________
+ KA03W1R        0.998*
+ AA01W1R        0.994*
+ AA03W1R        0.999*
+ FF04D1R       -0.840*
+ FF08D1R       -0.991*
+ FF03D1R       -0.961*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1
+              ________
+      1         1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              KA03W1R       AA01W1R       AA03W1R       FF04D1R       FF08D1R
+              ________      ________      ________      ________      ________
+      1         0.004         0.012         0.003         0.294         0.018
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              FF03D1R
+              ________
+      1         0.076
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1
+              ________
+ KA03W1R        0.030
+ AA01W1R        0.024
+ AA03W1R        0.035
+ FF04D1R        0.060
+ FF08D1R        0.070
+ FF03D1R        0.041
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1
+              ________
+      1         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              KA03W1R       AA01W1R       AA03W1R       FF04D1R       FF08D1R
+              ________      ________      ________      ________      ________
+      1         0.060         0.048         0.070         0.101         0.138
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              FF03D1R
+              ________
+      1         0.079
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1
+              ________
+ KA03W1R       33.006
+ AA01W1R       41.403
+ AA03W1R       28.438
+ FF04D1R      -13.955
+ FF08D1R      -14.202
+ FF03D1R      -23.403
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1
+              ________
+      1         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              KA03W1R       AA01W1R       AA03W1R       FF04D1R       FF08D1R
+              ________      ________      ________      ________      ________
+      1         0.066         0.244         0.041         2.905         0.132
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              FF03D1R
+              ________
+      1         0.967
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 2 WITHIN FACTOR(S) AND 1 BETWEEN FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       35
+
+Loglikelihood
+
+          H0 Value                      -19107.972
+          H1 Value                      -19101.185
+
+Information Criteria
+
+          Akaike (AIC)                   38285.945
+          Bayesian (BIC)                 38492.764
+          Sample-Size Adjusted BIC       38381.558
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                             13.574
+          Degrees of Freedom                    13
+          P-Value                           0.4045
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.004
+
+CFI/TLI
+
+          CFI                                1.000
+          TLI                                1.000
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           5328.318
+          Degrees of Freedom                    30
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value for Within                   0.005
+          Value for Between                  0.028
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       0.13100
+
+
+
+WITHIN LEVEL RESULTS
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1             2
+              ________      ________
+ KA03W1R        0.661*        0.022
+ AA01W1R        0.625*       -0.038
+ AA03W1R        0.735*       -0.001
+ FF04D1R        0.030         0.875*
+ FF08D1R       -0.070*        0.632*
+ FF03D1R       -0.009*        0.769*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1             2
+              ________      ________
+      1         1.000
+      2        -0.442*        1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              KA03W1R       AA01W1R       AA03W1R       FF04D1R       FF08D1R
+              ________      ________      ________      ________      ________
+      1         0.575         0.587         0.459         0.257         0.557
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              FF03D1R
+              ________
+      1         0.403
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1             2
+              ________      ________
+ KA03W1R        0.024         0.025
+ AA01W1R        0.023         0.025
+ AA03W1R        0.018         0.002
+ FF04D1R        0.023         0.019
+ FF08D1R        0.025         0.019
+ FF03D1R        0.004         0.014
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2
+              ________      ________
+      1         0.000
+      2         0.029         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              KA03W1R       AA01W1R       AA03W1R       FF04D1R       FF08D1R
+              ________      ________      ________      ________      ________
+      1         0.024         0.022         0.026         0.022         0.018
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              FF03D1R
+              ________
+      1         0.020
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1             2
+              ________      ________
+ KA03W1R       27.880         0.885
+ AA01W1R       26.676        -1.475
+ AA03W1R       40.306        -0.649
+ FF04D1R        1.301        47.041
+ FF08D1R       -2.845        33.981
+ FF03D1R       -2.258        56.300
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2
+              ________      ________
+      1         0.000
+      2       -15.166         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              KA03W1R       AA01W1R       AA03W1R       FF04D1R       FF08D1R
+              ________      ________      ________      ________      ________
+      1        24.336        26.255        17.450        11.840        30.748
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              FF03D1R
+              ________
+      1        20.465
+
+
+           FACTOR STRUCTURE
+                  1             2
+              ________      ________
+ KA03W1R        0.651        -0.270
+ AA01W1R        0.642        -0.314
+ AA03W1R        0.735        -0.326
+ FF04D1R       -0.356         0.861
+ FF08D1R       -0.350         0.663
+ FF03D1R       -0.348         0.773
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 2 WITHIN FACTOR(S) AND 1 BETWEEN FACTOR(S):
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       5.54122
+
+
+
+BETWEEN LEVEL RESULTS
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1
+              ________
+ KA03W1R        0.987*
+ AA01W1R        0.940*
+ AA03W1R        0.988*
+ FF04D1R       -0.868*
+ FF08D1R       -0.992*
+ FF03D1R       -0.984*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1
+              ________
+      1         1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              KA03W1R       AA01W1R       AA03W1R       FF04D1R       FF08D1R
+              ________      ________      ________      ________      ________
+      1         0.026         0.117         0.023         0.247         0.015
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              FF03D1R
+              ________
+      1         0.032
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1
+              ________
+ KA03W1R        0.024
+ AA01W1R        0.027
+ AA03W1R        0.026
+ FF04D1R        0.046
+ FF08D1R        0.064
+ FF03D1R        0.034
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1
+              ________
+      1         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              KA03W1R       AA01W1R       AA03W1R       FF04D1R       FF08D1R
+              ________      ________      ________      ________      ________
+      1         0.048         0.052         0.052         0.081         0.126
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              FF03D1R
+              ________
+      1         0.066
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1
+              ________
+ KA03W1R       40.593
+ AA01W1R       34.194
+ AA03W1R       37.802
+ FF04D1R      -18.697
+ FF08D1R      -15.619
+ FF03D1R      -29.282
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1
+              ________
+      1         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              KA03W1R       AA01W1R       AA03W1R       FF04D1R       FF08D1R
+              ________      ________      ________      ________      ________
+      1         0.532         2.258         0.451         3.063         0.120
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              FF03D1R
+              ________
+      1         0.484
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 1 WITHIN FACTOR(S) AND 2 BETWEEN FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       35
+
+Loglikelihood
+
+          H0 Value                      -19615.794
+          H1 Value                      -19101.185
+
+Information Criteria
+
+          Akaike (AIC)                   39301.589
+          Bayesian (BIC)                 39508.408
+          Sample-Size Adjusted BIC       39397.202
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                           1029.219
+          Degrees of Freedom                    13
+          P-Value                           0.0000
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.169
+
+CFI/TLI
+
+          CFI                                0.808
+          TLI                                0.557
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           5328.318
+          Degrees of Freedom                    30
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value for Within                   0.122
+          Value for Between                  0.061
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       2.16957
+
+
+
+WITHIN LEVEL RESULTS
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1
+              ________
+ KA03W1R       -0.360*
+ AA01W1R       -0.393*
+ AA03W1R       -0.408*
+ FF04D1R        0.815*
+ FF08D1R        0.676*
+ FF03D1R        0.773*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1
+              ________
+      1         1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              KA03W1R       AA01W1R       AA03W1R       FF04D1R       FF08D1R
+              ________      ________      ________      ________      ________
+      1         0.871         0.846         0.834         0.336         0.543
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              FF03D1R
+              ________
+      1         0.402
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1
+              ________
+ KA03W1R        0.020
+ AA01W1R        0.020
+ AA03W1R        0.020
+ FF04D1R        0.011
+ FF08D1R        0.014
+ FF03D1R        0.012
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1
+              ________
+      1         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              KA03W1R       AA01W1R       AA03W1R       FF04D1R       FF08D1R
+              ________      ________      ________      ________      ________
+      1         0.015         0.016         0.016         0.018         0.019
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              FF03D1R
+              ________
+      1         0.018
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1
+              ________
+ KA03W1R      -17.633
+ AA01W1R      -19.794
+ AA03W1R      -20.623
+ FF04D1R       73.645
+ FF08D1R       49.304
+ FF03D1R       66.606
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1
+              ________
+      1         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              KA03W1R       AA01W1R       AA03W1R       FF04D1R       FF08D1R
+              ________      ________      ________      ________      ________
+      1        59.350        54.171        51.724        18.593        29.335
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              FF03D1R
+              ________
+      1        22.404
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 1 WITHIN FACTOR(S) AND 2 BETWEEN FACTOR(S):
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       0.74008
+
+
+
+BETWEEN LEVEL RESULTS
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1             2
+              ________      ________
+ KA03W1R        0.997*       -0.002
+ AA01W1R        1.032*        0.052
+ AA03W1R        0.913*       -0.119
+ FF04D1R        0.001         0.988*
+ FF08D1R       -0.579*        0.504*
+ FF03D1R       -0.431         0.614*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1             2
+              ________      ________
+      1         1.000
+      2        -0.688*        1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              KA03W1R       AA01W1R       AA03W1R       FF04D1R       FF08D1R
+              ________      ________      ________      ________      ________
+      1         0.003         0.006         0.003         0.027         0.010
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              FF03D1R
+              ________
+      1         0.073
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1             2
+              ________      ________
+ KA03W1R        0.034         0.006
+ AA01W1R        0.099         0.126
+ AA03W1R        0.086         0.109
+ FF04D1R        0.006         0.104
+ FF08D1R        0.222         0.233
+ FF03D1R        0.238         0.240
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2
+              ________      ________
+      1         0.000
+      2         0.107         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              KA03W1R       AA01W1R       AA03W1R       FF04D1R       FF08D1R
+              ________      ________      ________      ________      ________
+      1         0.067         0.060         0.073         0.211         0.124
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              FF03D1R
+              ________
+      1         0.090
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1             2
+              ________      ________
+ KA03W1R       28.921        -0.351
+ AA01W1R       10.416         0.413
+ AA03W1R       10.627        -1.095
+ FF04D1R        0.255         9.536
+ FF08D1R       -2.602         2.159
+ FF03D1R       -1.813         2.558
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2
+              ________      ________
+      1         0.000
+      2        -6.433         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              KA03W1R       AA01W1R       AA03W1R       FF04D1R       FF08D1R
+              ________      ________      ________      ________      ________
+      1         0.038         0.093         0.039         0.126         0.079
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              FF03D1R
+              ________
+      1         0.811
+
+
+           FACTOR STRUCTURE
+                  1             2
+              ________      ________
+ KA03W1R        0.999        -0.688
+ AA01W1R        0.997        -0.659
+ AA03W1R        0.995        -0.747
+ FF04D1R       -0.678         0.987
+ FF08D1R       -0.926         0.902
+ FF03D1R       -0.854         0.911
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 2 WITHIN FACTOR(S) AND 2 BETWEEN FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       40
+
+Loglikelihood
+
+          H0 Value                      -19104.431
+          H1 Value                      -19101.185
+
+Information Criteria
+
+          Akaike (AIC)                   38288.861
+          Bayesian (BIC)                 38525.226
+          Sample-Size Adjusted BIC       38398.133
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                              6.491
+          Degrees of Freedom                     8
+          P-Value                           0.5924
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.000
+
+CFI/TLI
+
+          CFI                                1.000
+          TLI                                1.001
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           5328.318
+          Degrees of Freedom                    30
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value for Within                   0.005
+          Value for Between                  0.014
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       0.12987
+
+
+
+WITHIN LEVEL RESULTS
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1             2
+              ________      ________
+ KA03W1R        0.655*        0.014
+ AA01W1R        0.621*       -0.046
+ AA03W1R        0.741*        0.000
+ FF04D1R        0.029         0.872*
+ FF08D1R       -0.071*        0.630*
+ FF03D1R       -0.008*        0.770*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1             2
+              ________      ________
+      1         1.000
+      2        -0.434*        1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              KA03W1R       AA01W1R       AA03W1R       FF04D1R       FF08D1R
+              ________      ________      ________      ________      ________
+      1         0.579         0.588         0.451         0.260         0.558
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              FF03D1R
+              ________
+      1         0.401
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1             2
+              ________      ________
+ KA03W1R        0.023         0.024
+ AA01W1R        0.024         0.026
+ AA03W1R        0.019         0.004
+ FF04D1R        0.023         0.019
+ FF08D1R        0.025         0.018
+ FF03D1R        0.004         0.014
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2
+              ________      ________
+      1         0.000
+      2         0.029         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              KA03W1R       AA01W1R       AA03W1R       FF04D1R       FF08D1R
+              ________      ________      ________      ________      ________
+      1         0.024         0.022         0.027         0.022         0.018
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              FF03D1R
+              ________
+      1         0.020
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1             2
+              ________      ________
+ KA03W1R       28.185         0.595
+ AA01W1R       26.299        -1.791
+ AA03W1R       39.564        -0.096
+ FF04D1R        1.256        47.116
+ FF08D1R       -2.894        34.115
+ FF03D1R       -2.197        56.338
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2
+              ________      ________
+      1         0.000
+      2       -15.226         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              KA03W1R       AA01W1R       AA03W1R       FF04D1R       FF08D1R
+              ________      ________      ________      ________      ________
+      1        24.564        26.270        16.887        11.906        30.750
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              FF03D1R
+              ________
+      1        20.234
+
+
+           FACTOR STRUCTURE
+                  1             2
+              ________      ________
+ KA03W1R        0.649        -0.270
+ AA01W1R        0.640        -0.315
+ AA03W1R        0.741        -0.322
+ FF04D1R       -0.350         0.860
+ FF08D1R       -0.345         0.661
+ FF03D1R       -0.343         0.774
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 2 WITHIN FACTOR(S) AND 2 BETWEEN FACTOR(S):
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       0.85136
+
+
+
+BETWEEN LEVEL RESULTS
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1             2
+              ________      ________
+ KA03W1R       -0.904*        0.215
+ AA01W1R       -0.793*        0.414
+ AA03W1R       -0.996*       -0.003
+ FF04D1R        0.937*        0.140
+ FF08D1R        1.001*        0.024
+ FF03D1R        0.929*       -0.173
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1             2
+              ________      ________
+      1         1.000
+      2        -0.272         1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              KA03W1R       AA01W1R       AA03W1R       FF04D1R       FF08D1R
+              ________      ________      ________      ________      ________
+      1         0.031         0.022         0.010         0.174         0.011
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              FF03D1R
+              ________
+      1         0.020
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1             2
+              ________      ________
+ KA03W1R        0.157         0.142
+ AA01W1R        0.325         0.305
+ AA03W1R        0.042         0.014
+ FF04D1R        0.060         0.267
+ FF08D1R        0.077         0.162
+ FF03D1R        0.165         0.227
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2
+              ________      ________
+      1         0.000
+      2         0.500         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              KA03W1R       AA01W1R       AA03W1R       FF04D1R       FF08D1R
+              ________      ________      ________      ________      ________
+      1         0.057         0.148         0.084         0.126         0.128
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              FF03D1R
+              ________
+      1         0.073
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1             2
+              ________      ________
+ KA03W1R       -5.761         1.515
+ AA01W1R       -2.437         1.357
+ AA03W1R      -23.817        -0.207
+ FF04D1R       15.622         0.523
+ FF08D1R       13.028         0.148
+ FF03D1R        5.630        -0.759
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2
+              ________      ________
+      1         0.000
+      2        -0.543         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              KA03W1R       AA01W1R       AA03W1R       FF04D1R       FF08D1R
+              ________      ________      ________      ________      ________
+      1         0.547         0.148         0.118         1.374         0.084
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              FF03D1R
+              ________
+      1         0.277
+
+
+           FACTOR STRUCTURE
+                  1             2
+              ________      ________
+ KA03W1R       -0.962         0.461
+ AA01W1R       -0.905         0.629
+ AA03W1R       -0.995         0.268
+ FF04D1R        0.899        -0.115
+ FF08D1R        0.994        -0.248
+ FF03D1R        0.976        -0.425
+
+
+DIAGRAM INFORMATION
+
+  Mplus diagrams are currently not available for multilevel analysis.
+  No diagram output was produced.
+
+
+     Beginning Time:  19:44:29
+        Ending Time:  19:44:39
+       Elapsed Time:  00:00:10
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen

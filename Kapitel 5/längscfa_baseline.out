@@ -1,0 +1,421 @@
+Mplus VERSION 7.4
+MUTHEN & MUTHEN
+09/15/2016  12:49 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:    Konfirmatorische Faktorenanalyse mit Längsschnittdaten zur
+            Überprüfung der Messinvarianz - Basismodell
+
+  DATA:     FILE IS GMF_Panel_020304.dat;
+
+  VARIABLE: NAMES ARE qcp_ser
+            con11 con12 con13 con21 con22 con23 con31 con32 con33
+            ff11 ff12 ff13 ff21 ff22 ff23 ff31 ff32 ff33;
+
+            USEVARIABLES ARE con11 con12 con13 con21 con22 con23
+            con31 con32 con33 ff11 ff12 ff13 ff21 ff22 ff23 ff31 ff32 ff33;
+
+            MISSING ARE all (99);
+
+  MODEL:    con1 BY con11 ! Messmodell für Intergruppenkontakt
+            con21         ! zum ersten,
+            con31;
+            con2 BY con12 ! zweiten
+            con22
+            con32;
+            con3 BY con13 ! und dritten Messzeipunkt
+            con23
+            con33;
+
+            ff1 BY ff11   ! Messmodell für Fremdenfeindlichkeit
+            ff21          ! zum ersten,
+            ff31;
+            ff2 BY ff12   ! zweiten
+            ff22
+            ff32;
+            ff3 BY ff13   ! und dritten Messzeitpunkt
+            ff23
+            ff33;
+
+            con11 WITH con12 con13; ! Autokorrelation der Fehler
+            con12 WITH con13;       ! der Indikatoren für Intergruppenkontakt
+            con21 WITH con22 con23;
+            con22 WITH con23;
+            con31 WITH con32 con33;
+            con32 WITH con33;
+
+            ff11 WITH ff12 ff13;    ! Autokorrelation der Fehler
+            ff12 WITH ff13;         ! der Indikatoren für Fremdenfeindlichkeit
+            ff21 WITH ff22 ff23;
+            ff22 WITH ff23;
+            ff31 WITH ff32 ff33;
+            ff32 WITH ff33;
+
+            [con11@0 con12@0 con13@0]; ! Der Intercept des ersten Indikators
+            [con21 con22 con23];       ! für Intergruppenkontakt wird auf 0
+            [con31 con32 con33];       ! fixiert,
+            [ff11@0 ff12@0 ff13@0];    ! ebenso der erste Indikator für
+            [ff21 ff22 ff23];          ! Fremdenfeindlichkeit
+            [ff31 ff32 ff33];
+
+            [con1 con2 con3];       ! Die latenten Mittelwerte werden frei
+            [ff1 ff2 ff3];          ! geschätzt
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Konfirmatorische Faktorenanalyse mit Längsschnittdaten zur
+Überprüfung der Messinvarianz - Basismodell
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         825
+
+Number of dependent variables                                   18
+Number of independent variables                                  0
+Number of continuous latent variables                            6
+
+Observed dependent variables
+
+  Continuous
+   CON11       CON12       CON13       CON21       CON22       CON23
+   CON31       CON32       CON33       FF11        FF12        FF13
+   FF21        FF22        FF23        FF31        FF32        FF33
+
+Continuous latent variables
+   CON1        CON2        CON3        FF1         FF2         FF3
+
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+
+Input data file(s)
+  GMF_Panel_020304.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            31
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              CON11         CON12         CON13         CON21         CON22
+              ________      ________      ________      ________      ________
+ CON11          0.998
+ CON12          0.998         1.000
+ CON13          0.998         1.000         1.000
+ CON21          0.996         0.999         0.999         0.999
+ CON22          0.995         0.998         0.998         0.996         0.998
+ CON23          0.994         0.996         0.996         0.995         0.994
+ CON31          0.996         0.999         0.999         0.998         0.996
+ CON32          0.998         1.000         1.000         0.999         0.998
+ CON33          0.998         1.000         1.000         0.999         0.998
+ FF11           0.982         0.984         0.984         0.983         0.982
+ FF12           0.988         0.990         0.990         0.989         0.988
+ FF13           0.982         0.984         0.984         0.983         0.982
+ FF21           0.984         0.987         0.987         0.985         0.984
+ FF22           0.983         0.985         0.985         0.984         0.983
+ FF23           0.982         0.984         0.984         0.983         0.982
+ FF31           0.982         0.984         0.984         0.983         0.982
+ FF32           0.992         0.994         0.994         0.993         0.992
+ FF33           0.985         0.988         0.988         0.987         0.985
+
+
+           Covariance Coverage
+              CON23         CON31         CON32         CON33         FF11
+              ________      ________      ________      ________      ________
+ CON23          0.996
+ CON31          0.995         0.999
+ CON32          0.996         0.999         1.000
+ CON33          0.996         0.999         1.000         1.000
+ FF11           0.981         0.983         0.984         0.984         0.984
+ FF12           0.987         0.989         0.990         0.990         0.977
+ FF13           0.981         0.983         0.984         0.984         0.972
+ FF21           0.983         0.985         0.987         0.987         0.975
+ FF22           0.982         0.984         0.985         0.985         0.971
+ FF23           0.981         0.983         0.984         0.984         0.970
+ FF31           0.981         0.983         0.984         0.984         0.971
+ FF32           0.990         0.993         0.994         0.994         0.979
+ FF33           0.984         0.987         0.988         0.988         0.975
+
+
+           Covariance Coverage
+              FF12          FF13          FF21          FF22          FF23
+              ________      ________      ________      ________      ________
+ FF12           0.990
+ FF13           0.975         0.984
+ FF21           0.977         0.972         0.987
+ FF22           0.978         0.971         0.972         0.985
+ FF23           0.976         0.971         0.972         0.972         0.984
+ FF31           0.976         0.968         0.973         0.972         0.971
+ FF32           0.985         0.978         0.982         0.979         0.978
+ FF33           0.978         0.977         0.976         0.973         0.973
+
+
+           Covariance Coverage
+              FF31          FF32          FF33
+              ________      ________      ________
+ FF31           0.984
+ FF32           0.979         0.994
+ FF33           0.972         0.982         0.988
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       87
+
+Loglikelihood
+
+          H0 Value                      -15015.006
+          H1 Value                      -14943.642
+
+Information Criteria
+
+          Akaike (AIC)                   30204.013
+          Bayesian (BIC)                 30614.251
+          Sample-Size Adjusted BIC       30337.971
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                            142.728
+          Degrees of Freedom                   102
+          P-Value                           0.0048
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.022
+          90 Percent C.I.                    0.013  0.030
+          Probability RMSEA <= .05           1.000
+
+CFI/TLI
+
+          CFI                                0.996
+          TLI                                0.993
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           9494.348
+          Degrees of Freedom                   153
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.020
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ CON1     BY
+    CON11              1.000      0.000    999.000    999.000
+    CON21              1.451      0.087     16.693      0.000
+    CON31              1.625      0.092     17.577      0.000
+
+ CON2     BY
+    CON12              1.000      0.000    999.000    999.000
+    CON22              1.270      0.078     16.326      0.000
+    CON32              1.497      0.083     18.076      0.000
+
+ CON3     BY
+    CON13              1.000      0.000    999.000    999.000
+    CON23              1.381      0.085     16.242      0.000
+    CON33              1.612      0.092     17.487      0.000
+
+ FF1      BY
+    FF11               1.000      0.000    999.000    999.000
+    FF21               1.101      0.043     25.410      0.000
+    FF31               0.783      0.038     20.597      0.000
+
+ FF2      BY
+    FF12               1.000      0.000    999.000    999.000
+    FF22               1.200      0.045     26.766      0.000
+    FF32               0.882      0.041     21.653      0.000
+
+ FF3      BY
+    FF13               1.000      0.000    999.000    999.000
+    FF23               1.175      0.044     26.746      0.000
+    FF33               0.859      0.040     21.653      0.000
+
+ CON2     WITH
+    CON1               0.225      0.019     11.692      0.000
+
+ CON3     WITH
+    CON1               0.203      0.018     11.317      0.000
+    CON2               0.220      0.019     11.339      0.000
+
+ FF1      WITH
+    CON1              -0.198      0.020     -9.702      0.000
+    CON2              -0.186      0.020     -9.118      0.000
+    CON3              -0.168      0.019     -8.833      0.000
+
+ FF2      WITH
+    CON1              -0.175      0.018     -9.513      0.000
+    CON2              -0.168      0.018     -9.102      0.000
+    CON3              -0.161      0.018     -9.138      0.000
+    FF1                0.531      0.037     14.185      0.000
+
+ FF3      WITH
+    CON1              -0.176      0.018     -9.599      0.000
+    CON2              -0.171      0.018     -9.263      0.000
+    CON3              -0.167      0.018     -9.426      0.000
+    FF1                0.495      0.036     13.907      0.000
+    FF2                0.489      0.035     14.035      0.000
+
+ CON11    WITH
+    CON12              0.085      0.012      6.980      0.000
+    CON13              0.091      0.012      7.756      0.000
+
+ CON12    WITH
+    CON13              0.117      0.012      9.430      0.000
+
+ CON21    WITH
+    CON22              0.199      0.026      7.687      0.000
+    CON23              0.180      0.025      7.227      0.000
+
+ CON22    WITH
+    CON23              0.249      0.026      9.667      0.000
+
+ CON31    WITH
+    CON32              0.033      0.023      1.395      0.163
+    CON33              0.053      0.024      2.233      0.026
+
+ CON32    WITH
+    CON33              0.071      0.024      3.015      0.003
+
+ FF11     WITH
+    FF12               0.071      0.017      4.135      0.000
+    FF13               0.069      0.016      4.267      0.000
+
+ FF12     WITH
+    FF13               0.096      0.016      6.066      0.000
+
+ FF21     WITH
+    FF22               0.049      0.018      2.789      0.005
+    FF23               0.051      0.017      2.901      0.004
+
+ FF22     WITH
+    FF23               0.064      0.017      3.843      0.000
+
+ FF31     WITH
+    FF32               0.155      0.018      8.629      0.000
+    FF33               0.152      0.018      8.669      0.000
+
+ FF32     WITH
+    FF33               0.145      0.017      8.404      0.000
+
+ Means
+    CON1               1.774      0.024     73.058      0.000
+    CON2               1.838      0.025     74.288      0.000
+    CON3               1.829      0.024     76.974      0.000
+    FF1                2.298      0.035     65.606      0.000
+    FF2                2.351      0.033     71.263      0.000
+    FF3                2.479      0.032     77.636      0.000
+
+ Intercepts
+    CON11              0.000      0.000    999.000    999.000
+    CON12              0.000      0.000    999.000    999.000
+    CON13              0.000      0.000    999.000    999.000
+    CON21             -0.489      0.158     -3.090      0.002
+    CON22             -0.263      0.147     -1.791      0.073
+    CON23             -0.448      0.159     -2.813      0.005
+    CON31             -0.222      0.168     -1.321      0.187
+    CON32             -0.150      0.156     -0.961      0.337
+    CON33             -0.404      0.172     -2.346      0.019
+    FF11               0.000      0.000    999.000    999.000
+    FF12               0.000      0.000    999.000    999.000
+    FF13               0.000      0.000    999.000    999.000
+    FF21              -0.041      0.104     -0.393      0.695
+    FF22              -0.311      0.109     -2.851      0.004
+    FF23              -0.355      0.112     -3.162      0.002
+    FF31               0.216      0.092      2.359      0.018
+    FF32               0.079      0.100      0.791      0.429
+    FF33               0.032      0.102      0.317      0.751
+
+ Variances
+    CON1               0.230      0.022     10.288      0.000
+    CON2               0.253      0.024     10.691      0.000
+    CON3               0.224      0.022     10.361      0.000
+    FF1                0.660      0.050     13.307      0.000
+    FF2                0.559      0.043     13.015      0.000
+    FF3                0.556      0.041     13.513      0.000
+
+ Residual Variances
+    CON11              0.256      0.016     16.193      0.000
+    CON12              0.251      0.016     15.679      0.000
+    CON13              0.242      0.015     15.846      0.000
+    CON21              0.557      0.034     16.238      0.000
+    CON22              0.563      0.033     16.904      0.000
+    CON23              0.528      0.032     16.398      0.000
+    CON31              0.425      0.033     12.878      0.000
+    CON32              0.378      0.031     12.313      0.000
+    CON33              0.407      0.033     12.407      0.000
+    FF11               0.345      0.025     13.840      0.000
+    FF12               0.335      0.022     15.316      0.000
+    FF13               0.280      0.020     13.986      0.000
+    FF21               0.280      0.026     10.778      0.000
+    FF22               0.181      0.021      8.523      0.000
+    FF23               0.231      0.023     10.080      0.000
+    FF31               0.424      0.025     17.215      0.000
+    FF32               0.402      0.023     17.157      0.000
+    FF33               0.384      0.023     17.030      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.716E-04
+       (ratio of smallest to largest eigenvalue)
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    e:\fertig\begleitmaterial\kapitel 5\längscfa_baseline.dgm
+
+     Beginning Time:  12:49:15
+        Ending Time:  12:49:18
+       Elapsed Time:  00:00:03
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen

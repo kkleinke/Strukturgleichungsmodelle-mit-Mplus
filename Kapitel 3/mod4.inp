@@ -1,0 +1,47 @@
+TITLE:  Moderation & Mediation (konditionale indirekte Effekte) 
+        für manifeste Variablen;
+
+DATA:   FILE IS MODMEDEXAMPLE.dat;
+
+VARIABLE: 
+        NAMES ARE cthreat sthreat prej contact RWA SDO RWAXCONT SDOXCONT;
+
+        USEVARIABLES ARE 
+ 
+        prej sthreat contact RWA RWAXCONT SDO;           
+
+        MISSING ARE all (99);
+
+ANALYSIS:
+        BOOTSTRAP=10000;
+
+MODEL:                                
+        [prej] (b0);
+        prej ON sthreat (b1);
+        prej ON contact (cdash);
+        prej ON SDO;                      
+          
+        [sthreat] (a0);
+        sthreat ON contact (a1); 
+        sthreat ON RWA (a2); 
+        sthreat ON RWAXCONT (a3);
+        sthreat ON SDO;
+
+        contact rwa rwaxcont sdo;
+          
+MODEL CONSTRAINT:
+        NEW (LOrwa HIrwa INDLO INDHI);
+        LOrwa=-0.7;
+        HIrwa=0.7;
+        INDLO =a1*b1+a3*b1*LOrwa;
+        INDHI =a1*b1+a3*b1*HIrwa;
+          
+        PLOT(LOMOD HIMOD);
+        LOOP(XVAL,-0.7,0.7,0.1);
+        LOMOD=INDLO*XVAL;
+        HIMOD=INDHI*XVAL;
+
+PLOT:   TYPE = PLOT2;
+
+
+OUTPUT: CINT(bcbootstrap);
