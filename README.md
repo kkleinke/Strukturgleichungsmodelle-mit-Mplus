@@ -1,0 +1,1 @@
+# Strukturgleichungsmodelle mit Mplus
