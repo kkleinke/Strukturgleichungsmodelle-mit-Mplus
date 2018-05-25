@@ -19,7 +19,7 @@ VARIABLE: NAMES ARE qcp_ser he01hq4 sx03q4r sx04q4r he01oq4r
                                           ! mittlerem Bildungsniveau
           
 MODEL:    sexism BY sx03q4r* sx04q4r;     ! Ladung des ersten Indikators wird
-                                          ! frei gesch‰tzt (‹berschreibung der
+                                          ! frei gesch√§tzt (√úberschreibung der
                                           ! Voreinstellung in Mplus)
           sexism@1;                       ! Entsprechend muss die Varianz der 
                                           ! latenten Variablen auf 1 fixiert werden
