@@ -1,5 +1,4 @@
-
-TITLE:    Pruefung eines alternativen Messmodells
+TITLE:    Prüfung eines alternativen Messmodells
 
 DATA:     FILE IS GMF05_Querschnitt_CFA.dat;
 
@@ -24,6 +23,3 @@ MODEL:    gmf BY sx03q4r sx04q4r ! Spezifikation einer
           ev03q4r ev04q4r;
 
 OUTPUT:   STDYX;
-
-
-
