@@ -1,4 +1,3 @@
-
 Title:    SEM Intergruppenkontakt und GMF
 
 Data:     FILE IS GMF07_Querschnitt_SEM.dat;
@@ -14,7 +13,7 @@ VARIABLE: NAMES ARE qcp_ser sx03q6r sx04q6r he01oq6r he02oq6r
           
           MISSING ARE ALL (99); 
     
-MODEL:    sexism BY sx03q6r sx04q6r;      ! Messmodelle für die Elemente
+MODEL:    sexism BY sx03q6r sx04q6r;      ! Messmodelle fÂ¸r die Elemente
           homoph BY he01hq6 he02hq6r;     ! von GMF
           antisem BY as01q6r as02q6r;
           fremdenf BY ff04dq6r ff08dq6r;
@@ -29,11 +28,3 @@ MODEL:    sexism BY sx03q6r sx04q6r;      ! Messmodelle für die Elemente
           GMF ON ka03nq4r;    ! Regression von GMF auf Intergruppenkontakt
           
 OUTPUT:   STDYX; MODINDICES;
-
-
-
-
-
-
-
-
