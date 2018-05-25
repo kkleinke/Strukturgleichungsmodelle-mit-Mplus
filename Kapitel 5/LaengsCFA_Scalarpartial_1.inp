@@ -1,5 +1,5 @@
-TITLE:    Konfirmatorische Faktorenanalyse mit Längsschnittdaten zur
-          Überprüfung der Messinvarianz - partielle Skalare Invarianz
+TITLE:    Konfirmatorische Faktorenanalyse mit LÃ¤ngsschnittdaten zur
+          ÃœberprÃ¼fung der Messinvarianz - partielle Skalare Invarianz
 
 DATA:     FILE IS GMF_Panel_020304.dat;
           
@@ -50,7 +50,7 @@ MODEL:    con1 BY con11
           [con31 con32 con33] (6);     
           [ff11@0 ff12@0 ff13@0];    
           [ff22 ff23] (7);          ! Die Gleichheitsrestriktion 
-          [ff31 ff32 ff33] (8);     ! für ff21 wurde aufgegeben
+          [ff31 ff32 ff33] (8);     ! fÃ¼r ff21 wurde aufgegeben
       
           [con1 con2 con3];       
           [ff1 ff2 ff3];    
