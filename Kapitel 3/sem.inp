@@ -13,7 +13,7 @@ VARIABLE: NAMES ARE qcp_ser sx03q6r sx04q6r he01oq6r he02oq6r
           
           MISSING ARE ALL (99); 
     
-MODEL:    sexism BY sx03q6r sx04q6r;      ! Messmodelle f¸r die Elemente
+MODEL:    sexism BY sx03q6r sx04q6r;      ! Messmodelle für die Elemente
           homoph BY he01hq6 he02hq6r;     ! von GMF
           antisem BY as01q6r as02q6r;
           fremdenf BY ff04dq6r ff08dq6r;
