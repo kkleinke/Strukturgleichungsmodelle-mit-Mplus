@@ -16,7 +16,7 @@ VARIABLE: NAMES ARE qcp_ser sx03q6r sx04q6r he01oq6r he02oq6r
           
           MISSING ARE ALL (99); 
 
-MODEL:    sexism BY sx03q6r sx04q6r;      ! Messmodelle für die Elemente
+MODEL:    sexism BY sx03q6r sx04q6r;      ! Messmodelle fÃ¼r die Elemente
           homoph BY he01hq6 he02hq6r;     ! von GMF
           antisem BY as01q6r as02q6r;
           fremdenf BY ff04dq6r ff08dq6r;
@@ -28,18 +28,18 @@ MODEL:    sexism BY sx03q6r sx04q6r;      ! Messmodelle für die Elemente
           GMF BY sexism homoph antisem fremdenf rass ! Messmodell GMF
           obdachl islamph etabl;
           
-          wertsch BY dy04q6r dy02q6r;     ! Messmodell für Wertschätzung
+          wertsch BY dy04q6r dy02q6r;     ! Messmodell fÃ¼r WertschÃ¤tzung
                                           ! kultureller Vielfalt
           
           GMF ON ka03nq4r;      ! Direkter Effekt von Kontakt auf GMF (c')
-          wertsch ON ka03nq4r;  ! Effekt von Kontakt auf Wertschätzung
+          wertsch ON ka03nq4r;  ! Effekt von Kontakt auf WertschÃ¤tzung
                                 ! kultureller Vielfakt (a)
          
           GMF ON wertsch;       ! Effekt von Wert. kultureller Vielfalt
                                 ! auf GMF (b)
           
           MODEL INDIRECT:
-          GMF IND ka03nq4r;     ! Prüfung des indirekten Effekts von Kontakt
+          GMF IND ka03nq4r;     ! PrÃ¼fung des indirekten Effekts von Kontakt
                                 ! auf GMF
           
 OUTPUT:   STDYX; 
