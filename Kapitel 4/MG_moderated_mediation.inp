@@ -13,8 +13,8 @@ VARIABLE:
         GROUPIN IS eastwest (1 = west 2 = east);
 
 MODEL:
-        prej BY prej1 prej2;         ! Messmodell für Vorurteile 
-        autho BY autho1 autho2;      ! Messmodell für Autoritarismus
+        prej BY prej1 prej2;         ! Messmodell fÃ¼r Vorurteile 
+        autho BY autho1 autho2;      ! Messmodell fÃ¼r Autoritarismus
 
         prej  ON edu;                ! Direkter Effekt
         autho ON edu (a_west);       ! Pfad_a 
@@ -32,7 +32,7 @@ MODEL CONSTRAINT:
 
 NEW 
 (ind_west ind_east ind_diff);    ! Anforderung von drei neuen Parametern:
-                                 ! Indirekte Effekte für
+                                 ! Indirekte Effekte fÃ¼r
                                  ! Gruppe 'west', Gruppe 'east', und deren 
                                  ! Differenz
                                  
