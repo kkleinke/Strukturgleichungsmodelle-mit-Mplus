@@ -16,7 +16,7 @@ VARIABLE: NAMES ARE qcp_ser he01hq4 sx03q4r sx04q4r he01oq4r
           MISSING ARE he01oq4r he02oq4r (99);
           
 MODEL:    ! Spezifikation des Modells 
-          ! ‹bergeordneter Befehlsblock
+          ! √úbergeordneter Befehlsblock
           sexism BY sx03q4r* sx04q4r;
           sexism@1;
           homoph BY he01hq4* he02hq4r;
@@ -37,8 +37,8 @@ MODEL:    ! Spezifikation des Modells
           MODEL hoch:     ! Gruppenspezifischer Befehlsblock MODEL
                           ! Spezifikation von Abweichungen
           
-          sexism BY sx03q4r sx04q4r;   ! Freie Sch‰tzung der Ladungen in der Gruppe hoch  
-          homoph BY he01hq4 he02hq4r;  ! (‹berschreibung der Voreinstellung in Mplus)
+          sexism BY sx03q4r sx04q4r;   ! Freie Sch√§tzung der Ladungen in der Gruppe hoch  
+          homoph BY he01hq4 he02hq4r;  ! (√úberschreibung der Voreinstellung in Mplus)
           antisem BY as01q4r as02q4r;  
           fremdenf BY ff04dq4r ff08dq4r;
           rass BY ra01q4r ra03q4r;
@@ -46,9 +46,9 @@ MODEL:    ! Spezifikation des Modells
           islamph BY he05mq4r he12mq4r;
           etabl BY ev03q4r ev04q4r;
 
-          [sx03q4r sx04q4r];   ! Freie Sch‰tzung der Intercepts der Indikatoren 
+          [sx03q4r sx04q4r];   ! Freie Sch√§tzung der Intercepts der Indikatoren 
           [he01hq4 he02hq4r];  ! in der Gruppe hoch
-          [as01q4r as02q4r];   ! (‹berschreibung der Voreinstellung in Mplus)
+          [as01q4r as02q4r];   ! (√úberschreibung der Voreinstellung in Mplus)
           [ff04dq4r ff08dq4r];
           [ra01q4r ra03q4r];
           [he01oq4r he02oq4r];
