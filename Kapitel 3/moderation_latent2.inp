@@ -1,19 +1,19 @@
-TITLE:  Moderation für manifeste Variablen;
+TITLE:  Moderation fÃ¼r manifeste Variablen;
 
 DATA:   FILE IS modmedlatent.dat;
 
 VARIABLE:
         NAMES ARE 
-            au01q3r  ! Verbrechen härter bestrafen
-            au02q3r  ! um Recht u. Ordnung zu bewahren, härter gegen Außenseiter vorgehen
-            ff04dq3r ! zu viele Ausländer in Deutschland 
-            ff08dq3r ! wenn Arbeit knapp, Ausländer zurück
+            au01q3r  ! Verbrechen hÃ¤rter bestrafen
+            au02q3r  ! um Recht u. Ordnung zu bewahren, hÃ¤rter gegen AuÃŸenseiter vorgehen
+            ff04dq3r ! zu viele AuslÃ¤nder in Deutschland 
+            ff08dq3r ! wenn Arbeit knapp, AuslÃ¤nder zurÃ¼ck
             do01q3r  ! Gruppen, die unten sind, sollen unten bleiben
-            do02q3r  ! gibt Gruppen in der Bevölk., die weniger wert sind als andere
-            do03q3r  ! einige Gruppen sind nützlicher als andere
-            ka01q3r  ! wie oft Kontakt mit Ausländern in Nachbarschaft?
-            ka02q3r  ! wie oft Kontakt mit Ausländern am Arbeitsplatz?
-            ka03q3r  ! wie viele Freunde sind Ausländer?
+            do02q3r  ! gibt Gruppen in der BevÃ¶lk., die weniger wert sind als andere
+            do03q3r  ! einige Gruppen sind nÃ¼tzlicher als andere
+            ka01q3r  ! wie oft Kontakt mit AuslÃ¤ndern in Nachbarschaft?
+            ka02q3r  ! wie oft Kontakt mit AuslÃ¤ndern am Arbeitsplatz?
+            ka03q3r  ! wie viele Freunde sind AuslÃ¤nder?
             tg01q3r  ! Ausl. bedrohen unsere Freiheiten und Rechte
             tg05q3r; ! Ausl. bedrohen unseren Wohlstand
     
