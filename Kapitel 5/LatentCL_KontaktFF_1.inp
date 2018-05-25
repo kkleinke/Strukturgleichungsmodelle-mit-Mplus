@@ -10,7 +10,7 @@ VARIABLE: NAMES ARE qcp_ser con11 con12 con13 con21 con22 con23 con31 con32 con3
           
           MISSING ARE all (99);
 
-MODEL:    con1 BY con11 ! Spezifikation der Messmodelle für Kontakt
+MODEL:    con1 BY con11 ! Spezifikation der Messmodelle fÃ¼r Kontakt
           con21 (1)     
           con31 (2);    
           con2 BY con12 
@@ -55,9 +55,9 @@ MODEL:    con1 BY con11 ! Spezifikation der Messmodelle für Kontakt
          
           [con11@0 con12@0 con13@0]; ! Gleichheitsrestriktionen   
           [con22 con23] (5);         ! korrespondierender Intercepts
-          [con32 con33] (6);         ! unter Berücksichtigung der
+          [con32 con33] (6);         ! unter BerÃ¼cksichtigung der
           [ff11@0 ff12@0 ff13@0];    ! Ergebnisse der
-          [ff22 ff23] (7);           ! Längsschnitt-CFA
+          [ff22 ff23] (7);           ! LÃ¤ngsschnitt-CFA
           [ff31 ff33] (8);
       
           [con1 con2 con3];       

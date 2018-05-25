@@ -24,7 +24,7 @@ MODEL:    ff1 BY ff11
           
           [i];      
           
-          con1 BY con11     ! Messmodell für Intergruppenkontakt
+          con1 BY con11     ! Messmodell fÃ¼r Intergruppenkontakt
           con21             ! zum ersten Messzeitpunkt
           con31;
 

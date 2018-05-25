@@ -33,7 +33,7 @@ MODEL:    con1 BY con11
           ff33 (4);
 
           con2 ON con1 (9)  ! Gleichheitsrestriktionen auf korrespondierende 
-          ff1  (10);        ! Stabilit‰ts- und Cross-Lagged Parameter
+          ff1  (10);        ! Stabilit√§ts- und Cross-Lagged Parameter
           con3 ON con2 (9) 
           ff2  (10); 
           ff2 ON ff1   (11)
@@ -42,7 +42,7 @@ MODEL:    con1 BY con11
           con2 (12);
         
           thirdvar BY con1* ! Spezifikation der latenten Drittvariablen 
-          con2              ! Die Ladung von con1 wird freigesch‰tzt
+          con2              ! Die Ladung von con1 wird freigesch√§tzt
           con3              ! Die Ladungen entsprechend in diesem Fall
           ff1               ! Regressionsparametern (ON-Option)
           ff2               
@@ -51,7 +51,7 @@ MODEL:    con1 BY con11
                             ! Identifikationszwecken auf 1 fixiert
                            
           ff1@0;            ! Die Residualvarianz von ff1 wurde auf null fixiert,
-                            ! da sie negativ gesch‰tzt wurde
+                            ! da sie negativ gesch√§tzt wurde
          
           con2 WITH ff2;
     

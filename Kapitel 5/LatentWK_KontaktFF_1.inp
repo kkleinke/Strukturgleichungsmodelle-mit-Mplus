@@ -11,7 +11,7 @@ VARIABLE: NAMES ARE qcp_ser con11 con12 con13 con21 con22 con23 con31 con32 con3
 
 MODEL:    ff1 BY ff11 
           ff21 (1)      ! Gleichheitsrestriktion korrespondierender Faktorladungen
-          ff31 (2);     ! über die Zeit
+          ff31 (2);     ! Ã¼ber die Zeit
           ff2 BY ff12 
           ff22 (1) 
           ff32 (2);
@@ -26,7 +26,7 @@ MODEL:    ff1 BY ff11
 
           [ff11@0 ff12@0 ff13@0];  
           [ff22 ff23] (3);      ! Gleicheitsrestriktion korrespondierender Intercepts
-          [ff31 ff33] (4);      ! orientiert an den Ergebnissen der Längsschnitt-CFA
+          [ff31 ff33] (4);      ! orientiert an den Ergebnissen der LÃ¤ngsschnitt-CFA
 
           ff11 WITH ff12 ff13;
           ff12 WITH ff13;
