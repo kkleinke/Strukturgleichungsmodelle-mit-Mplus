@@ -1,5 +1,5 @@
-TITLE:    Konfirmatorische Faktorenanalyse mit Längsschnittdaten zur
-          Überprüfung der Messinvarianz - Basismodell
+TITLE:    Konfirmatorische Faktorenanalyse mit LÃ¤ngsschnittdaten zur
+          ÃœberprÃ¼fung der Messinvarianz - Basismodell
 
 DATA:     FILE IS GMF_Panel_020304.dat;
           
@@ -12,7 +12,7 @@ VARIABLE: NAMES ARE qcp_ser
 
           MISSING ARE all (99); 
 
-MODEL:    con1 BY con11 ! Messmodell für Intergruppenkontakt
+MODEL:    con1 BY con11 ! Messmodell fÃ¼r Intergruppenkontakt
           con21         ! zum ersten,
           con31;    
           con2 BY con12 ! zweiten
@@ -22,7 +22,7 @@ MODEL:    con1 BY con11 ! Messmodell für Intergruppenkontakt
           con23         
           con33;
 
-          ff1 BY ff11   ! Messmodell für Fremdenfeindlichkeit
+          ff1 BY ff11   ! Messmodell fÃ¼r Fremdenfeindlichkeit
           ff21          ! zum ersten,
           ff31;
           ff2 BY ff12   ! zweiten
@@ -33,25 +33,25 @@ MODEL:    con1 BY con11 ! Messmodell für Intergruppenkontakt
           ff33;
 
           con11 WITH con12 con13; ! Autokorrelation der Fehler
-          con12 WITH con13;       ! der Indikatoren für Intergruppenkontakt
+          con12 WITH con13;       ! der Indikatoren fÃ¼r Intergruppenkontakt
           con21 WITH con22 con23;
           con22 WITH con23; 
           con31 WITH con32 con33;
           con32 WITH con33;
           
           ff11 WITH ff12 ff13;    ! Autokorrelation der Fehler
-          ff12 WITH ff13;         ! der Indikatoren für Fremdenfeindlichkeit
+          ff12 WITH ff13;         ! der Indikatoren fÃ¼r Fremdenfeindlichkeit
           ff21 WITH ff22 ff23;
           ff22 WITH ff23;
           ff31 WITH ff32 ff33;
           ff32 WITH ff33;   
          
           [con11@0 con12@0 con13@0]; ! Der Intercept des ersten Indikators 
-          [con21 con22 con23];       ! für Intergruppenkontakt wird auf 0 
+          [con21 con22 con23];       ! fÃ¼r Intergruppenkontakt wird auf 0 
           [con31 con32 con33];       ! fixiert,
-          [ff11@0 ff12@0 ff13@0];    ! ebenso der erste Indikator für 
+          [ff11@0 ff12@0 ff13@0];    ! ebenso der erste Indikator fÃ¼r 
           [ff21 ff22 ff23];          ! Fremdenfeindlichkeit
           [ff31 ff32 ff33];
       
           [con1 con2 con3];       ! Die latenten Mittelwerte werden frei 
-          [ff1 ff2 ff3];          ! geschätzt
+          [ff1 ff2 ff3];          ! geschÃ¤tzt
