@@ -1,4 +1,3 @@
-
 TITLE:    Mehrebenenanalyse
           Intergruppenkontakt als Individual- und Kontextvariable
 
@@ -10,64 +9,4 @@ VARIABLE: NAMES ARE qcp_ser kreis1 ka03w1r aa01w1r aa03w1r
           MISSING ARE contact prej (99);
           CLUSTER IS kreis1;  
                 
-ANALYSIS: TYPE IS TWOLEVEL BASIC;  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
+ANALYSIS: TYPE IS TWOLEVEL BASIC;
