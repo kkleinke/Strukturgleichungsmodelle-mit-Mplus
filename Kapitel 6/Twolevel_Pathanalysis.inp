@@ -21,7 +21,7 @@ MODEL:    %WITHIN%          !Modellspezifikation auf der Individualebene
           prej ON contact tab02_08;
           contact ON tab02_08;
 
-          MODEL INDIRECT:   !Prüfung des indirekten Effekts
+          MODEL INDIRECT:   !PrÃ¼fung des indirekten Effekts
           prej IND tab02_08;
 
 

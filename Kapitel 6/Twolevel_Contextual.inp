@@ -13,11 +13,11 @@ ANALYSIS: TYPE IS TWOLEVEL;
 
 MODEL:    %WITHIN%      
           prej ON contact (gamma10);  ! Modellspezifikation auf der Individualebene
-                                      ! & Kennzeichnung des Within-Sch‰tzers von 
+                                      ! & Kennzeichnung des Within-Sch√§tzers von 
                                       ! Intergruppenkontakt
           %BETWEEN%     
           prej ON contact (gamma01);  ! Modellspezifikation auf der Kontextebene
-                                      ! & Kennzeichnung des Between-Sch‰tzers von 
+                                      ! & Kennzeichnung des Between-Sch√§tzers von 
                                       ! Intergruppenkontact
           
           MODEL CONSTRAINT:           ! Definition des neuen Parameters beta_c
