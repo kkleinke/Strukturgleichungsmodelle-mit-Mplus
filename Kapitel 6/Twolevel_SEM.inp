@@ -16,14 +16,14 @@ DEFINE:   CENTER tab02_08 (GRANDMEAN);
 ANALYSIS: TYPE IS TWOLEVEL;
 
 MODEL:    %WITHIN%
-          contactw BY ka03w1r aa01w1r aa03w1r; ! Messmodell für Intergruppen-
+          contactw BY ka03w1r aa01w1r aa03w1r; ! Messmodell fÃ¼r Intergruppen-
           prejw BY ff04d1r ff08d1r ff03d1r;    ! kontakt und Fremdenfeindlich-
                                                ! keit auf der Individualebene
 
           prejw ON contactw;                   ! Strukturmodell auf der        
                                                ! Individualebene
           %BETWEEN%
-          contactb BY ka03w1r aa01w1r aa03w1r; ! Messmodell für Intergruppen-
+          contactb BY ka03w1r aa01w1r aa03w1r; ! Messmodell fÃ¼r Intergruppen-
           prejb BY ff04d1r ff08d1r ff03d1r;    ! kontakt und Fremdenfeindlich-
                                                ! keit auf der Kontextebene          
           
@@ -33,7 +33,7 @@ MODEL:    %WITHIN%
           prejb ON contactb tab02_08;          ! Strukturmodell auf der 
           contactb ON tab02_08;                ! Kontextebene
 
-          MODEL INDIRECT:                      ! Prüfung des indirekten Effekts
+          MODEL INDIRECT:                      ! PrÃ¼fung des indirekten Effekts
           prejb IND tab02_08;
 
 OUTPUT:   STDYX;                                                                                                                                    
