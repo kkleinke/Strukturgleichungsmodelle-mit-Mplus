@@ -1,4 +1,3 @@
-
 TITLE:    Explorative Mehrebenen-Faktorenanalyse
 
 DATA:     FILE IS GMF02_Querschnitt_MLM.dat;
@@ -11,13 +10,3 @@ VARIABLE: NAMES ARE qcp_ser kreis1 ka03w1r aa01w1r aa03w1r
           CLUSTER IS kreis1; 
                         
 ANALYSIS: TYPE IS TWOLEVEL EFA 1 2 1 2;
-
-          
-
-
-
-
-
-
-
-
