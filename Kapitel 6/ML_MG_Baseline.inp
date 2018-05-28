@@ -1,4 +1,4 @@
-TITLE: Multipler Gruppenvergleich für Mehrebenenanalysen, Baseline-Modell   
+TITLE: Multipler Gruppenvergleich fÃ¼r Mehrebenenanalysen, Baseline-Modell   
 
 DATA: FILE IS civics99.dat;
 
@@ -26,7 +26,7 @@ MODEL:
 
 %WITHIN%
 
-pride_w by bs4e10* bs4e7 bs4e3; ! Ladung des ersten Indikators wird frei geschätzt
+pride_w by bs4e10* bs4e7 bs4e3; ! Ladung des ersten Indikators wird frei geschÃ¤tzt
 pride_w@1;                      ! Fixierung der Varianz auf 1
 
 prej_w by bs4h2_r* bs4h3_r bs4h5_r bs4h6;
@@ -43,7 +43,7 @@ prej_b@1;
 BS4E10@0;
  
 MODEL Real&Haupt:               ! Gruppenspezifischer Befehlsblock MODEL;
-                                ! Spezifikation möglicher Abweichungen
+                                ! Spezifikation mÃ¶glicher Abweichungen
 %WITHIN%
 
 pride_w by bs4e10* bs4e7 bs4e3; 
