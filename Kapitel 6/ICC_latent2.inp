@@ -1,5 +1,5 @@
 TITLE:    Messfehlerkorrigierter Intraklassen-Korrelationskoeffizient 
-          für latente Variablen (SEM)
+          fÃ¼r latente Variablen (SEM)
    
 DATA:     FILE IS civics99.dat;
 
@@ -11,7 +11,7 @@ VARIABLE: NAMES ARE idschool bs4e3 bs4e7 bs4e10
           CLUSTER IS idschool;
 
           USEVARIABLES ARE 
-                             ! "Immigrants’ children should have the same opportunities (R)
+                             ! "ImmigrantsÂ’ children should have the same opportunities (R)
           bs4h2_r            !  for education that other children in the country have" (R)
           bs4h3_r            ! "Immigrants who live in a country for several years should have the opportunity to vote in elections" (R)
           bs4h5_r            ! "Immigrants should have all the same rights that everyone else in a country has" (R)
