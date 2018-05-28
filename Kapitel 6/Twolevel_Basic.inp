@@ -1,4 +1,3 @@
-
 TITLE:    Mehrebenenanalyse
           Nullmodel
 
@@ -10,12 +9,3 @@ VARIABLE: NAMES ARE country contact percent disc;
           MISSING ARE ALL (99);
 
 ANALYSIS: TYPE IS TWOLEVEL BASIC;
-       
-
-
- 
-
-
-
-
-
