@@ -13,12 +13,12 @@ VARIABLE: NAMES ARE qcp_ser kreis1 ka03w1r aa01w1r aa03w1r
 ANALYSIS: TYPE IS TWOLEVEL;
 
 MODEL:    %WITHIN%
-          contactw BY ka03w1r aa01w1r aa03w1r; ! Messmodell für Intergruppen-
+          contactw BY ka03w1r aa01w1r aa03w1r; ! Messmodell fÃ¼r Intergruppen-
           prejw BY ff04d1r ff08d1r ff03d1r;    ! kontakt und Fremdenfeindlich-
                                                ! keit auf der Individualebene                                                                                              
 
           %BETWEEN%
-          contactb BY ka03w1r aa01w1r aa03w1r; ! Messmodell für Intergruppen- 
+          contactb BY ka03w1r aa01w1r aa03w1r; ! Messmodell fÃ¼r Intergruppen- 
           prejb BY ff04d1r ff08d1r ff03d1r;    ! kontakt und Fremdenfeindlich-
                                                ! keit auf der Kontextebene
                    
